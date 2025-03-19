@@ -1,0 +1,79 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+
+    <Configurations>Debug;Release;CliDebug;CliRelease</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\black-emoji.png" />
+    <None Remove="Resources\black_67699721_English_United_States.png" />
+    <None Remove="Resources\black_67896332_French_France.png" />
+    <None Remove="Resources\cmd.svg" />
+    <None Remove="Resources\defaultBitmap.bpp.bmp" />
+    <None Remove="Resources\defaultBitmap.wallpapper" />
+    <None Remove="Resources\defaultLayout.png" />
+    <None Remove="Resources\lgImageSubkeyDrawer.bytes" />
+    <None Remove="Resources\lgKeyboardLayoutRenderer.RenderLayout.bytes" />
+    <None Remove="Resources\lgLayoutDrawer.bytes" />
+    <None Remove="Resources\lgTextSubkeyDrawer.bytes" />
+    <None Remove="Resources\menu.svg" />
+    <None Remove="Resources\moon.svg" />
+    <None Remove="Resources\white-emoji.png" />
+    <None Remove="Resources\white_67699721_English_United_States.png" />
+    <None Remove="Resources\white_67896332_French_France.png" />
+    <None Remove="Resources\windows.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\black-emoji.png" />
+    <EmbeddedResource Include="Resources\black_67699721_English_United_States.png" />
+    <EmbeddedResource Include="Resources\black_67896332_French_France.png" />
+    <EmbeddedResource Include="Resources\cmd.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\defaultBitmap.bpp.bmp" />
+    <EmbeddedResource Include="Resources\defaultBitmap.wallpapper" />
+    <EmbeddedResource Include="Resources\defaultLayout.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\lgImageSubkeyDrawer.bytes">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\lgKeyboardLayoutRenderer.RenderLayout.bytes" />
+    <EmbeddedResource Include="Resources\lgLayoutDrawer.bytes">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\lgTextSubkeyDrawer.bytes" />
+    <EmbeddedResource Include="Resources\menu.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\moon.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\white-emoji.png" />
+    <EmbeddedResource Include="Resources\white_67699721_English_United_States.png" />
+    <EmbeddedResource Include="Resources\white_67896332_French_France.png" />
+    <EmbeddedResource Include="Resources\windows.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="5.6.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+    <PackageReference Include="Moq" Version="4.10.1" />
+    <PackageReference Include="NUnit" Version="3.11.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
+    <PackageReference Include="SkiaSharp" Version="1.68.3" />
+    <PackageReference Include="System.Drawing.Common" Version="4.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nemeio.LayoutGen\Nemeio.LayoutGen.csproj" />
+  </ItemGroup>
+
+</Project>

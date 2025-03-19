@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <?define DepsCommon = "$(var.ProjectDir)..\Nemeio.Wpf\bin\$(var.Platform)\$(var.Configuration)" ?>
+</Include>

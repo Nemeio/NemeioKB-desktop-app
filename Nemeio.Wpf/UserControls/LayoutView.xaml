@@ -1,0 +1,169 @@
+﻿<UserControl 
+    x:Class="Nemeio.Wpf.UserControls.LayoutView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:Nemeio.Wpf.UserControls"
+    mc:Ignorable="d" 
+    d:DesignHeight="40"
+    d:DesignWidth="255">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                    Source="../Styles/BaseDictionary.xaml" />
+                <ResourceDictionary
+                    Source="../Styles/ColorDictionary.xaml" />
+                <ResourceDictionary
+                    Source="../Styles/TemplateDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="myStyle" TargetType="{x:Type StackPanel}">
+                <Style.Triggers>
+                    <MultiTrigger>
+                        <MultiTrigger.Conditions>
+                            <Condition Property="IsMouseOver" Value="True" />
+                            <Condition Property="IsEnabled" Value="True" />
+                        </MultiTrigger.Conditions>
+                        <MultiTrigger.Setters>
+                            <Setter Property="TextBlock.FontWeight"  Value="Bold" />
+                            <Setter Property="TextBlock.HorizontalAlignment"  Value="Stretch" />
+                        </MultiTrigger.Setters>
+                    </MultiTrigger>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="Opacity"  Value="{StaticResource DisabledOpacity}" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+
+    </UserControl.Resources>
+
+
+    <Grid
+        Height="48"
+        Tag="{Binding Tag}"
+        IsEnabled="{Binding Enabled}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="{StaticResource GridLengthMenuMargin}" />
+            <ColumnDefinition
+                Width="*" />
+        </Grid.ColumnDefinitions>
+        <!-- Icon column section -->
+        <Border
+            Grid.Column="0"
+            Background="{StaticResource LdlcDarkViolet}">
+            <Image
+                Width="50"
+                Stretch="UniformToFill"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Source="{Binding ImagePath}">
+                <Image.Style>
+                    <Style
+                        TargetType="Image">
+                        <Style.Triggers>
+                            <Trigger
+                                Property="IsEnabled"
+                                Value="False">
+                                <Setter
+                                    Property="Opacity"
+                                    Value="{StaticResource DisabledOpacity}" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+        </Border>
+
+        <!-- Layout name and toggle section -->
+        <Border
+            Grid.Column="1"
+            Margin="5.34,0,0,0">
+            <Grid HorizontalAlignment="Stretch">
+                <StackPanel Style="{StaticResource myStyle}" HorizontalAlignment="Stretch" Grid.Column="1" Orientation="Vertical">
+                    <TextBlock
+                        Foreground="White"
+                        FontSize="12"
+                        VerticalAlignment="Center"
+                        DockPanel.Dock="Left"
+                        Text="{Binding CleanTitle}"
+                        TextWrapping="WrapWithOverflow" 
+                        TextTrimming="CharacterEllipsis"
+                        MaxHeight="20" 
+                        Width="Auto"
+                        Grid.Column="1"
+                        HorizontalAlignment="Stretch">
+                    </TextBlock>
+                    <TextBlock
+                        Foreground="White"
+                        FontSize="12"
+                        VerticalAlignment="Center"
+                        DockPanel.Dock="Left"
+                        Text="{Binding CleanSubtitle}"
+                        TextWrapping="WrapWithOverflow" 
+                        TextTrimming="CharacterEllipsis"
+                        MaxHeight="20"
+                        Width="Auto"
+                        HorizontalAlignment="Stretch">
+                    </TextBlock>
+                </StackPanel>
+                <Button
+                    Style="{StaticResource regularButton}"
+                    Width="22"
+                    Margin="0,0,7,0"
+                    HorizontalAlignment="Right"
+                    Visibility="{Binding Visibility}"
+                    Command="{Binding ToggleAssociation}">
+                    <Image
+                        Width="21"
+                        Stretch=" Uniform"
+                        VerticalAlignment="Center"
+                        Source="{Binding ToggleImagePath}"
+                        ToolTip="{Binding ToggleTooltip}">
+                        <Image.Style>
+                            <Style
+                                TargetType="Image">
+                                <Style.Triggers>
+                                    <Trigger
+                                        Property="IsEnabled"
+                                        Value="False">
+                                        <Setter
+                                            Property="Opacity"
+                                            Value="{StaticResource DisabledOpacity}" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                </Button>
+
+            </Grid>
+
+        </Border>
+
+        <Grid.Style>
+            <Style>
+                <Style.Triggers>
+                    <DataTrigger
+                        Binding="{Binding Selected}"
+                        Value="True">
+                        <Setter
+                            Property="Grid.Background"
+                            Value="{StaticResource LdlcViolet}" />
+                    </DataTrigger>
+                    <DataTrigger
+                        Binding="{Binding Selected}"
+                        Value="False">
+                        <Setter
+                            Property="Grid.Background"
+                            Value="{StaticResource LdlcDarkViolet}" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>
+    </Grid>
+</UserControl>

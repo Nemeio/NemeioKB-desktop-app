@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="Nemeio.Wpf.UserControls.QuitButtonView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Nemeio.Wpf.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="40"
+             d:DesignWidth="255">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                    Source="../Styles/BaseDictionary.xaml" />
+                <ResourceDictionary
+                    Source="../Styles/ColorDictionary.xaml" />
+                <ResourceDictionary
+                    Source="../Styles/TemplateDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <StackPanel
+        Height="40"
+        Orientation="Horizontal"
+        Background="Transparent">
+
+        <Border
+            Width="{StaticResource DoubleMenuMargin}"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Background="{StaticResource LdlcViolet}">
+
+            <Image
+                Margin="6"
+                Stretch="Uniform"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Source="/Images/Quit-48.png" />
+        </Border>
+        
+        <Button
+            Style="{StaticResource regularButton}"
+            Margin="15.34,9,0,9"
+            FontSize="14"
+            Command="{Binding CommandApply}"
+            Content="{Binding Title}" />
+
+    </StackPanel>
+    
+</UserControl>

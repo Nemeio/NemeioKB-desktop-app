@@ -1,0 +1,73 @@
+@startuml
+
+package "Nemeio.Core" {
+
+    interface IKeyboardWatcher {
+        + event OnKeyboardConnected
+        + event OnKeyboardDisconnected
+    }
+
+    interface IKeyboardWatcherFactory {
+        + CreateWatchers() : IList<IKeyboardWatcher>
+    }
+
+}
+
+package "Nemeio.Keyboard.Communication" {
+
+    abstract class KeyboardWatcher {
+
+    }
+
+}
+
+package "Nemeio.Keyboard.Communication.Windows" {
+
+    class WinBluetoothLEKeyboardWatcher {
+
+    }
+
+    class WinSerialKeyboardWatcher {
+
+    }
+
+    class WinKeyboardWatcherFactory {
+        
+    }
+
+}
+
+package "Nemeio.Keyboard.Communication.Mac" {
+
+    class MacBluetoothLEKeyboardWatcher {
+
+    }
+
+    class MacSerialKeyboardWatcher {
+        
+    }
+
+    class MacKeyboardWatcherFactory {
+        
+    }
+
+}
+
+MacBluetoothLEKeyboardWatcher --|> KeyboardWatcher
+WinBluetoothLEKeyboardWatcher --|> KeyboardWatcher
+MacSerialKeyboardWatcher --|> KeyboardWatcher
+WinSerialKeyboardWatcher --|> KeyboardWatcher
+KeyboardWatcher --|> IKeyboardWatcher
+WinKeyboardWatcherFactory --|> IKeyboardWatcherFactory
+MacKeyboardWatcherFactory --|> IKeyboardWatcherFactory
+
+IKeyboardWatcher "0...0" -- "0...*" Keyboard
+
+note top of IKeyboardWatcher
+  Les différentes implémentations seront chargés de créer
+  les différents types de clavier.
+  C'est également cette classe qui connait la connexion / déconnexion d'un clavier.
+end note
+
+
+@enduml

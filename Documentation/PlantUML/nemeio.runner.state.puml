@@ -1,0 +1,47 @@
+@startuml
+
+[*] --> Connected : Keyboard plugged
+
+state Connected {
+
+    [*] --> Init
+    Init --> Sync : KeyboardReady
+    Ready --> Sync : System Modification Layout
+    Ready --> Sync : Configurator Modification Layout
+    Ready --> Ready : KeepAlive
+    Sync --> Ready : LayoutSynced
+
+}
+
+Connected -left-> Disconnecting : Keyboard Unplugged
+
+Disconnecting --> [*]
+
+note right of Connected
+  Dès lors qu'un Nemeio est créer il est dans l'état "Connected"
+end note
+
+note right of Init
+  Il s'agit d'un sous-état de "Connected".
+
+  Dans cette phase on initialise le clavier 
+  (envoie des paramètres) et on récupère les 
+  informations permettant sa gestion 
+  (batterie, serialNumber, ...).
+end note
+
+note right of Sync
+  Lors de cette phase le clavier synchronise les layouts avec
+  l'instance du débarqué.
+  Mis à part les KeepAlive, rien ne peut être fait sur le clavier.
+end note
+
+note right of Ready
+  Le clavier est initialisé et synchronisé.
+  Il est en attente de stimulation 
+  (ajout / suppression de layouts), appuie touches, ...
+
+  Timeout de X secondes permettant de faire un refresh du KeepAlive
+end note
+
+@enduml

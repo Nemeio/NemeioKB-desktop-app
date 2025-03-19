@@ -1,0 +1,50 @@
+@startuml
+
+skinparam packagestyle frame
+
+' title Nemeio Desktop Application - Common Assemblies
+
+' package definition
+package Nemeio.Core #LightYellow
+{
+}
+
+together {
+package Nemeio.Infrastructure #LightPink
+{
+}
+package Nemeio.LayoutGen #LightSalmon
+{ 
+}
+package Nemeio.Api #LightBlue
+{ 
+}
+}
+
+package Nemeio.Acl #LightGreen
+{ 
+}
+package Nemeio.Presentation #Tan
+{ 
+}
+
+' dependency graph
+Nemeio.Core <-- Nemeio.Infrastructure : depends
+
+Nemeio.Core <-- Nemeio.LayoutGen : depends
+
+Nemeio.Core <-- Nemeio.Api : depends
+
+Nemeio.Core <-- Nemeio.Acl : depends
+Nemeio.Api <-- Nemeio.Acl : depends
+
+Nemeio.Core <-- Nemeio.Presentation
+Nemeio.Infrastructure <-- Nemeio.Presentation
+Nemeio.LayoutGen <-- Nemeio.Presentation
+Nemeio.Api <-- Nemeio.Presentation
+Nemeio.Acl <-- Nemeio.Presentation
+
+' caption
+caption Nemeio Common Assemblies
+
+@enduml

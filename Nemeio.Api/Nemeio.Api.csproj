@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Nemeio.Api</RootNamespace>
+    <AssemblyName>Nemeio.Api</AssemblyName>
+    <Platforms>AnyCPU</Platforms>	
+    <Configurations>Debug;CliDebug;CliRelease;Release</Configurations>
+    <OutputPath>bin\$(Configuration)</OutputPath>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>Nemeio.Api.xml</DocumentationFile>
+    <NoWarn>NU1701;CS1591</NoWarn>
+    <DebugType>embedded</DebugType>
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CliDebug|AnyCPU'">
+    <DocumentationFile>Nemeio.Api.xml</DocumentationFile>
+    <NoWarn>NU1701;CS1591</NoWarn>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CliRelease|AnyCPU'">
+    <DocumentationFile>Nemeio.Api.xml</DocumentationFile>
+    <NoWarn>NU1701;CS1591</NoWarn>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>NU1701;CS1591</NoWarn>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\nemeio.pfx" />
+    <None Remove="Nemeio.Api.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-app\CSharp\SonarLint.xml" Link="SonarLint.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.2.0" />
+    <PackageReference Include="MvvmCross.Platform" Version="5.7.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nemeio.Core\Nemeio.Core.csproj" />
+    <ProjectReference Include="..\Nemeio.Keyboard.Communication.Tools\Nemeio.Keyboard.Communication.Tools.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\nemeio.pfx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nemeio.Api.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,124 @@
+@startuml Package Updater
+
+state Idle {
+
+}
+
+state Updating {
+
+    state EntryUpdatePending <<entryPoint>>
+
+    state UpdatePending
+    state ApplyUpdate
+    state WaitUsbKeyboard
+
+    UpdatePending: entry/ firmwareUpdateFound
+    ApplyUpdate: entry/ installAsync
+
+    EntryUpdatePending --> UpdatePending
+
+    state connectionType <<choice>>
+
+    UpdatePending --> connectionType : UpdateRequest
+
+    connectionType --> ApplyUpdate : [connectionType == usb]
+    connectionType --> WaitUsbKeyboard : [connectionType != usb]
+
+    state retry <<choice>>
+
+    WaitUsbKeyboard --> retry : UpdateRequest
+
+    retry --> ApplyUpdate : [connectionType == usb]
+    retry --> WaitUsbKeyboard : [connectionType != usb]
+
+    state updateFinished <<choice>>
+    ApplyUpdate -down-> updateFinished : UpdateFinished
+    updateFinished -down-> UpdateSucceed : [with success]
+    updateFinished -down-> UpdateFailed : [with error]
+
+}
+
+state Download {
+
+    state EntryDownload <<entryPoint>>
+
+    state Downloading
+
+    EntryDownload --> DownloadPending
+
+    DownloadPending --> Downloading : RequestDownload
+
+    Downloading: entry/ downloadDependenciesAsync
+    
+    state downloadFinished <<choice>>
+
+    Downloading --> downloadFinished : DownloadFinished
+    downloadFinished --> UpdatePending : [with success]
+    downloadFinished --> UpdateFailed : [with error]
+
+}
+
+state UpdateChecking {
+
+    state EntryCheckUpdates <<entryPoint>>
+    
+    state internetAvailable <<choice>>
+    state applicationUpdateExists <<choice>>
+    state firmwareUpdateExists <<choice>>
+
+    state CheckInternetConnection
+    state CheckApplicationUpdate
+    state CheckFirmwareUpdate
+    state CheckApplicationInstallation
+
+    CheckApplicationInstallation: entry/ checkSoftwareUpdateAsync
+    CheckInternetConnection: entry/ checkInternetConnectionAsync
+    CheckApplicationUpdate: entry/ checkApplicatioUpdateAsync
+    CheckFirmwareUpdate: entry/ checkFirmwareUpdateAsync
+
+    EntryCheckUpdates --> CheckApplicationInstallation
+
+    state applicationInstallationFinished <<choice>>
+    CheckApplicationInstallation --> applicationInstallationFinished : ApplicationInstallationFinished
+    applicationInstallationFinished -down-> UpdateSucceed : [with success]
+    applicationInstallationFinished -down-> UpdateFailed : [with error]
+
+    CheckApplicationInstallation --> CheckInternetConnection : NoApplicationInstallationFound
+
+    CheckInternetConnection --> internetAvailable : InternetStateChanged
+
+    internetAvailable -up-> Idle : [internet not available]
+    internetAvailable --> CheckApplicationUpdate : [internet available]
+
+    CheckApplicationUpdate --> applicationUpdateExists : ApplicationUpdateChecked
+
+    applicationUpdateExists --> CheckFirmwareUpdate : [application update not available]
+    applicationUpdateExists --> EntryDownload : [application update available]
+
+    CheckFirmwareUpdate --> firmwareUpdateExists : FirmwareUpdateChecked
+
+    firmwareUpdateExists --> EntryUpdatePending : [firmware update available]
+    firmwareUpdateExists --> Idle : [firmware update not available]
+
+}
+
+state UpdateSucceed {
+
+}
+
+state UpdateFailed {
+
+}
+
+Idle: entry/ resetComponent
+UpdateFailed: entry/ updateFinished
+UpdateSucceed: entry/ updateFinished
+
+[*] --> Idle
+
+Idle --> EntryCheckUpdates : RequestCheckUpdate
+
+UpdateFailed --> EntryCheckUpdates : RequestCheckUpdates
+UpdateSucceed --> EntryCheckUpdates : RequestCheckUpdates
+
+@enduml

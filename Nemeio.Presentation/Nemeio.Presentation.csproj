@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Nemeio.Presentation</RootNamespace>
+    <AssemblyName>Nemeio.Presentation</AssemblyName>
+    <Platforms>AnyCPU</Platforms>
+    <Configurations>Debug;CliDebug;Release;CliRelease</Configurations>
+    <OutputPath>bin\$(Configuration)</OutputPath>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>	
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <NoWarn>NU1701</NoWarn>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CliDebug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <NoWarn>NU1701</NoWarn>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CliRelease|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <NoWarn>NU1701</NoWarn>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <NoWarn>NU1701</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Configurator\**\*.*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Firmwares\**\*.*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-app\CSharp\SonarLint.xml" Link="SonarLint.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MvvmCross.Core" Version="5.7.0" />
+    <PackageReference Include="MvvmCross.Platform" Version="5.7.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.4" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
+    <PackageReference Include="Serilog.Sinks.Debug" Version="1.0.1" />
+    <PackageReference Include="Serilog.Sinks.Udp" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nemeio.Acl\Nemeio.Acl.csproj" />
+    <ProjectReference Include="..\Nemeio.Api\Nemeio.Api.csproj" />
+    <ProjectReference Include="..\Nemeio.Core\Nemeio.Core.csproj" />
+    <ProjectReference Include="..\Nemeio.Infrastructure\Nemeio.Infrastructure.csproj" />
+    <ProjectReference Include="..\Nemeio.Keyboard.Communication\Nemeio.Keyboard.Communication.csproj" />
+    <ProjectReference Include="..\Nemeio.LayoutGen\Nemeio.LayoutGen.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Menu\Update\" />
+  </ItemGroup>
+</Project>

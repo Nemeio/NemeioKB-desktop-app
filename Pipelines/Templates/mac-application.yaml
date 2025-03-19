@@ -1,0 +1,82 @@
+﻿### This template builds the application package for MAC
+
+parameters:
+  - name: "preBuild"
+    type: stepList
+    default: []
+  - name: "postBuild"
+    type: stepList
+    default: []
+  - name: "postRestore"
+    type: stepList
+    default: []
+  - name: "checkoutPath"
+    type: string
+    default: "self"
+
+steps:
+  - ${{ parameters.preBuild }}
+
+  - task: NuGetToolInstaller@1
+    displayName: "Use NuGet"
+
+  - task: NuGetCommand@2
+    displayName: "NuGet restore"
+    inputs:
+      restoreSolution: "${{ parameters.checkoutPath }}/$(SolutionFileName)"
+    continueOnError: false
+
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: "restore"
+      projects: |
+        ${{ parameters.checkoutPath }}/**/*.csproj
+        !${{ parameters.checkoutPath }}/**/CustomActions.csproj
+        !${{ parameters.checkoutPath }}/**/Nemeio.WindowsInstaller.wixproj
+        !${{ parameters.checkoutPath }}/**/*.Test.csproj
+        !${{ parameters.checkoutPath }}/**/*.Tests.csproj
+        !${{ parameters.checkoutPath }}/**/Nemeio.Keyboard.Communication.Mac.csproj
+      arguments: "--configuration $(BuildConfiguration)"
+
+  - task: Bash@3
+    displayName: "NuGet Restore from commandline"
+    inputs:
+      targetType: "inline"
+      script: |
+        nuget restore "${{ parameters.checkoutPath }}/$(SolutionFileName)"
+
+  - ${{ parameters.postRestore }}
+
+  - task: InstallAppleCertificate@2
+    displayName: "Install certificate"
+    inputs:
+      certSecureFile: "$(dev_desktop_certificate_filename)"
+      certPwd: "$(dev_desktop_certificate_password)"
+      keychain: "temp"
+      deleteCert: true
+
+  - task: InstallAppleProvisioningProfile@1
+    displayName: "Install Provisioning Profile"
+    inputs:
+      provisioningProfileLocation: "secureFiles"
+      provProfileSecureFile: "$(dev_desktop_provisioning_profile_name)"
+      removeProfile: true
+
+  - task: MSBuild@1
+    displayName: "Build solution **/$(SolutionFileName)"
+    inputs:
+      solution: "${{ parameters.checkoutPath }}/$(SolutionName).sln"
+      configuration: "$(BuildConfiguration)"
+      msbuildArguments: "-verbosity:diag"
+
+  - task: Bash@3
+    displayName: "Compress Application"
+    inputs:
+      targetType: "inline"
+      script: |
+        export CHECKOUT_PATH="${{ parameters.checkoutPath }}"
+        echo '##vso[task.setvariable variable=CHECKOUT_PATH;]'$CHECKOUT_PATH
+        echo $CHECKOUT_PATH
+        tar -czvf "$CHECKOUT_PATH/Nemeio.Mac/bin/Release/Nemeio.app.tgz" -C "$CHECKOUT_PATH/Nemeio.Mac/bin/Release" "Nemeio.app"
+
+  - ${{ parameters.postBuild }}

@@ -1,0 +1,27 @@
+@startuml
+
+    interface ISynchronizableNemeioProxy { }
+    interface IConfigurationHolder { }
+    interface IAddConfigurationHolder { }
+    interface IDeleteConfigurationHolder { } 
+
+    interface IKeyboard { }
+
+    ISynchronizableNemeioProxy --> IConfigurationHolder
+    ISynchronizableNemeioProxy --> IAddConfigurationHolder
+    ISynchronizableNemeioProxy --> IDeleteConfigurationHolder
+    KeyboardProxy --> IKeyboard
+
+    abstract class KeyboardProxy
+    {
+        bool Is(IKeyboard nemeio)
+
+        static T CastTo<T>(IKeyboard keyboard) where T : KeyboardProxy
+    }
+
+    SynchronizableNemeioProxy --> KeyboardProxy
+    SynchronizableNemeioProxy --> ISynchronizableNemeioProxy
+
+    class SynchronizableNemeioProxy { }
+
+@enduml

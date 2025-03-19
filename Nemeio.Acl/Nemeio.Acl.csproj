@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Nemeio.Acl</RootNamespace>
+    <AssemblyName>Nemeio.Acl</AssemblyName>
+    <Platforms>AnyCPU</Platforms>
+    <Configurations>Debug;CliDebug;Release;CliRelease</Configurations>
+    <OutputPath>bin\$(Configuration)</OutputPath>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>	
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>NU1701</NoWarn>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CliDebug|AnyCPU'">
+    <NoWarn>NU1701</NoWarn>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CliRelease|AnyCPU'">
+    <NoWarn>NU1701</NoWarn>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>NU1701;CS1591</NoWarn>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-app\CSharp\SonarLint.xml" Link="SonarLint.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Crc32.NET" Version="1.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="SerialPortLib" Version="1.0.18" />
+    <PackageReference Include="SerialPortStream" Version="2.2.0" />
+    <PackageReference Include="System.IO.Ports" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nemeio.Api\Nemeio.Api.csproj" />
+    <ProjectReference Include="..\Nemeio.Core\Nemeio.Core.csproj" />
+  </ItemGroup>
+
+</Project>

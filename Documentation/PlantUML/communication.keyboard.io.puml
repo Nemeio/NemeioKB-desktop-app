@@ -1,0 +1,61 @@
+@startuml
+
+package "Nemeio.Core" {
+
+    interface IKeyboardIO {
+        + Connect(string identifier)
+        + Disconnect()
+        + Read(byte[] buffer, int offset, int count) : int
+        + WriteAsync(byte[] buffer, int offset, int count) : Task
+    }
+
+}
+
+package "Nemeio.Keyboard.Communication" {
+
+    abstract class KeyboardIOAdapter {
+
+    }
+
+    class SerialKeyboardIOAdapter {
+
+    }
+
+    class BluetoothLEKeyboardIOAdapter {
+
+    }
+
+    interface IBluetoothLEAdapter {
+        + Connect()
+        + Disconnect()
+        + Read(byte[] buffer, int offset, int count) : int
+        + WriteAsync(byte[] buffer, int offset, int count) : Task
+    }
+
+}
+
+package "Nemeio.Keyboard.Communication.Windows" {
+
+    class WinBluetoothLEAdapter {
+
+    }
+
+}
+
+package "Nemeio.Keyboard.Communication.Mac" {
+
+    class MacBluetoothLEAdapter {
+
+    }
+
+}
+
+BluetoothLEKeyboardIOAdapter --|> KeyboardIOAdapter
+SerialKeyboardIOAdapter --|> KeyboardIOAdapter
+KeyboardIOAdapter --|> IKeyboardIO
+MacBluetoothLEAdapter --|> IBluetoothLEAdapter
+WinBluetoothLEAdapter --|> IBluetoothLEAdapter
+
+BluetoothLEKeyboardIOAdapter *-- IBluetoothLEAdapter
+
+@enduml

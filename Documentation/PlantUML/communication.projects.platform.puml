@@ -1,0 +1,47 @@
+@startuml
+
+[Nemeio.Core] as Core
+[Nemeio.Keyboard.Communication] as KeyboardCommunication
+[Nemeio.Keyboard.Communication.Windows] as KeyboardComWindows
+[Nemeio.Keyboard.Communication.MacOS] as KeyboardCommOSX
+[Nemeio.Presentation] as Presentation
+[Nemeio.Wpf] as Windows
+[Nemeio.Mac] as Mac
+
+KeyboardComWindows --> KeyboardCommunication
+KeyboardCommOSX --> KeyboardCommunication
+KeyboardCommunication --> Core
+Presentation --> KeyboardCommunication
+Windows --> Presentation
+Windows --> KeyboardComWindows
+Mac --> Presentation
+Mac --> KeyboardCommOSX
+
+note bottom of Core
+  Contient toutes les interfaces
+  et les implémentations communes
+end note
+
+note bottom of KeyboardCommunication
+  Implémentation des notions communes de communication comme l'USB
+end note
+
+note bottom of Presentation
+  S'occupe d'enregistrer les classes par rapport à leur
+  interfaces pour l'ensemble de l'application via 
+  l'injection de dépendance
+end note
+
+note bottom of KeyboardComWindows
+    Executable Windows. 
+    S'occupe d'enregistrer les parties 
+    spécifique à cette plateforme
+end note
+
+note bottom of KeyboardCommOSX
+    Executable MacOS. 
+    S'occupe d'enregistrer les parties 
+    spécifique à cette plateforme
+end note
+
+@enduml

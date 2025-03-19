@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Configurations>Debug;Release;CliDebug;CliRelease</Configurations>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-app\CSharp\SonarLint.xml" Link="SonarLint.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mono.Posix.NETStandard" Version="1.0.0" />
+    <PackageReference Include="Usb.Events" Version="10.0.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nemeio.Core\Nemeio.Core.csproj" />
+    <ProjectReference Include="..\Nemeio.Keyboard.Communication\Nemeio.Keyboard.Communication.csproj" />
+  </ItemGroup>
+
+</Project>

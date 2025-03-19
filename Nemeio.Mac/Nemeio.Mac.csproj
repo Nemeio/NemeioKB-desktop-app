@@ -1,0 +1,842 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Extensions.FileProviders.Embedded.2.2.0\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.props" Condition="Exists('..\packages\Microsoft.Extensions.FileProviders.Embedded.2.2.0\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.props')" />
+  <Import Project="..\packages\Microsoft.AspNetCore.Mvc.Razor.Extensions.2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.props" Condition="Exists('..\packages\Microsoft.AspNetCore.Mvc.Razor.Extensions.2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.props')" />
+  <Import Project="..\packages\Microsoft.AspNetCore.Razor.Design.2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Razor.Design.props" Condition="Exists('..\packages\Microsoft.AspNetCore.Razor.Design.2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Razor.Design.props')" />
+  <Import Project="..\packages\Microsoft.Extensions.Configuration.UserSecrets.2.2.0\build\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.props" Condition="Exists('..\packages\Microsoft.Extensions.Configuration.UserSecrets.2.2.0\build\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2976B508-2418-46CF-A709-5D7EECD90753}</ProjectGuid>
+    <ProjectTypeGuids>{A3F8F2AB-B479-4A4A-A458-A89E7DC349F1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Nemeio.Mac</RootNamespace>
+    <AssemblyName>Nemeio</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
+    <TargetFrameworkIdentifier>Xamarin.Mac</TargetFrameworkIdentifier>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <EnableCodeSigning>false</EnableCodeSigning>
+    <CodeSigningKey>Mac Developer</CodeSigningKey>
+    <CreatePackage>false</CreatePackage>
+    <EnablePackageSigning>false</EnablePackageSigning>
+    <IncludeMonoRuntime>false</IncludeMonoRuntime>
+    <UseSGen>true</UseSGen>
+    <UseRefCounting>true</UseRefCounting>
+    <HttpClientHandler>
+    </HttpClientHandler>
+    <LinkMode>None</LinkMode>
+    <XamMacArch>x86_64</XamMacArch>
+    <EnableSGenConc>true</EnableSGenConc>
+    <AOTMode>None</AOTMode>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE;__UNIFIED__;__MACOS__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <EnableCodeSigning>true</EnableCodeSigning>
+    <CreatePackage>false</CreatePackage>
+    <EnablePackageSigning>false</EnablePackageSigning>
+    <IncludeMonoRuntime>true</IncludeMonoRuntime>
+    <UseSGen>true</UseSGen>
+    <UseRefCounting>true</UseRefCounting>
+    <LinkMode>None</LinkMode>
+    <HttpClientHandler>
+    </HttpClientHandler>
+    <XamMacArch>
+    </XamMacArch>
+    <AOTMode>None</AOTMode>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeSigningKey>Developer ID Application: ADETEL EMBEDDED (Q7R7F3ZZDC)</CodeSigningKey>
+    <PackageSigningKey>Developer ID Installer: ADETEL EMBEDDED (Q7R7F3ZZDC)</PackageSigningKey>
+    <MonoBundlingExtraArgs>--registrar=dynamic</MonoBundlingExtraArgs>
+    <CodeSignEntitlements>
+    </CodeSignEntitlements>
+    <CodeSignProvision>Karmeliet MacOS Desktop Application</CodeSignProvision>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CliRelease|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\CliRelease\</OutputPath>
+    <DefineConstants>__MACOS__;__UNIFIED__;DEBUG;</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.2.2.4\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp, Version=1.68.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaSharp.1.68.3\lib\xamarinmac2.0\SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="Xamarin.Mac" />
+    <Reference Include="MvvmCross.Platform">
+      <HintPath>..\packages\MvvmCross.Platform.5.7.0\lib\Xamarin.Mac20\MvvmCross.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Platform.Mac">
+      <HintPath>..\packages\MvvmCross.Platform.5.7.0\lib\Xamarin.Mac20\MvvmCross.Platform.Mac.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Core">
+      <HintPath>..\packages\MvvmCross.Core.5.7.0\lib\Xamarin.Mac20\MvvmCross.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Mac">
+      <HintPath>..\packages\MvvmCross.Core.5.7.0\lib\Xamarin.Mac20\MvvmCross.Mac.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Binding">
+      <HintPath>..\packages\MvvmCross.Binding.5.7.0\lib\Xamarin.Mac20\MvvmCross.Binding.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Binding.Mac">
+      <HintPath>..\packages\MvvmCross.Binding.5.7.0\lib\Xamarin.Mac20\MvvmCross.Binding.Mac.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.Messenger">
+      <HintPath>..\packages\MvvmCross.Plugin.Messenger.5.7.0\lib\Xamarin.Mac20\MvvmCross.Plugins.Messenger.dll</HintPath>
+    </Reference>
+    <Reference Include="RJCP.SerialPortStream">
+      <HintPath>Dependencies\RJCP.SerialPortStream.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Extended.Svg">
+      <HintPath>..\packages\SkiaSharp.Svg.1.60.0\lib\netstandard2.0\SkiaSharp.Extended.Svg.dll</HintPath>
+    </Reference>
+    <Reference Include="runtime.osx.10.10-x64.CoreCompat.System.Drawing">
+      <HintPath>..\packages\runtime.osx.10.10-x64.CoreCompat.System.Drawing.5.6.20\lib\netstandard2.0\runtime.osx.10.10-x64.CoreCompat.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Crc32.NET">
+      <HintPath>..\packages\Crc32.NET.1.2.0\lib\netstandard2.0\Crc32.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="dbup-core">
+      <HintPath>..\packages\dbup-core.4.2.0\lib\netstandard2.0\dbup-core.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper.1.60.6\lib\netstandard2.0\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory">
+      <HintPath>..\packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog">
+      <HintPath>..\packages\Serilog.2.8.0\lib\netstandard2.0\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File">
+      <HintPath>..\packages\Serilog.Sinks.File.4.0.0\lib\netstandard1.3\Serilog.Sinks.File.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.Debug">
+      <HintPath>..\packages\Serilog.Sinks.Debug.1.0.1\lib\netstandard2.0\Serilog.Sinks.Debug.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Extensions.Logging">
+      <HintPath>..\packages\Serilog.Extensions.Logging.2.0.4\lib\netstandard2.0\Serilog.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Diagnostics.Abstractions">
+      <HintPath>..\packages\Microsoft.AspNetCore.Diagnostics.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Diagnostics.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing">
+      <HintPath>..\packages\Microsoft.Extensions.FileSystemGlobbing.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.ObjectPool">
+      <HintPath>..\packages\Microsoft.Extensions.ObjectPool.2.2.0\lib\netstandard2.0\Microsoft.Extensions.ObjectPool.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\netstandard1.3\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata">
+      <HintPath>..\packages\System.Reflection.Metadata.1.6.0\lib\netstandard2.0\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Server.Abstractions">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Server.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.CommandLine">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.CommandLine.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.CommandLine.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.EnvironmentVariables">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.EnvironmentVariables.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.EnvironmentVariables.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Physical.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.FileExtensions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Json">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Json.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.UserSecrets">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.UserSecrets.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting.Abstractions">
+      <HintPath>..\packages\Microsoft.Extensions.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Debug">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Debug.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Debug.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.EventSource">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.EventSource.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.EventSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options.ConfigurationExtensions">
+      <HintPath>..\packages\Microsoft.Extensions.Options.ConfigurationExtensions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Configuration">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Configuration.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Console">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Console.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines">
+      <HintPath>..\packages\System.IO.Pipelines.4.5.2\lib\netstandard2.0\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Connections.Abstractions">
+      <HintPath>..\packages\Microsoft.AspNetCore.Connections.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Connections.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions">
+      <HintPath>..\packages\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.5.0\lib\netstandard2.0\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Abstractions">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authentication.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Abstractions">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Extensions">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Extensions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.HttpOverrides">
+      <HintPath>..\packages\Microsoft.AspNetCore.HttpOverrides.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.HttpOverrides.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing.Abstractions">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets">
+      <HintPath>..\packages\Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities">
+      <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Diagnostics">
+      <HintPath>..\packages\Microsoft.AspNetCore.Diagnostics.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Core">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authentication.Core.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.HostFiltering">
+      <HintPath>..\packages\Microsoft.AspNetCore.HostFiltering.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.HostFiltering.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Server.IIS">
+      <HintPath>..\packages\Microsoft.AspNetCore.Server.IIS.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Server.IIS.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Server.IISIntegration">
+      <HintPath>..\packages\Microsoft.AspNetCore.Server.IISIntegration.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Server.IISIntegration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Server.Kestrel.Core">
+      <HintPath>..\packages\Microsoft.AspNetCore.Server.Kestrel.Core.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Server.Kestrel.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Server.Kestrel.Https">
+      <HintPath>..\packages\Microsoft.AspNetCore.Server.Kestrel.Https.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Server.Kestrel.Https.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Server.Kestrel">
+      <HintPath>..\packages\Microsoft.AspNetCore.Server.Kestrel.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Server.Kestrel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore">
+      <HintPath>..\packages\Microsoft.AspNetCore.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.Internal">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.Internal.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Cryptography.Internal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.DataProtection.Abstractions">
+      <HintPath>..\packages\Microsoft.AspNetCore.DataProtection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.DataProtection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Razor.Language">
+      <HintPath>..\packages\Microsoft.AspNetCore.Razor.Language.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Razor.Language.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Localization.Abstractions">
+      <HintPath>..\packages\Microsoft.Extensions.Localization.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Localization.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.JsonPatch">
+      <HintPath>..\packages\Microsoft.AspNetCore.JsonPatch.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.JsonPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Bson">
+      <HintPath>..\packages\Newtonsoft.Json.Bson.1.0.1\lib\netstandard1.3\Newtonsoft.Json.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="Microsoft.AspNetCore.ResponseCaching.Abstractions">
+      <HintPath>..\packages\Microsoft.AspNetCore.ResponseCaching.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.ResponseCaching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Composite">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Composite.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Composite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authorization">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authorization.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authorization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Localization">
+      <HintPath>..\packages\Microsoft.Extensions.Localization.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DotNet.PlatformAbstractions">
+      <HintPath>..\packages\Microsoft.DotNet.PlatformAbstractions.2.1.0\lib\netstandard1.3\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyModel">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.2.1.0\lib\netstandard1.6\Microsoft.Extensions.DependencyModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Pkcs">
+      <HintPath>..\packages\System.Security.Cryptography.Pkcs.4.5.0\lib\netstandard2.0\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.AccessControl">
+      <HintPath>..\packages\System.Security.AccessControl.4.5.0\lib\netstandard2.0\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry">
+      <HintPath>..\packages\Microsoft.Win32.Registry.4.5.0\lib\netstandard2.0\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions">
+      <HintPath>..\packages\System.Security.Permissions.4.5.0\lib\netstandard2.0\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml">
+      <HintPath>..\packages\System.Security.Cryptography.Xml.4.5.0\lib\netstandard2.0\System.Security.Cryptography.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Html.Abstractions">
+      <HintPath>..\packages\Microsoft.AspNetCore.Html.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Html.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authorization.Policy">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authorization.Policy.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authorization.Policy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.DataProtection">
+      <HintPath>..\packages\Microsoft.AspNetCore.DataProtection.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.DataProtection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cors">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cors.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Localization">
+      <HintPath>..\packages\Microsoft.AspNetCore.Localization.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Razor">
+      <HintPath>..\packages\Microsoft.AspNetCore.Razor.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Razor.Runtime">
+      <HintPath>..\packages\Microsoft.AspNetCore.Razor.Runtime.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Razor.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Antiforgery">
+      <HintPath>..\packages\Microsoft.AspNetCore.Antiforgery.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Antiforgery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.WebEncoders">
+      <HintPath>..\packages\Microsoft.Extensions.WebEncoders.2.2.0\lib\netstandard2.0\Microsoft.Extensions.WebEncoders.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Core">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Core.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.ApiExplorer">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.ApiExplorer.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.ApiExplorer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Cors">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Cors.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.DataAnnotations">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.DataAnnotations.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.DataAnnotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Formatters.Json">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Formatters.Json.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Formatters.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.ViewFeatures">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.ViewFeatures.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple">
+      <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Common.2.8.0\lib\netstandard1.3\Microsoft.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.2.8.0\lib\netstandard1.3\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Razor">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Razor.2.2.0\lib\netstandard2.0\Microsoft.CodeAnalysis.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Razor.Extensions">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Razor.Extensions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Razor">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Razor.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Localization">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Localization.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.RazorPages">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.RazorPages.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.RazorPages.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.TagHelpers">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.TagHelpers.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.TagHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Embedded">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Embedded.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.HttpsPolicy">
+      <HintPath>..\packages\Microsoft.AspNetCore.HttpsPolicy.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.HttpsPolicy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.2.3.20\lib\netstandard2.0\Microsoft.Rest.ClientRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.StaticFiles">
+      <HintPath>..\packages\Microsoft.AspNetCore.StaticFiles.2.0.0\lib\netstandard2.0\Microsoft.AspNetCore.StaticFiles.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.AspNetCore.SwaggerUI">
+      <HintPath>..\packages\Swashbuckle.AspNetCore.SwaggerUI.4.0.1\lib\netstandard2.0\Swashbuckle.AspNetCore.SwaggerUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.AspNetCore.Swagger">
+      <HintPath>..\packages\Swashbuckle.AspNetCore.Swagger.4.0.1\lib\netstandard2.0\Swashbuckle.AspNetCore.Swagger.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.AspNetCore.SwaggerGen">
+      <HintPath>..\packages\Swashbuckle.AspNetCore.SwaggerGen.4.0.1\lib\netstandard2.0\Swashbuckle.AspNetCore.SwaggerGen.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.AspNetCore">
+      <HintPath>..\packages\Swashbuckle.AspNetCore.4.0.1\lib\netstandard2.0\Swashbuckle.AspNetCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq">
+      <HintPath>..\packages\Remotion.Linq.2.2.0\lib\portable-net45+win+wpa81+wp80\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core">
+      <HintPath>..\packages\SQLitePCLRaw.core.1.1.12\lib\Xamarin.Mac20\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Sqlite">
+      <HintPath>..\packages\Microsoft.Data.Sqlite.Core.2.2.6\lib\netstandard2.0\Microsoft.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.e_sqlite3">
+      <HintPath>..\packages\SQLitePCLRaw.provider.e_sqlite3.macos.1.1.12\lib\Xamarin.Mac20\SQLitePCLRaw.provider.e_sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_green">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.12\lib\Xamarin.Mac20\SQLitePCLRaw.batteries_green.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.12\lib\Xamarin.Mac20\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Interactive.Async">
+      <HintPath>..\packages\System.Interactive.Async.3.2.0\lib\netstandard2.0\System.Interactive.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Relational">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Relational.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Sqlite">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Sqlite.Core.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="stateless">
+      <HintPath>..\packages\stateless.5.10.1\lib\netstandard2.0\stateless.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.PeriodicBatching">
+      <HintPath>..\packages\Serilog.Sinks.PeriodicBatching.2.3.1\lib\netstandard2.1\Serilog.Sinks.PeriodicBatching.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.Udp">
+      <HintPath>..\packages\Serilog.Sinks.Udp.8.0.0\lib\netstandard2.1\Serilog.Sinks.Udp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ldlc_icon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\luminosity_less.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\luminosity_less.imageset\luminosity_less.png" />
+    <ImageAsset Include="Assets.xcassets\luminosity_more.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\luminosity_more.imageset\luminosity_more.png" />
+    <ImageAsset Include="Assets.xcassets\battery_charge.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\battery_charge.imageset\battery_charge.png" />
+    <ImageAsset Include="Assets.xcassets\trash.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\trash.imageset\trash_icon.png" />
+    <ImageAsset Include="Assets.xcassets\keyboard.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\keyboard.imageset\keyboard.png" />
+    <ImageAsset Include="Assets.xcassets\check_validation.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\check_validation.imageset\check_validation.png" />
+    <ImageAsset Include="Assets.xcassets\ldlc_icon.imageset\icon-nemeio-png-16.png" />
+    <ImageAsset Include="Assets.xcassets\ldlc_icon.imageset\icon-nemeio-png-32.png" />
+    <ImageAsset Include="Assets.xcassets\ldlc_icon.imageset\icon-nemeio-png-48.png" />
+    <ImageAsset Include="Assets.xcassets\HidKeyboard.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\CustomKeyboard.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\CustomKeyboard.imageset\CUS-16-White.png" />
+    <ImageAsset Include="Assets.xcassets\CustomKeyboard.imageset\CUS-32-White.png" />
+    <ImageAsset Include="Assets.xcassets\CustomKeyboard.imageset\CUS-48-White.png" />
+    <ImageAsset Include="Assets.xcassets\HidKeyboard.imageset\HID-16-White.png" />
+    <ImageAsset Include="Assets.xcassets\HidKeyboard.imageset\HID-32-White.png" />
+    <ImageAsset Include="Assets.xcassets\HidKeyboard.imageset\HID-48-White.png" />
+    <ImageAsset Include="Assets.xcassets\disconnected_keyboard.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\connected_keyboard.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Menu_Quit_Icon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Menu_Settings_Icon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Menu_Linked_App_Icon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Menu_NotLinked_App_Icon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Menu_NotLinked_App_Icon.imageset\Disabled-48.png" />
+    <ImageAsset Include="Assets.xcassets\Menu_Linked_App_Icon.imageset\Enabled-48.png" />
+    <ImageAsset Include="Assets.xcassets\Menu_Quit_Icon.imageset\Quit-48.png" />
+    <ImageAsset Include="Assets.xcassets\Menu_Hid_Keyboard_Icon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Menu_Hid_Keyboard_Icon.imageset\Standard-48.png" />
+    <ImageAsset Include="Assets.xcassets\Menu_Custom_Keyboard_Icon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Menu_Custom_Keyboard_Icon.imageset\Custom-48.png" />
+    <ImageAsset Include="Assets.xcassets\Menu_Hid_Keyboard_Icon.imageset\Standard-48-1.png" />
+    <ImageAsset Include="Assets.xcassets\Menu_Custom_Keyboard_Icon.imageset\Custom-48-2.png" />
+    <ImageAsset Include="Assets.xcassets\Battery-20.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Battery-40.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Battery-60.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Battery-80.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Battery-100.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Battery-20.imageset\Battery-020-48.png" />
+    <ImageAsset Include="Assets.xcassets\Battery-40.imageset\Battery-040-48.png" />
+    <ImageAsset Include="Assets.xcassets\Battery-60.imageset\Battery-060-48.png" />
+    <ImageAsset Include="Assets.xcassets\Battery-80.imageset\Battery-080-48.png" />
+    <ImageAsset Include="Assets.xcassets\Battery-100.imageset\Battery-100-48.png" />
+    <ImageAsset Include="Assets.xcassets\Debug-Menu.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Debug-Menu.imageset\Debug-48.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\nemeio-violet-16.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\nemeio-violet-32.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\nemeio-violet-32-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\nemeio-violet-128.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\nemeio-violet-256.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\nemeio-violet-256-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\nemeio-violet-512.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\nemeio-violet-512-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\nemeio-violet-1024.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\nemeio-violet-64.png" />
+    <ImageAsset Include="Assets.xcassets\disconnected_keyboard.imageset\nemeio-closed-16.png" />
+    <ImageAsset Include="Assets.xcassets\disconnected_keyboard.imageset\nemeio-closed-32.png" />
+    <ImageAsset Include="Assets.xcassets\disconnected_keyboard.imageset\nemeio-closed-48.png" />
+    <ImageAsset Include="Assets.xcassets\Quit_Menu_Header_Icon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Quit_Menu_Header_Icon.imageset\nemeio-closed-128.png" />
+    <ImageAsset Include="Assets.xcassets\Menu_KeyboardManager_Icon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Menu_KeyboardManager_Icon.imageset\nemeio-violet-128.png" />
+    <ImageAsset Include="Assets.xcassets\Menu_Settings_Icon.imageset\Version-48-1.png" />
+    <ImageAsset Include="Assets.xcassets\connected_blue_keyboard.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\loading_blue_keyboard.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\communication_mode_usb.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\communication_mode_ble.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\communication_mode_ble.imageset\Bluetooth-48.png" />
+    <ImageAsset Include="Assets.xcassets\communication_mode_usb.imageset\Usb-48.png" />
+    <ImageAsset Include="Assets.xcassets\loading_blue_keyboard.imageset\nemeio-synchro-blue-16.png" />
+    <ImageAsset Include="Assets.xcassets\loading_blue_keyboard.imageset\nemeio-synchro-blue-32.png" />
+    <ImageAsset Include="Assets.xcassets\loading_blue_keyboard.imageset\nemeio-synchro-blue-48.png" />
+    <ImageAsset Include="Assets.xcassets\connected_blue_keyboard.imageset\nemeio-blue-16.png" />
+    <ImageAsset Include="Assets.xcassets\connected_blue_keyboard.imageset\nemeio-blue-32.png" />
+    <ImageAsset Include="Assets.xcassets\connected_blue_keyboard.imageset\nemeio-blue-48.png" />
+    <ImageAsset Include="Assets.xcassets\loading_keyboard.imageset\nemeio-synchro-32.png" />
+    <ImageAsset Include="Assets.xcassets\loading_keyboard.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\loading_keyboard.imageset\nemeio-synchro-48.png" />
+    <ImageAsset Include="Assets.xcassets\loading_keyboard.imageset\nemeio-synchro-16.png" />
+    <ImageAsset Include="Assets.xcassets\connected_keyboard.imageset\nemeio-16.png" />
+    <ImageAsset Include="Assets.xcassets\connected_keyboard.imageset\nemeio-32.png" />
+    <ImageAsset Include="Assets.xcassets\connected_keyboard.imageset\nemeio-48.png" />
+    <ImageAsset Include="Assets.xcassets\Menu_Augmented_Keyboard_Icon.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Menu_Augmented_Keyboard_Icon.imageset\Augmented_48.png" />
+    <ImageAsset Include="Assets.xcassets\update_available_light_keyboard.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\update_available_dark_keyboard.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\update_needed_light_keyboard.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\udpdate_needed_dark_keyboard.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\update_available_light_keyboard.imageset\1024-N-exclamation-jaune-MAJ-disponible-noir.png" />
+    <ImageAsset Include="Assets.xcassets\update_available_dark_keyboard.imageset\1024-N-exclamation-jaune-MAJ-disponible.png" />
+    <ImageAsset Include="Assets.xcassets\update_needed_light_keyboard.imageset\1024-N-exclamation-rouge-MAJ-necessaire-noir.png" />
+    <ImageAsset Include="Assets.xcassets\udpdate_needed_dark_keyboard.imageset\1024-N-exclamation-rouge-MAJ-necessaire.png" />
+    <ImageAsset Include="Assets.xcassets\udpdate_needed_dark_keyboard.imageset\1024-N-exclamation-rouge-MAJ-necessaire-1.png" />
+    <ImageAsset Include="Assets.xcassets\udpdate_needed_dark_keyboard.imageset\1024-N-exclamation-rouge-MAJ-necessaire-2.png" />
+    <ImageAsset Include="Assets.xcassets\update_available_dark_keyboard.imageset\1024-N-exclamation-jaune-MAJ-disponible-1.png" />
+    <ImageAsset Include="Assets.xcassets\update_available_dark_keyboard.imageset\1024-N-exclamation-jaune-MAJ-disponible-2.png" />
+    <ImageAsset Include="Assets.xcassets\update_available_light_keyboard.imageset\1024-N-exclamation-jaune-MAJ-disponible-noir-1.png" />
+    <ImageAsset Include="Assets.xcassets\update_available_light_keyboard.imageset\1024-N-exclamation-jaune-MAJ-disponible-noir-2.png" />
+    <ImageAsset Include="Assets.xcassets\update_needed_light_keyboard.imageset\1024-N-exclamation-rouge-MAJ-necessaire-noir-1.png" />
+    <ImageAsset Include="Assets.xcassets\update_needed_light_keyboard.imageset\1024-N-exclamation-rouge-MAJ-necessaire-noir-2.png" />
+    <ImageAsset Include="Assets.xcassets\Cross.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Cross.imageset\Cross-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset">
+      <Link>adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</Link>
+    </None>
+    <None Include="app.config" />
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
+    <None Include="CustomBuildActions.targets" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MacNemeioAppSetup.cs" />
+    <Compile Include="Models\MacColorHelper.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="AppDelegate.designer.cs">
+      <DependentUpon>AppDelegate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\MacOSBrowserFile.cs" />
+    <Compile Include="Services\MacOSDocument.cs" />
+    <Compile Include="Services\MacOsDialogService.cs" />
+    <Compile Include="Windows\Configurator.cs" />
+    <Compile Include="Windows\Configurator.designer.cs">
+      <DependentUpon>Configurator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ConfiguratorController.cs" />
+    <Compile Include="Windows\ConfiguratorController.designer.cs">
+      <DependentUpon>ConfiguratorController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConfiguratorNavigationDelegate.cs" />
+    <Compile Include="Windows\Menu\MenuController.cs" />
+    <Compile Include="Windows\Menu\MenuController.designer.cs">
+      <DependentUpon>MenuController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\NSColorExtensions.cs" />
+    <Compile Include="Views\KeyboardCell.cs" />
+    <Compile Include="Views\KeyboardCell.designer.cs">
+      <DependentUpon>KeyboardCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DividerCell.cs" />
+    <Compile Include="Views\DividerCell.designer.cs">
+      <DependentUpon>DividerCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaseTableViewCell.cs" />
+    <Compile Include="Windows\Alert\QuitViewController.cs" />
+    <Compile Include="Windows\Alert\QuitViewController.designer.cs">
+      <DependentUpon>QuitViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TableViewRow.cs" />
+    <Compile Include="Models\MenuTableViewCellIdentifier.cs" />
+    <Compile Include="Models\MacFontHelper.cs" />
+    <Compile Include="Models\NemeioColor.cs" />
+    <Compile Include="Extensions\NSViewExtensions.cs" />
+    <Compile Include="UserControls\NemeioLabel.cs" />
+    <Compile Include="UserControls\NemeioLabel.designer.cs">
+      <DependentUpon>NemeioLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Alert\LanguageSelection\LanguageSelectionController.cs" />
+    <Compile Include="Windows\Alert\LanguageSelection\LanguageSelectionController.designer.cs">
+      <DependentUpon>LanguageSelectionController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Alert\LanguageSelection\NSComboBoxDataController.cs" />
+    <Compile Include="Services\MacTaskBar.cs" />
+    <Compile Include="Services\MacTaskBarController.cs" />
+    <Compile Include="Services\MacOSNotificationDelegate.cs" />
+    <Compile Include="Models\ConfiguratorWebFileTransferDelegate.cs" />
+    <Compile Include="Models\KeyboadTableViewRow.cs" />
+    <Compile Include="Windows\Alert\FactoryResetModal\FactoryResetModalController.cs" />
+    <Compile Include="Windows\Alert\FactoryResetModal\FactoryResetModalController.designer.cs">
+      <DependentUpon>FactoryResetModalController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\MacOSApplicationService.cs" />
+    <Compile Include="Windows\Alert\UpdateModal\UpdateModalController.cs" />
+    <Compile Include="Windows\Alert\UpdateModal\UpdateModalController.designer.cs">
+      <DependentUpon>UpdateModalController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Icon\MacApplicationIconProvider.cs" />
+    <Compile Include="Theme\MacSystemThemeProvider.cs" />
+    <Compile Include="Modals\MacConfiguratorModal.cs" />
+    <Compile Include="Modals\MacLanguageSelectionModal.cs" />
+    <Compile Include="Modals\MacQuitModal.cs" />
+    <Compile Include="Modals\MacUpdateModal.cs" />
+    <Compile Include="Modals\MacModalWindow.cs" />
+    <Compile Include="Modals\MacModalWindowFactory.cs" />
+    <Compile Include="Modals\MacFactoryResetModal.cs" />
+    <Compile Include="Resolution\MacScreenResolutionAdapter.cs" />
+    <Compile Include="Windows\Alert\KeyboardInitErrorModal\KeyboardInitErrorModal.cs" />
+    <Compile Include="Windows\Alert\KeyboardInitErrorModal\KeyboardInitErrorModal.designer.cs" />
+    <Compile Include="Modals\MacKeyboardInitErrorModal.cs" />
+    <Compile Include="Menu\Administrator\MacAdministratorModalStrategyFactory.cs" />
+    <Compile Include="Menu\Administrator\MacAdministratorModalStrategy.cs" />
+    <Compile Include="Models\MacMainThreadDispatcher.cs" />
+    <Compile Include="Modals\MacRemovedByHidModal.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Base.lproj\MainMenu.xib" />
+    <InterfaceDefinition Include="Windows\Configurator.xib" />
+    <InterfaceDefinition Include="Windows\Menu\Menu.storyboard" />
+    <InterfaceDefinition Include="Windows\Alert\Quit.storyboard" />
+    <InterfaceDefinition Include="Windows\Alert\LanguageSelection\LanguageSelection.storyboard" />
+    <InterfaceDefinition Include="Windows\Alert\FactoryResetModal\FactoryResetModal.storyboard" />
+    <InterfaceDefinition Include="Windows\Alert\UpdateModal\UpdateModal.storyboard" />
+    <InterfaceDefinition Include="Windows\Alert\KeyboardInitErrorModal\KeyboardInitErrorModal.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Nemeio.Acl\Nemeio.Acl.csproj">
+      <Project>{9826af39-c74b-45e2-9dfb-de8edbc092be}</Project>
+      <Name>Nemeio.Acl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Core\Nemeio.Core.csproj">
+      <Project>{C981DFD7-E6AE-418E-B99C-78A853819557}</Project>
+      <Name>Nemeio.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Infrastructure\Nemeio.Infrastructure.csproj">
+      <Project>{e983d058-3500-497c-befc-cb27624c0db6}</Project>
+      <Name>Nemeio.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Presentation\Nemeio.Presentation.csproj">
+      <Project>{cb80002b-c138-4b60-9f0a-45df124c3c67}</Project>
+      <Name>Nemeio.Presentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.LayoutGen\Nemeio.LayoutGen.csproj">
+      <Project>{6220BF94-E76F-4E44-ABAF-C2E3578681EB}</Project>
+      <Name>Nemeio.LayoutGen</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Mac.ExtendedTools\Nemeio.Mac.ExtendedTools.csproj">
+      <Project>{16D7F374-FE26-4C9E-BA78-6659C30C7417}</Project>
+      <Name>Nemeio.Mac.ExtendedTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Keyboard.Communication.Mac\Nemeio.Keyboard.Communication.Mac.csproj">
+      <Project>{C65911FE-6EC1-4664-9D24-4DFD08B7DD6D}</Project>
+      <Name>Nemeio.Keyboard.Communication.Mac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Keyboard.Communication.Tools\Nemeio.Keyboard.Communication.Tools.csproj">
+      <Name>Nemeio.Keyboard.Communication.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Layout.Builder\Nemeio.Layout.Builder.csproj">
+      <Project>{24136C49-7BF6-4D2D-958C-1E371B71C8DD}</Project>
+      <Name>Nemeio.Layout.Builder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Mac.Native\Nemeio.Mac.Native.csproj">
+      <Project>{C1A2CD5B-7261-4CDD-A62F-77C4BD215075}</Project>
+      <Name>Nemeio.Mac.Native</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Platform.Hid.Mac\Nemeio.Platform.Hid.Mac.csproj">
+      <Project>{2DD82110-86C3-4FBA-A03E-FF90EFAD2511}</Project>
+      <Name>Nemeio.Platform.Hid.Mac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Platform.Mac\Nemeio.Platform.Mac.csproj">
+      <Project>{54D17CED-2351-4E9F-84AB-F7C13ACC6D9D}</Project>
+      <Name>Nemeio.Platform.Mac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Mac.Application\Nemeio.Mac.Application.csproj">
+      <Project>{2F90E235-FDAE-46AE-8D7F-3C007E4B9362}</Project>
+      <Name>Nemeio.Mac.Application</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\de.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\en.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\fr.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\it.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\es.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\Fonts\OpenSans-Regular.ttf" />
+    <BundleResource Include="Resources\Fonts\OpenSans-Bold.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="Dependencies\libnserial.so.1.dylib">
+      <Kind>Dynamic</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+    <NativeReference Include="Dependencies\SQLite.Interop.dll">
+      <Kind>Static</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\Menu_Battery_Icon.imageset\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-app\CSharp\SonarLint.xml">
+      <Link>SonarLint.xml</Link>
+    </AdditionalFiles>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
+  <Import Project="CustomBuildActions.targets" />
+  <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Extensions.Configuration.UserSecrets.2.2.0\build\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.targets" Condition="Exists('..\packages\Microsoft.Extensions.Configuration.UserSecrets.2.2.0\build\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.targets')" />
+  <Import Project="..\packages\Microsoft.AspNetCore.Server.IIS.2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Server.IIS.targets" Condition="Exists('..\packages\Microsoft.AspNetCore.Server.IIS.2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Server.IIS.targets')" />
+  <Import Project="..\packages\Microsoft.AspNetCore.Server.IISIntegration.2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Server.IISIntegration.targets" Condition="Exists('..\packages\Microsoft.AspNetCore.Server.IISIntegration.2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Server.IISIntegration.targets')" />
+  <Import Project="..\packages\Microsoft.AspNetCore.Mvc.Razor.Extensions.2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.targets" Condition="Exists('..\packages\Microsoft.AspNetCore.Mvc.Razor.Extensions.2.2.0\build\netstandard2.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.targets')" />
+  <Import Project="..\packages\Microsoft.Extensions.FileProviders.Embedded.2.2.0\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.targets" Condition="Exists('..\packages\Microsoft.Extensions.FileProviders.Embedded.2.2.0\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.targets')" />
+  <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.osx.1.1.12\build\Xamarin.Mac20\SQLitePCLRaw.lib.e_sqlite3.osx.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.osx.1.1.12\build\Xamarin.Mac20\SQLitePCLRaw.lib.e_sqlite3.osx.targets')" />
+</Project>

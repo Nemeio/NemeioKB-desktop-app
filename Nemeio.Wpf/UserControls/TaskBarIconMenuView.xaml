@@ -1,0 +1,114 @@
+﻿<UserControl
+    x:Class="Nemeio.Wpf.UserControls.TaskBarIconMenuView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"       
+    xmlns:vm="clr-namespace:Nemeio.Wpf.ViewModel"
+    xmlns:uc="clr-namespace:Nemeio.Wpf.UserControls"
+    mc:Ignorable="d"
+    MinWidth="280"
+    MaxWidth="255"
+    Loaded="UserControl_Loaded"
+    SizeChanged="UserControl_SizeChanged">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/BaseDictionary.xaml" />
+                <ResourceDictionary Source="../Styles/ColorDictionary.xaml" />
+                <ResourceDictionary Source="../Styles/TemplateDictionary.xaml" />
+                <ResourceDictionary Source="../Styles/ScrollBarStyleDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <StackPanel
+            Orientation="Vertical"
+            Background="{StaticResource LdlcDarkViolet}">
+
+            <uc:QuitButtonView
+                DataContext="{Binding QuitButton}" />
+
+            <!-- Empty full width seprator -->
+            <uc:SeparatorView
+                VerticalAlignment="Top" />
+
+            <uc:ConnectionView
+                DataContext="{Binding ConnectionInfo}" />
+
+            <uc:BatteryView
+                DataContext="{Binding BatteryInfo}" />
+
+            <ScrollViewer
+                MaxHeight="{Binding LayoutListMaxHeight}">
+                <StackPanel
+                    Orientation="Vertical">
+                    <!-- Custom keyboard separator-->
+                    <uc:TextSeparatorView
+                        DataContext="{Binding CustomHeader}" />
+
+                    <!-- Custom Layouts -->
+                    <ListView
+                        x:Name="customListView"
+                        SelectionMode="Single"
+                        SelectionChanged="SelectionChanged"
+                        ItemsSource="{Binding CustomList}"
+                        ItemTemplate="{StaticResource layoutTemplate}"
+                        Style="{StaticResource layoutListBox}"
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                        ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                        <ListView.Template>
+                            <ControlTemplate>
+                                <ItemsPresenter></ItemsPresenter>
+                            </ControlTemplate>
+                        </ListView.Template>
+                    </ListView>
+
+                    <!-- Standard keyboard separator-->
+                    <uc:TextSeparatorView
+                        DataContext="{Binding StandardHeader}" />
+                    <!-- Standard Layouts -->
+                    <ListView
+                        x:Name="standardListView"
+                        SelectionMode="Single"
+                        SelectionChanged="SelectionChanged"
+                        ItemsSource="{Binding StandardList}"
+                        ItemTemplate="{StaticResource layoutTemplate}"
+                        Style="{StaticResource layoutListBox}"
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                        ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                        <ListView.Template>
+                            <ControlTemplate>
+                                <ItemsPresenter></ItemsPresenter>
+                            </ControlTemplate>
+                        </ListView.Template>
+                    </ListView>
+
+
+                </StackPanel>
+            </ScrollViewer>
+
+            <!-- Empty seprator -->
+            <uc:TextSeparatorView
+                DataContext="{Binding EmptyHeader}" />
+
+            <!-- other infos -->
+            <uc:VersionView 
+                DataContext="{Binding VersionInfo}" />
+
+            <uc:SynchronizationView
+                DataContext="{Binding SynchronizationInfo}" />
+
+            <!-- Empty full width seprator -->
+            <uc:SeparatorView
+                VerticalAlignment="Bottom" />
+
+            <!-- Keyboard Manager -->
+            <uc:ConfiguratorButtonView
+                DataContext="{Binding ConfiguratorButton}" />
+
+        </StackPanel>
+    </Grid>
+</UserControl>

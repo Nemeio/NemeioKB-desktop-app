@@ -1,0 +1,101 @@
+### This document is the root of the pipeline [Desktop] CLI
+### It builds the CLI for Windows and Linux
+### on a schedule (every night) based on what is on the branch develop
+
+name: $(Rev:rrrr)
+
+variables:
+  - group: Common
+  - name: SolutionName
+    value: 'Nemeio'
+  - name: SolutionFileName
+    value: 'Nemeio.sln'
+
+pr: none
+
+trigger:
+  paths:
+    include:
+      - Nemeio.Cli.Linux/*
+      - Nemeio.Cli.Windows/*
+      - Pipelines/common-cli.yaml
+      - Pipelines/Templates/linux-cli.yaml
+      - Pipelines/Templates/win-cli.yaml
+
+schedules:
+- cron: "0 0 * * *"
+  displayName: "Daily midnight build"
+  branches:
+    include:
+    - develop
+  always: true
+
+stages:
+- stage: CLI_Build
+  condition: succeeded()
+  jobs:
+  - job: "CLI_Build_Win"
+    variables:
+      BuildConfiguration: 'CliRelease'
+      BuildPlatform: x64
+    pool:
+      vmImage: "windows-2019"
+    steps:
+    - checkout: self
+      persistCredentials: true
+    - template: Templates/win-cli.yaml
+      parameters:
+        checkoutPath: "$(Build.SourcesDirectory)"
+    - task: ArchiveFiles@2
+      inputs:
+        rootFolderOrFile: '$(Build.SourcesDirectory)/Nemeio.Cli.Windows/bin/$(BuildPlatform)/$(BuildConfiguration)/'
+        includeRootFolder: false
+        archiveType: 'zip'
+        archiveFile: '$(Build.ArtifactStagingDirectory)/WindowsCli.zip'
+        verbose: true
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact'
+      inputs:
+        artifactName: "WindowsCli"
+
+  - job: "CLI_Build_Linux_Ubuntu"
+    pool:
+      vmImage: "ubuntu-20.04"
+    steps:
+    - checkout: self
+      persistCredentials: true
+    - template: Templates/linux-cli.yaml
+      parameters:
+        checkoutPath: "$(Build.SourcesDirectory)"
+    - task: ArchiveFiles@2
+      inputs:
+        rootFolderOrFile: '$(Build.SourcesDirectory)/Nemeio.Cli.Linux/bin/Debug/net6.0/'
+        includeRootFolder: false
+        archiveType: 'zip'
+        archiveFile: '$(Build.ArtifactStagingDirectory)/LinuxCli.zip'
+        verbose: true
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact'
+      inputs:
+        artifactName: "LinuxCli"
+
+  - job: "CLI_Build_Linux_ARM64"
+    pool:
+      vmImage: "windows-2019"
+    steps:
+    - checkout: self
+      persistCredentials: true
+    - template: Templates/linux-arm64-cli.yaml
+      parameters:
+        checkoutPath: "$(Build.SourcesDirectory)"
+    - task: ArchiveFiles@2
+      inputs:
+        rootFolderOrFile: '$(Build.SourcesDirectory)/Nemeio.Cli.Linux/bin/Release/net6.0/publish/'
+        includeRootFolder: false
+        archiveType: 'zip'
+        archiveFile: '$(Build.ArtifactStagingDirectory)/LinuxCliArm64.zip'
+        verbose: true
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact'
+      inputs:
+        artifactName: "LinuxCliArm64"

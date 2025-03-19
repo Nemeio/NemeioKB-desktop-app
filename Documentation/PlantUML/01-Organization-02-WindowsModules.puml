@@ -1,0 +1,43 @@
+@startuml
+
+skinparam packagestyle frame
+
+' title Nemeio Desktop Application - Windows Assemblies
+
+' package definition
+together {
+package Nemeio.Core #LightYellow
+{
+}
+package Nemeio.Infrastructure #LightPink
+{
+}
+package Nemeio.LayoutGen #LightSalmon
+{ 
+}
+package Nemeio.Api #LightBlue
+{ 
+}
+package Nemeio.Acl #LightGreen
+{ 
+}
+package Nemeio.Presentation #Tan
+{ 
+}
+}
+
+package Nemeio.Wpf #Cyan
+{
+}
+
+' dependency graph
+Nemeio.Core <-- Nemeio.Wpf : depends
+Nemeio.Infrastructure <-- Nemeio.Wpf : depends
+Nemeio.LayoutGen <-- Nemeio.Wpf : depends
+Nemeio.Acl <-- Nemeio.Wpf : depends
+Nemeio.Presentation <-- Nemeio.Wpf : depends
+
+' caption
+caption Nemeio Windows Assemblies
+
+@enduml

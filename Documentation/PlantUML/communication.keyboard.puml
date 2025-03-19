@@ -1,0 +1,23 @@
+@startuml
+
+package "Nemeio.Core" {
+
+    together {
+
+        enum CommunicationType {
+            Serial,
+            BluetoothLE
+        }
+
+        class Keyboard {
+            + ProtocolVersion : Version
+            + Identifier : string
+        }
+
+    }
+
+    Keyboard "0..0" -- "1..1" CommunicationType : Communication
+    Keyboard "0..0" -- "1..1" IKeyboardIO : KeyboardIO
+}
+
+@enduml

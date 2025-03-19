@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 25.07">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Groupe_16" data-name="Groupe 16" transform="translate(-39.107 -160.767)">
+    <path id="Tracé_63" data-name="Tracé 63" class="cls-1" d="M40,22.834V2.236A2.278,2.278,0,0,0,37.69,0H2.31A2.278,2.278,0,0,0,0,2.236v20.6A2.278,2.278,0,0,0,2.31,25.07H37.69A2.272,2.272,0,0,0,40,22.834Zm-38,0V2.236c0-.075.122-.184.31-.184H37.69c.2,0,.31.117.31.184v20.6c0,.075-.122.184-.31.184H2.31C2.122,23.018,2,22.909,2,22.834Z" transform="translate(39.107 160.767)"/>
+    <ellipse id="Ellipse_50" data-name="Ellipse 50" class="cls-1" cx="1.249" cy="1.281" rx="1.249" ry="1.281" transform="translate(45.066 166.586)"/>
+    <ellipse id="Ellipse_51" data-name="Ellipse 51" class="cls-1" cx="1.249" cy="1.281" rx="1.249" ry="1.281" transform="translate(50.184 166.586)"/>
+    <ellipse id="Ellipse_52" data-name="Ellipse 52" class="cls-1" cx="1.249" cy="1.281" rx="1.249" ry="1.281" transform="translate(55.295 166.586)"/>
+    <ellipse id="Ellipse_53" data-name="Ellipse 53" class="cls-1" cx="1.249" cy="1.281" rx="1.249" ry="1.281" transform="translate(60.413 166.586)"/>
+    <ellipse id="Ellipse_54" data-name="Ellipse 54" class="cls-1" cx="1.249" cy="1.281" rx="1.249" ry="1.281" transform="translate(65.531 166.586)"/>
+    <ellipse id="Ellipse_55" data-name="Ellipse 55" class="cls-1" cx="1.249" cy="1.281" rx="1.249" ry="1.281" transform="translate(70.65 166.586)"/>
+    <ellipse id="Ellipse_56" data-name="Ellipse 56" class="cls-1" cx="1.249" cy="1.281" rx="1.249" ry="1.281" transform="translate(47.629 172.021)"/>
+    <ellipse id="Ellipse_57" data-name="Ellipse 57" class="cls-1" cx="1.249" cy="1.281" rx="1.249" ry="1.281" transform="translate(52.739 172.021)"/>
+    <ellipse id="Ellipse_58" data-name="Ellipse 58" class="cls-1" cx="1.249" cy="1.281" rx="1.249" ry="1.281" transform="translate(57.858 172.021)"/>
+    <ellipse id="Ellipse_59" data-name="Ellipse 59" class="cls-1" cx="1.249" cy="1.281" rx="1.249" ry="1.281" transform="translate(62.968 172.021)"/>
+    <path id="Tracé_64" data-name="Tracé 64" class="cls-1" d="M356.249,134.4h0a1.282,1.282,0,0,0,0,2.562h0a1.282,1.282,0,0,0,0-2.562Z" transform="translate(-286.914 37.621)"/>
+    <path id="Tracé_65" data-name="Tracé 65" class="cls-1" d="M142.249,202.4H124.4a1.03,1.03,0,0,0,0,2.06h17.845a1.03,1.03,0,0,0,0-2.06Z" transform="translate(-74.22 -24.686)"/>
+  </g>
+</svg>

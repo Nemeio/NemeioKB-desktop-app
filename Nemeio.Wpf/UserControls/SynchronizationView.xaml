@@ -1,0 +1,65 @@
+﻿<UserControl 
+    x:Class="Nemeio.Wpf.UserControls.SynchronizationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:Nemeio.Wpf.UserControls"
+    mc:Ignorable="d" 
+    d:DesignHeight="40"
+    d:DesignWidth="255">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                    Source="../Styles/BaseDictionary.xaml" />
+                <ResourceDictionary
+                    Source="../Styles/ColorDictionary.xaml" />
+                <ResourceDictionary
+                    Source="../Styles/TemplateDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <StackPanel
+        Height="40"
+        Orientation="Horizontal"
+        Background="Transparent"
+        Visibility="{Binding Visibility}">
+
+        <Border
+            Width="{StaticResource DoubleMenuMargin}"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+
+            <Image
+                Margin="4"
+                Stretch="Uniform"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Source="/Icons/nemeio-sync.ico" />
+        </Border>
+
+        <TextBlock
+            Margin="15.34,0,0,0"
+            Background="Transparent"
+            Foreground="White"
+            FontSize="12"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Stretch"
+            MaxWidth="146"
+            Text="{Binding Title}" />
+
+        <TextBlock
+            Margin="4,0,0,0"
+            FontSize="10"
+            MaxWidth="45"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Stretch"
+            Foreground="{StaticResource LdlcMustard}"
+            Text="{Binding Progress}" />
+
+    </StackPanel>
+
+</UserControl>

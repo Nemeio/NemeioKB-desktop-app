@@ -1,0 +1,50 @@
+@startuml
+
+skinparam packagestyle frame
+
+' title Nemeio Desktop Application - macOS Assemblies
+
+' package definition
+together {
+package Nemeio.Core #LightYellow
+{
+}
+package Nemeio.Infrastructure #LightPink
+{
+}
+package Nemeio.LayoutGen #LightSalmon
+{ 
+}
+package Nemeio.Api #LightBlue
+{ 
+}
+package Nemeio.Acl #LightGreen
+{ 
+}
+package Nemeio.Presentation #Tan
+{ 
+}
+}
+
+package WKeyboard #Gold
+{
+    note "XCode project" as N
+}
+
+package Nemeio.Mac #Yellow
+{
+}
+
+' dependency graph
+Nemeio.Core <-- Nemeio.Mac : depends
+Nemeio.Infrastructure <-- Nemeio.Mac : depends
+Nemeio.LayoutGen <-- Nemeio.Mac : depends
+Nemeio.Acl <-- Nemeio.Mac : depends
+Nemeio.Presentation <-- Nemeio.Mac : depends
+
+Nemeio.Mac --> WKeyboard : depends
+
+' caption
+caption Nemeio macOS Assemblies
+
+@enduml

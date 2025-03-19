@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+
+    <Configurations>Debug;Release;CliDebug;CliRelease</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="installers\firmware\IT8951_DX_8M_1496x624_6M14T_120MHz_75HZ_LDLC_v.0.3T6" />
+    <None Remove="installers\firmware\LDLC-Karmeliet-0.2.44.11044.sfb" />
+    <None Remove="installers\firmware\manifest.json" />
+    <None Remove="installers\firmware\Nemeio_Keyboard_NRF52_pkg_complete-0.2.43.20176.zip" />
+    <None Remove="Resources\azerty.wallpaper" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="installers\**">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\azerty.wallpaper" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="5.6.0" />
+    <PackageReference Include="Moq" Version="4.10.1" />
+    <PackageReference Include="nunit" Version="3.10.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nemeio.Layout.Builder\Nemeio.Layout.Builder.csproj" />
+    <ProjectReference Include="..\Nemeio.Presentation\Nemeio.Presentation.csproj" />
+  </ItemGroup>
+
+</Project>

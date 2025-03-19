@@ -1,0 +1,12 @@
+@startuml
+
+!include communication.keyboard.selector.puml
+!include communication.keyboard.watcher.puml
+!include communication.keyboard.controller.puml
+!include communication.core.puml
+!include communication.keyboard.puml
+!include communication.keyboard.executor.puml
+!include communication.keyboard.io.puml
+!include communication.command.puml
+
+@enduml

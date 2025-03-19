@@ -1,0 +1,127 @@
+@startuml
+
+    together {
+        
+        package Systems {
+
+            interface ISystemLayoutInteractor {
+
+            }
+
+            interface ISystemLayoutLoaderAdapter {
+
+            }
+
+            interface ISystemActiveLayoutAdapter {
+
+            }
+
+            class System {
+
+                event EventHandler OnSelectedLayoutChanged;
+                event EventHandler OnLayoutsChanged;
+                event EventHandler OnForegroundApplicationChanged;
+
+                Application ForegroundApplication { get; private set; }
+                OsLayoutId SelectedLayout { get; private set; }
+                IList<OsLayoutId> Layouts { get; private set; }
+
+                void EnforceSystemLayout(OsLayoutId targetOsLayoutId);
+                void RestoreDefaultSystemLayout();
+
+            }
+
+            System "0" -- "1" ISystemLayoutLoaderAdapter
+            System "0" -- "1" ISystemActiveLayoutAdapter
+            System "0" -- "1" ISystemLayoutWatcher
+            System "0" -- "1" ISystemActiveLayoutWatcher
+            System "0" -- "1" ISystemLayoutInteractor
+
+            together {
+
+                package Hid {
+
+                    interface ISystemHidAdapter {
+                        void Init();
+                        void LoadKeys();
+                        void SystemLayoutChanged(OsLayoutId layoutId);
+                        void ExecuteKeys(IList<SystemHidKey> keys);
+                        void ReleaseKeys();
+                    }
+
+                    interface ISystemHidInteractor {
+                        void PostHidStringKeys(string[] keys);
+                        void StopSendKey();
+                    }
+
+                    interface ISystemModifierDelegate {
+                        bool IsModifierKey(string key);
+                    }
+
+                    class SystemHidInteractor {
+                        
+                    }
+
+                    class SystemHidKey {
+
+                    }
+
+                    SystemHidInteractor --|> ISystemHidInteractor
+                    SystemHidInteractor "0" -- "1" ISystemHidAdapter
+                    SystemHidInteractor "0" -- "1" ISystemModifierDelegate
+
+                }
+
+            }
+
+            together {
+
+                package Applications {
+
+                    class Application {
+
+                    }
+
+                    interface ISystemForegroundApplicationAdapter {
+
+                    }
+
+                }
+
+            }
+
+            together {
+
+                package Watchers {
+
+                    interface ISystemActiveLayoutWatcher {
+                        OsLayoutId CurrentSystemLayoutId { get; }
+                        event EventHandler OnSystemLayoutChanged;
+                        void CheckActiveAppLayout();
+                    }
+
+                    interface ISystemLayoutWatcher {
+                        event EventHandler LayoutChanged;
+                        IEnumerable<string> Load();
+                    }
+
+                    class SystemActiveLayoutWatcher {
+
+                    }
+
+                    class SystemLayoutWatcher {
+
+                    }
+
+                    SystemActiveLayoutWatcher --|> ISystemActiveLayoutWatcher
+                    SystemLayoutWatcher --|> ISystemLayoutWatcher
+
+                }
+
+            }
+
+        }
+
+    }
+
+@enduml

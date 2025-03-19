@@ -1,0 +1,128 @@
+﻿<Window x:Class="Nemeio.Wpf.Windows.AskAdminRightWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Nemeio.Wpf.ViewModel"
+        xmlns:helpers="clr-namespace:Nemeio.Wpf.Helpers"
+        mc:Ignorable="d"
+        WindowStyle="None" 
+        ResizeMode="NoResize"
+        Width="500"
+        SizeToContent="Height"
+        WindowStartupLocation="CenterScreen" 
+        Title="{Binding ApplicationTitle}"
+        >
+
+    <Window.DataContext>
+        <vm:AskAdminRightViewModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                    Source="../Styles/BaseDictionary.xaml" />
+                <ResourceDictionary
+                    Source="../Styles/ColorDictionary.xaml" />
+                <ResourceDictionary
+                    Source="../Styles/TemplateDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Background="{StaticResource LdlcDarkViolet}"  MouseDown="Grid_MouseDown">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid 
+            Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{StaticResource GridLengthMenuMargin}" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border
+                Grid.Column="0"
+                VerticalAlignment="Stretch"
+                Background="{StaticResource LdlcViolet}">
+                <Image
+                    Margin="15,12,12,12"
+                    Stretch="Uniform"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Source="/Icons/nemeio.ico" />
+            </Border>
+            <StackPanel
+                Grid.Column="1"
+                Orientation="Vertical">
+                <Border
+                    Height="48">
+                    <TextBlock
+                        Text="{Binding Title}"
+                        Foreground="{StaticResource LdlcGreen}"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Stretch"
+                        FontSize="18"
+                        Margin="24,2,0,0" />
+                </Border>
+                <Rectangle
+                    HorizontalAlignment="Stretch"
+                    Fill="White"
+                    Height="2" />
+            </StackPanel>
+        </Grid>
+        <Grid 
+            Grid.Row="1"
+            Margin="16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock 
+                Grid.Row="0"
+                Foreground="White"
+                TextWrapping="Wrap"
+                FontSize="14"
+                Text="{Binding InformationText}" 
+                Margin="16 8" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top"/>
+            <CheckBox 
+                Grid.Row="1" 
+                Foreground="White" 
+                Content="{Binding DoNotAskAnymoreText}" 
+                IsChecked="{Binding DoNotAskAnymore}"
+                Margin="16 8"
+                IsEnabled="{Binding ButtonsEnabled}"/>
+            <Grid 
+                Grid.Row="2" Margin="0,8,0,0"  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="*"/>
+                    <ColumnDefinition  Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button 
+                    Grid.Column="0"
+                    Content="{Binding OkButtonText}"
+                    Style="{StaticResource regularButton}"
+                    FontSize="14"
+                    Foreground="White"
+                    Background="{ StaticResource LdlcViolet }" 
+                    Margin="30,0,15,0" 
+                    Command="{Binding OkCommand }"
+                    IsEnabled="{Binding ButtonsEnabled}"/>
+                <Button 
+                    Grid.Column="1"
+                    Content="{Binding CancelButtonText}"
+                    Style="{StaticResource regularButton}"
+                    FontSize="14"
+                    Foreground="White"
+                    Background="{ StaticResource LdlcViolet }" 
+                    Margin="15,0,30,0"
+                    Command="{Binding CancelCommand}"
+                    IsEnabled="{Binding ButtonsEnabled}"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

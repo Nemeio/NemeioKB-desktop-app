@@ -1,0 +1,222 @@
+﻿<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:uc="clr-namespace:Nemeio.Wpf.UserControls"
+    xmlns:vm="clr-namespace:Nemeio.Wpf.ViewModel">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../Styles/BaseDictionary.xaml" />
+        <ResourceDictionary Source="../Styles/ColorDictionary.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!-- Layout ListBoxStyle -->
+    <Style x:Key="layoutListBox" TargetType="ListBox">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                <ContentPresenter/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <DataTemplate x:Key="layoutTemplate">
+        <uc:LayoutView />
+    </DataTemplate>
+
+    <Style
+        x:Key="focusVisual" />
+
+    <!-- support button specific highlight mechanism -->
+    <Style
+        x:Key="regularButton"
+        TargetType="Button">
+        <Setter
+            Property="OverridesDefaultStyle"
+            Value="True" />
+        <Setter
+            Property="BorderThickness"
+            Value="0" />
+
+        <Setter
+            Property="Template">
+            <Setter.Value>
+                <ControlTemplate
+                    TargetType="Button">
+                    <Border
+                        Name="border"
+                        BorderThickness="0"
+                        Height="40"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center"
+                        Background="{TemplateBinding Background}">
+                        <Grid>
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Name="content" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition
+                                    Property="IsMouseOver"
+                                    Value="True" />
+                                <Condition
+                                    Property="IsEnabled"
+                                    Value="True" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter
+                                    Property="FontWeight"
+                                    Value="Bold" />
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <Trigger
+                            Property="IsPressed"
+                            Value="True">
+                            <Setter
+                                Property="Foreground"
+                                Value="{StaticResource LdlcViolet}" />
+                        </Trigger>
+                        <Trigger
+                            Property="IsPressed"
+                            Value="False">
+                            <Setter
+                                Property="Foreground"
+                                Value="White" />
+                        </Trigger>
+                        <Trigger
+                                Property="IsEnabled"
+                                Value="False">
+                            <Setter
+                                    Property="Opacity"
+                                    Value="{StaticResource DisabledOpacity}" />
+                        </Trigger>
+                        <Trigger
+                                Property="IsEnabled"
+                                Value="True">
+                            <Setter
+                                    Property="Opacity"
+                                    Value="1" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- support configurator button specific highlight mechanism -->
+    <Style
+        x:Key="configuratorButton"
+        TargetType="{x:Type Button}"
+        BasedOn="{StaticResource regularButton}">
+        <Setter
+            Property="Template">
+            <Setter.Value>
+                <ControlTemplate
+                    TargetType="Button">
+                    <Border
+                        Name="border"
+                        BorderThickness="0"
+                        Height="40"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center"
+                        Background="{TemplateBinding Background}">
+                        <Grid>
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Name="content" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition
+                                    Property="IsMouseOver"
+                                    Value="True" />
+                                <Condition
+                                    Property="IsEnabled"
+                                    Value="True" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter
+                                    Property="FontWeight"
+                                    Value="Bold" />
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <Trigger
+                            Property="IsPressed"
+                            Value="True">
+                            <Setter
+                                Property="Foreground"
+                                Value="{StaticResource LdlcViolet}" />
+                        </Trigger>
+                        <Trigger
+                            Property="IsPressed"
+                            Value="False">
+                            <Setter
+                                Property="Foreground"
+                                Value="{StaticResource LdlcGreen}" />
+                        </Trigger>
+                        <Trigger
+                            Property="IsEnabled"
+                            Value="False">
+                            <Setter
+                                Property="Opacity"
+                                Value="{StaticResource DisabledOpacity}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>    
+
+    <!-- Tooltips style -->
+    <Style
+        x:Key="{x:Type ToolTip}"
+        TargetType="ToolTip">
+        <Setter
+            Property="OverridesDefaultStyle"
+            Value="true" />
+        <Setter
+            Property="Foreground"
+            Value="White" />
+        <Setter
+            Property="FontWeight"
+            Value="Regular" />
+        <Setter
+            Property="Template">
+            <Setter.Value>
+                <ControlTemplate
+                    TargetType="ToolTip">
+                    <Border
+                        Name="Border"
+                        BorderThickness="1"
+                        Width="{TemplateBinding Width}"
+                        Height="{TemplateBinding Height}"
+                        Background="{StaticResource LdlcViolet}">
+                        <ContentPresenter
+                            Margin="10,5,10,5"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,27 @@
+@startuml
+
+package "Nemeio.Core" {
+
+    together {
+
+        interface IKeyboardSelector {
+
+        }
+
+        class KeyboardSelector {
+
+        }
+
+    }
+
+}
+
+KeyboardSelector --|> IKeyboardSelector
+
+note top of KeyboardSelector
+  Prend la décision de clavier à utiliser en fonction 
+  des contraintes définies (USB / Bluetooth LE).
+  Peut déconnecter un clavier en fonction de l'arrivé d'un autre.
+end note
+
+@enduml

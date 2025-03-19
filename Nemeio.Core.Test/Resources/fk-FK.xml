@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+  <comment>Loco export of MyProject</comment>
+  <entry key="CommonDay">day</entry>
+  <entry key="CommonHour">hour</entry>
+  <entry key="CommonMinute">minute</entry>
+  <entry key="CommonSecond">second</entry>
+  <entry key="CommonDayGlyph">d</entry>
+  <entry key="CommonHourGlyph">h</entry>
+  <entry key="CommonMinuteGlyph">m</entry>
+  <entry key="CommonSecondGlyph">s</entry>
+  <entry key="BatteryTimeToFull">Total charge</entry>
+  <entry key="BatteryTimeToEmpty">Total discharge</entry>
+  <entry key="ApplicationTitleName">NemeioFakeTranslate</entry>
+  <entry key="ApplicationErrorOpenSoftware">An error occurred when opening the application</entry>
+  <entry key="ApplicationErrorOpenWebsite">An error occurred when opening the website</entry>
+  <entry key="BatteryMessageCurrentLevel">Battery:</entry>
+  <entry key="BatteryMessageLevel">Battery level</entry>
+  <entry key="BatteryMessageNotification">Your battery is low, remember to connect your Nemeio keyboard</entry>
+  <entry key="BatteryTitleNotification">Low battery level</entry>
+  <entry key="CommonButtonQuit">Quit</entry>
+  <entry key="CommonCancel">Cancel</entry>
+  <entry key="CommonNo">No</entry>
+  <entry key="CommonOk">Ok</entry>
+  <entry key="CommonYes">Yes</entry>
+  <entry key="ConfiguratorButtonOpen">Open configurator</entry>
+  <entry key="ConfiguratorErrorUnavailable">The configurator seems unavailable</entry>
+  <entry key="ConfiguratorTitle">Configurator</entry>
+  <entry key="KeyboardMessageMultiple">Several Nemeio keyboards are connected to this computer.</entry>
+  <entry key="KeyboardTitleMultiple">Nemeio keyboard</entry>
+  <entry key="KeychainErrorMessageUserUnauthorized">To operate properly, Nemeio requires access to the KeyChain.</entry>
+  <entry key="UpdatesMessageNotAvailable">No update available</entry>
+</properties>

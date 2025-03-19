@@ -1,0 +1,70 @@
+@startuml
+
+title Base application starting point (Core: common) - Class Diagram
+
+interface IApplicationController {
+  +void Start()
+  +void ShutDown()
+}
+
+class ApplicationController {
+}
+note left #cyan
+	this is the main starting point
+	for application sub-components
+end note
+
+interface ILogger
+interface ILanguageManager
+interface IDisplayController
+interface IConnectionManager
+interface ILayoutManager
+interface IUpdateManager
+interface ISessionLockWatcher
+
+IApplicationController <|-left- ApplicationController : Implement
+
+ApplicationController "1" *-up-- ILogger
+note top
+  to log things
+end note 
+
+ApplicationController "1" *-up-- ILanguageManager
+note top
+  to support
+  multi-lang
+end note  
+
+ApplicationController "1" *-up-- IDisplayController
+note top
+  to support base
+  application display
+  (GUI) communication
+end note
+
+ApplicationController "1" *-up-- IConnectionManager
+note top
+  to support keyboard
+  connection(s)
+end note  
+
+ApplicationController "1" *-down-- ILayoutManager
+note bottom
+  to support synchroniztion 
+  between system layout and
+  keyboard displayed layout
+end note
+
+ApplicationController "1" *-down-- IUpdateManager
+note bottom
+  to support update
+  mechanism
+end note  
+
+ApplicationController "1" *-down-- ISessionLockWatcher
+note bottom
+  mechanism to check for
+  session being locked
+end note  
+
+@enduml

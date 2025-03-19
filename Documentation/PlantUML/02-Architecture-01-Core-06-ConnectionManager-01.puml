@@ -1,0 +1,94 @@
+@startuml
+
+title ConnectionManagerManager (Core: common) - Class Diagram
+
+class ConnectionManager {
+    IDeviceController DeviceControllerInstance { get; }
+    KeyValuePair<ErrorTrace, IDevice>? DeviceConnectionFailure { get; }
+
+    event EventHandler<EventArgs> ConnectionUpdated;
+    event EventHandler<DeviceConnectionFailedEventArgs> DeviceConnectionFailed;
+
+    void Start();
+    void Stop();
+}
+
+interface ILogger {
+}
+note top
+    To log things
+end note
+interface IErrorManager {
+}
+note top
+    To manager errors,
+    and notably connection
+    related errors
+end note
+interface ISystemKeyboardFactory {
+}
+note top
+    To create appropriate
+    system oriented instances
+    of controllers/watchers
+end note
+interface IDeviceControllerBuilder{
+}
+note top
+    To create the appropriate 
+    instance of <i>DeviceController</i>
+    according to target device
+end note
+class KeyboardConnectionSelector {
+    IDevice CurrentCandidate get;
+    event EventHandler<DeviceEventArgs> DeviceChanged;
+
+    void Start();
+    void Stop();
+    void BanDeviceUntilReconnected(string deviceIdentifier)
+}
+note right #cyan
+    In charge of suggesting
+    the next candidate 
+    amongst a list of Usb
+    and Ble device 
+    candidates
+end note 
+class KeyboardConnectionWatcher {
+    IList<IDevice> UsbList get;
+    IList<IDevice> BleList get;
+
+    void Start();
+    void Stop();
+}
+note right #cyan
+    In charge of keeping track of
+    Usb keybiards and Ble keyboards
+    through distinct lists
+end note 
+interface IKeyboardListWatcher {
+    void Start();
+    void Stop();
+}
+abstract class KeyboardListWatcher {
+    void Start();
+    void Stop();
+}
+note right #cyan
+    Abstract implementation
+    which handle list of devices
+end note 
+
+
+ConnectionManager "1" *-up- ILogger 
+ConnectionManager "1" *-up- IErrorManager
+ConnectionManager "1" *-up- ISystemKeyboardFactory
+ConnectionManager "1" *-up- IDeviceControllerBuilder
+ConnectionManager "1" *-down- KeyboardConnectionSelector
+KeyboardConnectionSelector "1" *-down- KeyboardConnectionWatcher
+KeyboardConnectionWatcher -down-|> KeyboardListWatcher
+KeyboardConnectionWatcher "1 - Usb" *-left- IKeyboardListWatcher
+KeyboardConnectionWatcher "1 - Ble" *-left- IKeyboardListWatcher
+KeyboardListWatcher --|> IKeyboardListWatcher : implements
+
+@enduml

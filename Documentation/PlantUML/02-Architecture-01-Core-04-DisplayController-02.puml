@@ -1,0 +1,41 @@
+@startuml
+
+title DisplayController (Core: common) - System implementations
+
+package Core
+{
+    interface IDisplayController {
+    }
+
+    abstract class DisplayController {
+    }
+    note bottom #cyan
+        Shared implementation
+    end note
+}
+
+package macOS {
+    class MacTaskBarProxy{
+    }
+    class MacTaskBar{
+    }
+}
+
+package Windows {
+    class TaskBarIconMenuViewModel {
+    }
+    class TaskBarIconMenuView {
+    }
+}
+
+IDisplayController <|-down- DisplayController
+
+DisplayController <|-left- MacTaskBarProxy
+
+MacTaskBar *-up- MacTaskBarProxy : Mvx.Resolve
+
+DisplayController <|-right- TaskBarIconMenuViewModel
+
+TaskBarIconMenuView *-up- TaskBarIconMenuViewModel : Binding
+
+@enduml

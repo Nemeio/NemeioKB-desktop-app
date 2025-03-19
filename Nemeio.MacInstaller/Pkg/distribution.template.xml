@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<installer-gui-script minSpecVersion="1">
+    <title>$APP_TITLE</title>
+    <license file="LICENSE.html"/>
+    <readme file="README.html"/>
+    <pkg-ref id="$INSTALLER_BUNDLE_ID">
+        <must-close>
+            <app id="$APP_BUNDLE_ID"/>
+        </must-close>
+    </pkg-ref>
+    <options customize="never" require-scripts="false" rootVolumeOnly="true"/>
+    <choices-outline>
+        <line choice="default">
+            <line choice="$INSTALLER_BUNDLE_ID"/>
+        </line>
+    </choices-outline>
+    <choice id="default"/>
+    <choice id="$INSTALLER_BUNDLE_ID" visible="false">
+        <pkg-ref id="$INSTALLER_BUNDLE_ID"/>
+    </choice>
+    <pkg-ref id="$INSTALLER_BUNDLE_ID" version="$APP_VERSION" onConclusion="none">Nemeio.pkg</pkg-ref>
+</installer-gui-script>

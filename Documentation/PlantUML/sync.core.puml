@@ -1,0 +1,41 @@
+@startuml
+
+    class LayoutSynchronizer {
+        IEnumerable<Layout> Layouts { get; }
+        void AddLayout(Layout layout);
+        void RemoveLayout(Layout layout);
+        void UpdateLayout(Layout layout);
+        Task Synchronize();
+    }
+
+    interface ISynchronizerComponent {
+        bool SupportCreation { get; }
+        bool SupportUpdate { get; }
+        bool SupportDeletion { get; }
+        IList<Layout> Load();
+        void Create(Layout layout);
+        void Update(Layout layout);
+        void Delete(Layout layout);
+    }
+
+    class DatabaseComponentSynchronizer {
+
+    }
+
+    class SystemComponentSynchronizer {
+
+    }
+
+    class KeyboardComponentSynchronizer {
+
+    }
+
+    KeyboardComponentSynchronizer --|> ISynchronizerComponent
+    DatabaseComponentSynchronizer --|> ISynchronizerComponent
+    SystemComponentSynchronizer --|> ISynchronizerComponent
+
+    LayoutSynchronizer *-- DatabaseComponentSynchronizer
+    LayoutSynchronizer *-- SystemComponentSynchronizer
+    LayoutSynchronizer *-- KeyboardComponentSynchronizer
+
+@enduml

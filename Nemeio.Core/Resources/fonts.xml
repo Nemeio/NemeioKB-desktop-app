@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<fonts>
+  <font name="NotoSans-Regular.ttf" priority="0">
+    <appearance size="83">
+      <fontSize type="Small" size="26"/>
+      <fontSize type="Medium" size="32"/>
+      <fontSize type="Large" size="37"/>
+    </appearance>
+    <appearance size="75">
+      <fontSize type="Small" size="23"/>
+      <fontSize type="Medium" size="30"/>
+      <fontSize type="Large" size="35"/>
+    </appearance>
+    <appearance size="100">
+      <fontSize type="Small" size="30"/>
+      <fontSize type="Medium" size="37"/>
+      <fontSize type="Large" size="45"/>
+    </appearance>
+    <appearance size="110">
+      <fontSize type="Small" size="33"/>
+      <fontSize type="Medium" size="42"/>
+      <fontSize type="Large" size="50"/>
+    </appearance>
+  </font>
+  <font name="Cairo-Regular.ttf" priority="1">
+    <appearance size="83">
+      <fontSize type="Small" size="19"/>
+      <fontSize type="Medium" size="24"/>
+      <fontSize type="Large" size="28"/>
+    </appearance>
+    <appearance size="75">
+      <fontSize type="Small" size="17"/>
+      <fontSize type="Medium" size="22"/>
+      <fontSize type="Large" size="25"/>
+    </appearance>
+    <appearance size="100">
+      <fontSize type="Small" size="22"/>
+      <fontSize type="Medium" size="28"/>
+      <fontSize type="Large" size="33"/>
+    </appearance>
+    <appearance size="110">
+      <fontSize type="Small" size="24"/>
+      <fontSize type="Medium" size="30"/>
+      <fontSize type="Large" size="36"/>
+    </appearance>
+  </font>
+  <font name="NotoSansJP-Regular.otf" priority="2">
+    <appearance size="83">
+      <fontSize type="Small" size="24"/>
+      <fontSize type="Medium" size="30"/>
+      <fontSize type="Large" size="35"/>
+    </appearance>
+    <appearance size="75">
+      <fontSize type="Small" size="22"/>
+      <fontSize type="Medium" size="27"/>
+      <fontSize type="Large" size="31"/>
+    </appearance>
+    <appearance size="100">
+      <fontSize type="Small" size="29"/>
+      <fontSize type="Medium" size="35"/>
+      <fontSize type="Large" size="41"/>
+    </appearance>
+    <appearance size="110">
+      <fontSize type="Small" size="30"/>
+      <fontSize type="Medium" size="38"/>
+      <fontSize type="Large" size="46"/>
+    </appearance>
+  </font>
+  <font name="NotoSansKR-Regular.otf" priority="3">
+    <appearance size="83">
+      <fontSize type="Small" size="24"/>
+      <fontSize type="Medium" size="30"/>
+      <fontSize type="Large" size="35"/>
+    </appearance>
+    <appearance size="75">
+      <fontSize type="Small" size="22"/>
+      <fontSize type="Medium" size="27"/>
+      <fontSize type="Large" size="31"/>
+    </appearance>
+    <appearance size="100">
+      <fontSize type="Small" size="29"/>
+      <fontSize type="Medium" size="35"/>
+      <fontSize type="Large" size="41"/>
+    </appearance>
+    <appearance size="110">
+      <fontSize type="Small" size="30"/>
+      <fontSize type="Medium" size="38"/>
+      <fontSize type="Large" size="46"/>
+    </appearance>
+  </font>
+  <font name="Roboto-Regular.ttf" priority="4">
+    <appearance size="83">
+      <fontSize type="Small" size="28"/>
+      <fontSize type="Medium" size="37"/>
+      <fontSize type="Large" size="43"/>
+    </appearance>
+    <appearance size="75">
+      <fontSize type="Small" size="26"/>
+      <fontSize type="Medium" size="34"/>
+      <fontSize type="Large" size="39"/>
+    </appearance>
+    <appearance size="100">
+      <fontSize type="Small" size="34"/>
+      <fontSize type="Medium" size="43"/>
+      <fontSize type="Large" size="51"/>
+    </appearance>
+    <appearance size="110">
+      <fontSize type="Small" size="38"/>
+      <fontSize type="Medium" size="47"/>
+      <fontSize type="Large" size="57"/>
+    </appearance>
+  </font>
+  <font name="Rubik-Regular.ttf" priority="5">
+    <appearance size="83">
+      <fontSize type="Small" size="30"/>
+      <fontSize type="Medium" size="37"/>
+      <fontSize type="Large" size="44"/>
+    </appearance>
+    <appearance size="75">
+      <fontSize type="Small" size="27"/>
+      <fontSize type="Medium" size="34"/>
+      <fontSize type="Large" size="40"/>
+    </appearance>
+    <appearance size="100">
+      <fontSize type="Small" size="34"/>
+      <fontSize type="Medium" size="44"/>
+      <fontSize type="Large" size="52"/>
+    </appearance>
+    <appearance size="110">
+      <fontSize type="Small" size="38"/>
+      <fontSize type="Medium" size="48"/>
+      <fontSize type="Large" size="57"/>
+    </appearance>
+  </font>
+  <font name="Arimo-Regular.ttf" priority="6">
+    <appearance size="83">
+      <fontSize type="Small" size="30"/>
+      <fontSize type="Medium" size="39"/>
+      <fontSize type="Large" size="46"/>
+    </appearance>
+    <appearance size="75">
+      <fontSize type="Small" size="26"/>
+      <fontSize type="Medium" size="34"/>
+      <fontSize type="Large" size="41"/>
+    </appearance>
+    <appearance size="100">
+      <fontSize type="Small" size="37"/>
+      <fontSize type="Medium" size="46"/>
+      <fontSize type="Large" size="55"/>
+    </appearance>
+    <appearance size="110">
+      <fontSize type="Small" size="40"/>
+      <fontSize type="Medium" size="49"/>
+      <fontSize type="Large" size="60"/>
+    </appearance>
+  </font>
+  <!-- Emoji Font, always the last one-->
+  <font name="SegoeUISymbol.ttf" priority="99">
+    <appearance size="83">
+      <fontSize type="Small" size="25"/>
+      <fontSize type="Medium" size="32"/>
+      <fontSize type="Large" size="38"/>
+    </appearance>
+    <appearance size="75">
+      <fontSize type="Small" size="24"/>
+      <fontSize type="Medium" size="29"/>
+      <fontSize type="Large" size="34"/>
+    </appearance>
+    <appearance size="100">
+      <fontSize type="Small" size="30"/>
+      <fontSize type="Medium" size="38"/>
+      <fontSize type="Large" size="46"/>
+    </appearance>
+    <appearance size="110">
+      <fontSize type="Small" size="32"/>
+      <fontSize type="Medium" size="42"/>
+      <fontSize type="Large" size="51"/>
+    </appearance>
+  </font>
+</fonts>

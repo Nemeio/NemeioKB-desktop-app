@@ -1,0 +1,59 @@
+@startuml
+
+autonumber
+
+Nemeio -> KeepAliveMonitor : Start
+activate Nemeio
+activate KeepAliveMonitor
+activate KeyboardCommandExecutor
+activate KeyboardIO
+
+KeepAliveMonitor -> KeyboardCommandFactory : Create command associated
+activate KeyboardCommandFactory
+
+KeyboardCommandFactory --> KeepAliveMonitor : Return command
+deactivate KeyboardCommandFactory
+
+KeepAliveMonitor -> KeyboardCommandExecutor : Send Command
+
+KeyboardCommandExecutor -> KeepAliveCommand : Transform command to serial frame
+activate KeepAliveCommand
+
+KeepAliveCommand --> KeyboardCommandExecutor : list of frames
+
+alt successful case
+
+loop foreach frames
+    KeyboardCommandExecutor -> KeyboardIO : Write frame to keyboard
+end
+
+... Wait keyboard's response ...
+
+KeyboardIO --> KeyboardCommandExecutor : Return keyboard response
+
+KeyboardCommandExecutor --> KeepAliveMonitor : Transfer keyboard response
+
+KeepAliveMonitor -> KeepAliveMonitor : Convert response
+deactivate KeepAliveCommand
+
+KeepAliveMonitor -> Nemeio : Notify succeed
+
+else keyboard return error
+
+KeyboardIO --> KeyboardCommandExecutor : Return keyboard response
+
+KeyboardCommandExecutor --> KeepAliveMonitor : Transfer keyboard response
+
+KeepAliveMonitor -> KeepAliveMonitor : Convert response
+
+KeepAliveMonitor -> Nemeio : Notifiy error
+
+else can't write / read on keyboard
+
+KeyboardCommandExecutor --> KeepAliveMonitor : Transfer keyboard error
+
+KeepAliveMonitor -> Nemeio : Notifiy error
+
+end
+
+@enduml

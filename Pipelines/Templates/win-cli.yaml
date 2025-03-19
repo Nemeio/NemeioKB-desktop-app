@@ -1,0 +1,37 @@
+### This template builds the CLI for Windows
+
+parameters:
+- name: 'preBuild'
+  type: stepList
+  default: []
+- name: 'postBuild'
+  type: stepList
+  default: []
+- name: 'checkoutPath'
+  type: string
+  default: 'self'
+
+steps:
+
+- ${{ parameters.preBuild }}
+
+- task: NuGetToolInstaller@1
+  displayName: 'Use NuGet'
+
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    restoreSolution: '${{ parameters.checkoutPath }}/**/$(SolutionFileName)'
+  continueOnError: false
+
+- task: MSBuild@1
+  displayName: 'Build $(SolutionName)'
+  timeoutInMinutes: 20
+  inputs:
+    solution: '${{ parameters.checkoutPath }}/**/$(SolutionFileName)'
+    msbuildLocationMethod: version
+    configuration: '$(BuildConfiguration)'
+    platform: '$(BuildPlatform)'
+    msbuildArguments: "-verbosity:diag"
+
+- ${{ parameters.postBuild }}

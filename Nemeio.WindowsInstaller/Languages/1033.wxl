@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+	<String Id="ID">1033</String>
+  <String Id="LicenseRtf" Overridable="yes">\Licenses\1033.rtf</String>
+  <String Id="WelcomeDlgTitle" Overridable="yes">{\WixUI_Font_Bigger}Welcome to the Nemeio [NemeioAppVersion] installation program</String>
+  <String Id="installer.product.name">Nemeio</String>
+  <String Id="installer.product.description">Nemeio application</String>
+  <String Id="installer.dependencies.dotnetframework">Nemeio requires .NET Framework 4.6.1 or higher.</String>
+  <String Id="installer.error.newerversion">A more recent version of Nemeio is already installed.</String>
+</WixLocalization>

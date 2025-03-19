@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<!--
+ Loco xml export: Java properties XML
+ Project: Débarqué
+ Release: Working copy
+ Locale: fr, French
+ Exported by: clem clement
+ Exported at: Mon, 21 Oct 2019 13:37:41 +0200 
+-->
+<properties>
+	<comment>Loco export of Débarqué</comment>
+	<entry key="CommonDay">jour</entry>
+	<entry key="CommonHour">heure</entry>
+	<entry key="CommonMinute">minute</entry>
+	<entry key="CommonSecond">seconde</entry>
+	<entry key="CommonDayGlyph">j</entry>
+	<entry key="CommonHourGlyph">h</entry>
+	<entry key="CommonMinuteGlyph">m</entry>
+	<entry key="CommonSecondGlyph">s</entry>
+	<entry key="BatteryTimeToFull">Charge complète</entry>
+	<entry key="BatteryTimeToEmpty">Décharge complète</entry>
+	<entry key="ApplicationErrorOpenSoftware">Impossible d'ouverture l'application. Merci de réessayer plus tard.</entry>
+	<entry key="ApplicationErrorOpenWebsite">Impossible d'ouvrir l'URL.</entry>
+	<entry key="ApplicationTitleName">Nemeio</entry>
+	<entry key="AssociatedApplications">App(s) associée(s):</entry>
+	<entry key="BatteryMessageCurrentLevel">Batterie :</entry>
+	<entry key="BatteryMessageLevel">Niveau de batterie</entry>
+	<entry key="BatteryLowLevelMessageNotification">Votre clavier Nemeio va bientôt s'éteindre. Veuillez le brancher à une source d'alimentation.</entry>
+	<entry key="BatteryVeryLowLevelMessageNotification">Votre clavier Nemeio va s'éteindre si vous ne le branchez pas immédiatement à une source d'alimentation.</entry>
+	<entry key="BatteryMessageNotification">Votre batterie est faible, pensez à brancher votre clavier Nemeio</entry>
+	<entry key="BatteryTitleNotification">Niveau de batterie faible</entry>
+	<entry key="CommonButtonQuit">Quitter</entry>
+	<entry key="CommonCancel">Annuler</entry>
+	<entry key="CommonLoading">Chargement en cours ...</entry>
+	<entry key="CommonNo">Non</entry>
+	<entry key="CommonOk">Ok</entry>
+	<entry key="CommonYes">Oui</entry>
+	<entry key="CommonVersion">Version {0}</entry>
+	<entry key="CommonStandard">Standard</entry>
+	<entry key="CommonCustom">Custom</entry>
+	<entry key="CommonConnected">Connecté</entry>
+	<entry key="ConnectionError">La connexion a échoué</entry>
+	<entry key="ConnectionErrorBase">La connexion à &lt;{0}&gt; a échoué</entry>
+	<entry key="ConnectionErrorCommandFailed">Le clavier ne réponds pas à la commande &lt;{0}&gt;</entry>
+	<entry key="ConnectionErrorUnkown">Erreur inconnue. Pile d'erreurs: &lt;{0}&gt;</entry>
+	<entry key="ConnectionMessageAdvice">Essayez de redémarrer votre clavier ou contactez le support si l'erreur persiste</entry>
+	<entry key="ConfiguratorButtonOpen">Ouvrir Keyboard Manager</entry>
+	<entry key="ConfiguratorErrorUnavailable">Le Keyboard Manager semble indisponible</entry>
+	<entry key="ConfiguratorTitle">Keyboard Manager</entry>
+	<entry key="Empty"/>
+	<entry key="FileSelectorTitle">Nemeio</entry>
+	<entry key="FileSelectorMessage">Sélectionnez un emplacement pour l'export du fichier</entry>
+	<entry key="FilePickerMessage">Sélectionnez un fichier</entry>
+	<entry key="KeyboardMessageMultiple">Plusieurs clavier Nemeio sont branchés sur cet ordinateur.</entry>
+	<entry key="KeyboardTitleMultiple">Clavier Nemeio</entry>
+	<entry key="KeychainErrorMessageUserUnauthorized">Pour fonctionner correctement, Nemeio nécessite l'accès au Trousseau d'accès.</entry>
+	<entry key="QuitQuestion">Êtes-vous sur(e)?</entry>
+	<entry key="QuitDisclaimer">Vous ne pourrez plus utiliser pleinement le clavier nemeio</entry>
+	<entry key="SynchronizationCompleteAddedMessage">{0} nouvelle(s) configuration(s) ajoutée(s)</entry>
+	<entry key="SynchronizationCompleteMessage">Synchronisation du clavier terminé:</entry>
+	<entry key="SynchronizationCompleteRemovedMessage">{0} configuration(s) supprimée(s)</entry>
+	<entry key="SynchronizationCompleteTitle">Synchronisation du clavier Nemeio</entry>
+	<entry key="SynchronizationCompleteUpdatedMessage">{0} configuration(s) modifiée(s)</entry>
+	<entry key="SynchronizationLayoutMessage">Synchronisation du clavier en cours</entry>
+	<entry key="SynchronizationLayoutTitle">Synchronisation</entry>
+	<entry key="UpdatesMessageNotAvailable">Aucune mise à jour disponible</entry>
+	<entry key="SelectLanguageTitle">Selectionner une langue</entry>
+	<entry key="SelectLanguageInformationText">Pour votre confort, merci de selectionner une langue</entry>
+	<entry key="SelectLanguageValidButton">Selectionner</entry>
+	<entry key="AskAdminRightTitle">Demande d'accès</entry>
+	<entry key="AskAdminRightInformationText">L'utilisation de votre clavier avec l'application {0} nécessite d'être exécuté en mode administrateur afin d'avoir accès :&#13;- aux configurations personnalisées&#13;- à la fonctionnalité de switch automatique&#13;&#13;Si vous refusez, vous pourrez continuer à utiliser votre clavier sans ces fonctionnalités.</entry>
+	<entry key="AskAdminRightOkButtonText">Accepter </entry>
+	<entry key="AskAdminRightCancelButtonText">Refuser</entry>
+	<entry key="AskAdminRightDoNotAskAnymoreText">Ne plus me demander</entry>
+	<entry key="FactoryResetTitle">Remise à zéro</entry>
+	<entry key="FactoryResetExplanation">La remise à zéro va effacer toutes les configurations et paramètres présent sur votre clavier.</entry>
+	<entry key="FactoryResetValidButtonText">Lancer</entry>
+	<entry key="PackageUpdaterTitle">Mise à jour</entry>
+	<entry key="PackageUpdaterUpdateAvailableTitle">Une mise à jour est disponible</entry>
+	<entry key="PackageUpdaterNoUsbConnectionTitle">Impossible de poursuivre</entry>
+	<entry key="PackageUpdaterNoUsbConnectionSubtitle">Merci de brancher votre clavier Nemeio pour procéder à l'installation</entry>
+	<entry key="PackageUpdaterNoUsbConnectionRetryButton">Continuer</entry>
+	<entry key="PackageUpdaterDownloadTitle">Téléchargement ...</entry>
+	<entry key="PackageUpdaterDownloadEndTitle">Téléchargement terminé !</entry>
+	<entry key="PackageUpdaterDownloadEndSubtitle">La mise à jour a été téléchargée avec succès. Voulez-vous l'installer ?</entry>
+	<entry key="PackageUpdaterDownloadEndCloseButton">Plus tard</entry>
+	<entry key="PackageUpdaterDownloadEndInstallButton">Installer la mise à jour</entry>
+	<entry key="PackageUpdaterErrorTitle">Oups!</entry>
+	<entry key="PackageUpdaterErrorApplicationSubtitle">La mise à jour de votre application Nemeio a échoué, veuillez vous rendre dans la section FAQ pour y remédier.</entry>
+	<entry key="PackageUpdaterErrorEmbeddedSubtitle">La mise à jour de votre clavier Nemeio a échoué, veuillez vous rendre dans la section FAQ pour y remédier.</entry>
+	<entry key="PackageUpdaterErrorCloseButton">Fermer</entry>
+	<entry key="PackageUpdaterInstallingCloseButton">Ok, j'ai compris</entry>
+	<entry key="PackageUpdaterUpdateAvailableDownloadButton">Télécharger</entry>
+	<entry key="PackageUpdaterEmbeddedInstallSucceed">La mise à jour du clavier est un succès !</entry>
+	<entry key="PackageUpdaterUpdatedStateTitle">À jour</entry>
+	<entry key="PackageUpdaterCanBeUpdatedStateTitle">Mise à jour disponible</entry>
+	<entry key="PackageUpdaterNeedToBeUpdatedStateTitle">Mise à jour nécessaire</entry>
+	<entry key="PackageUpdaterCheckingStateTitle">Vérification en cours ...</entry>
+	<entry key="PackageUpdaterErrorStateTitle">Erreur</entry>
+	<entry key="PackageUpdaterInstallingTitle">Installation en cours</entry>
+	<entry key="PackageUpdaterCheckUpdateTitle">Vérification de la mise à jour ...</entry>
+	<entry key="PackageUpdaterSoftwareInstallSucceed">La mise à jour de l'application est un succès !</entry>
+	<entry key="PackageUpdaterSoftwareInstallFailed">La mise à jour n’a pas pu aboutir. Le clavier a restauré la version précédente.</entry>
+	<entry key="CommonClose">Fermer</entry>
+
+	<entry key="PackageUpdaterDesktopAppAvailableUpdateMessage">Une mise à jour est disponible pour votre Nemeio. Veuillez la télécharger et l'installer pour profiter de nouvelles fonctionnalités.</entry>
+	<entry key="PackageUpdaterKeyboardUsbConnectedUpdateMessage">Votre clavier Nemeio n'est plus à jour. Veuillez installer dès maintenant la nouvelle version pour pouvoir continuer à utiliser vos configurations personnalisées et profiter de toutes les fonctionnalités de votre clavier.</entry>
+	<entry key="PackageUpdaterDesktopAppAvailableWithPluggedKeyboardWithInternetAccess">Votre companion Nemeio n'est plus à jour. Veuillez télécharger la dernière mise à jour et l'installer . Vous pourrez alors continuer à utiliser vos configurations personnalisées et profiter de toutes les fonctionnalités de votre clavier.</entry>
+	<entry key="PackageUpdaterDesktopAppAvailableWithPluggedKeyboardWithoutInternetAccess">Votre companion Nemeio n'est plus à jour. Veuillez vous connecter à internet pour télécharger la dernière mise à jour et l'installer.  pour installer dès maintenant la nouvelle version. Vous pourrez alors continuer à utiliser vos configurations personnalisées et profiter de toutes les fonctionnalités de votre clavier.</entry>
+	<entry key="PackageUpdaterInstallingPopUpMessage">Mise à jour de votre clavier Nemeio en cours. Cela peut prendre quelques minutes, merci de ne pas débrancher et éteindre votre clavier Nemeio.</entry>
+
+	<entry key="KeyboardInitFailedModalTitle">L'initialisation à échoué</entry>
+	<entry key="KeyboardInitFailedModalExplanation">L'initialisation de votre clavier Nemeio a échoué. Merci de débrancher et de rebrancher votre clavier pour retenter une connexion. Si le problème persiste merci de contacter le SAV.</entry>
+	<entry key="KeyboardInitFailedModalCloseButtonText">Ok, j'ai compris</entry>
+
+	<entry key="ComponentUnknown">Inconnu</entry>
+	<entry key="ComponentSystem">CPU</entry>
+	<entry key="ComponentFlashMemory">Mémoire flash</entry>
+	<entry key="ComponentFileSystem">Système de fichier</entry>
+	<entry key="ComponentDisplay">Écran</entry>
+	<entry key="ComponentBluetoothLE">NRF</entry>
+	<entry key="ComponentFuelGauge">Gauge</entry>
+
+	<entry key="KeyboardLayoutPrefix">Clavier</entry>
+	<entry key="DevSettingsChangedMessage">Les paramètres de développement ont été mis à jour</entry>
+
+	<entry key="CustomLayoutRemovedByHidDeletion">La suppression des langues {0}{1}{0} a entraîné la désynchronisation des layouts custom suivants {0}{2}.{0} Veuillez remettre la langue système supprimée ou vous rendre dans le configurateur pour les associer à une nouvelle langue et les réactiver.</entry>
+
+</properties>

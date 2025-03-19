@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B02B52F42355E36F00C9878E /* UpdateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B02B52F32355E36F00C9878E /* UpdateInfo.m */; };
+		B02B52F82355E3CF00C9878E /* SoftwareInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B02B52F72355E3CF00C9878E /* SoftwareInfo.m */; };
+		B02B52FD2355EC6000C9878E /* PlatformInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B02B52FC2355EC6000C9878E /* PlatformInfo.m */; };
+		B03CEBF523D1A931007E03C9 /* USBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = B03CEBF423D1A931007E03C9 /* USBDevice.m */; };
+		B05ABAF22356126800C88DF1 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = B05ABAF12356126800C88DF1 /* NSData+MD5.m */; };
+		B0788C2D2350B25600DF7492 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0788C2C2350B25600DF7492 /* AppDelegate.m */; };
+		B0788C2F2350B25800DF7492 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0788C2E2350B25800DF7492 /* Assets.xcassets */; };
+		B0788C352350B25800DF7492 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0788C342350B25800DF7492 /* main.m */; };
+		B0788C402350B55900DF7492 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0788C3F2350B55900DF7492 /* MainViewController.m */; };
+		B0788C452350B5CD00DF7492 /* Fetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B0788C442350B5CD00DF7492 /* Fetcher.m */; };
+		B0F4C47923F2BE9200E21616 /* ErrorMessageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F4C47823F2BE9200E21616 /* ErrorMessageProvider.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B02B52F22355E36100C9878E /* UpdateInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateInfo.h; sourceTree = "<group>"; };
+		B02B52F32355E36F00C9878E /* UpdateInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateInfo.m; sourceTree = "<group>"; };
+		B02B52F62355E3CF00C9878E /* SoftwareInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoftwareInfo.h; sourceTree = "<group>"; };
+		B02B52F72355E3CF00C9878E /* SoftwareInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoftwareInfo.m; sourceTree = "<group>"; };
+		B02B52FB2355EC6000C9878E /* PlatformInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlatformInfo.h; sourceTree = "<group>"; };
+		B02B52FC2355EC6000C9878E /* PlatformInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlatformInfo.m; sourceTree = "<group>"; };
+		B03CEBF323D1A931007E03C9 /* USBDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = USBDevice.h; sourceTree = "<group>"; };
+		B03CEBF423D1A931007E03C9 /* USBDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = USBDevice.m; sourceTree = "<group>"; };
+		B05ABAF02356126800C88DF1 /* NSData+MD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5.h"; sourceTree = "<group>"; };
+		B05ABAF12356126800C88DF1 /* NSData+MD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5.m"; sourceTree = "<group>"; };
+		B0788C282350B25600DF7492 /* Nemeio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nemeio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0788C2B2350B25600DF7492 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B0788C2C2350B25600DF7492 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B0788C2E2350B25800DF7492 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B0788C332350B25800DF7492 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0788C342350B25800DF7492 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B0788C362350B25800DF7492 /* Nemeio_MacAutoInstaller.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nemeio_MacAutoInstaller.entitlements; sourceTree = "<group>"; };
+		B0788C3E2350B54700DF7492 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		B0788C3F2350B55900DF7492 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		B0788C432350B5C100DF7492 /* Fetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fetcher.h; sourceTree = "<group>"; };
+		B0788C442350B5CD00DF7492 /* Fetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fetcher.m; sourceTree = "<group>"; };
+		B0F4C47723F2BE9200E21616 /* ErrorMessageProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorMessageProvider.h; sourceTree = "<group>"; };
+		B0F4C47823F2BE9200E21616 /* ErrorMessageProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorMessageProvider.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B0788C252350B25600DF7492 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B02B52F12355E34500C9878E /* UpdateInfo */ = {
+			isa = PBXGroup;
+			children = (
+				B02B52F22355E36100C9878E /* UpdateInfo.h */,
+				B02B52F32355E36F00C9878E /* UpdateInfo.m */,
+			);
+			path = UpdateInfo;
+			sourceTree = "<group>";
+		};
+		B02B52F52355E3B300C9878E /* SoftwareInfo */ = {
+			isa = PBXGroup;
+			children = (
+				B02B52F62355E3CF00C9878E /* SoftwareInfo.h */,
+				B02B52F72355E3CF00C9878E /* SoftwareInfo.m */,
+			);
+			path = SoftwareInfo;
+			sourceTree = "<group>";
+		};
+		B02B52FA2355EC4F00C9878E /* PlatformInfo */ = {
+			isa = PBXGroup;
+			children = (
+				B02B52FB2355EC6000C9878E /* PlatformInfo.h */,
+				B02B52FC2355EC6000C9878E /* PlatformInfo.m */,
+			);
+			path = PlatformInfo;
+			sourceTree = "<group>";
+		};
+		B03CEBF223D1A918007E03C9 /* USBDevice */ = {
+			isa = PBXGroup;
+			children = (
+				B03CEBF323D1A931007E03C9 /* USBDevice.h */,
+				B03CEBF423D1A931007E03C9 /* USBDevice.m */,
+			);
+			path = USBDevice;
+			sourceTree = "<group>";
+		};
+		B05ABAEF2356125900C88DF1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B05ABAF02356126800C88DF1 /* NSData+MD5.h */,
+				B05ABAF12356126800C88DF1 /* NSData+MD5.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B0788C1F2350B25600DF7492 = {
+			isa = PBXGroup;
+			children = (
+				B0788C2A2350B25600DF7492 /* Nemeio.MacAutoInstaller */,
+				B0788C292350B25600DF7492 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B0788C292350B25600DF7492 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B0788C282350B25600DF7492 /* Nemeio.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B0788C2A2350B25600DF7492 /* Nemeio.MacAutoInstaller */ = {
+			isa = PBXGroup;
+			children = (
+				B0788C2E2350B25800DF7492 /* Assets.xcassets */,
+				B0788C412350B59800DF7492 /* Models */,
+				B0788C3D2350B31100DF7492 /* Controllers */,
+				B05ABAEF2356125900C88DF1 /* Extensions */,
+				B0788C3C2350B27A00DF7492 /* Supported Files */,
+				B0788C362350B25800DF7492 /* Nemeio_MacAutoInstaller.entitlements */,
+				B0788C332350B25800DF7492 /* Info.plist */,
+			);
+			path = Nemeio.MacAutoInstaller;
+			sourceTree = "<group>";
+		};
+		B0788C3C2350B27A00DF7492 /* Supported Files */ = {
+			isa = PBXGroup;
+			children = (
+				B0788C342350B25800DF7492 /* main.m */,
+				B0788C2B2350B25600DF7492 /* AppDelegate.h */,
+				B0788C2C2350B25600DF7492 /* AppDelegate.m */,
+			);
+			path = "Supported Files";
+			sourceTree = "<group>";
+		};
+		B0788C3D2350B31100DF7492 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B0788C3E2350B54700DF7492 /* MainViewController.h */,
+				B0788C3F2350B55900DF7492 /* MainViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B0788C412350B59800DF7492 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B0F4C47623F2BE4700E21616 /* ErrorMessageProvider */,
+				B03CEBF223D1A918007E03C9 /* USBDevice */,
+				B02B52FA2355EC4F00C9878E /* PlatformInfo */,
+				B02B52F52355E3B300C9878E /* SoftwareInfo */,
+				B02B52F12355E34500C9878E /* UpdateInfo */,
+				B0788C422350B5B300DF7492 /* Fetcher */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B0788C422350B5B300DF7492 /* Fetcher */ = {
+			isa = PBXGroup;
+			children = (
+				B0788C432350B5C100DF7492 /* Fetcher.h */,
+				B0788C442350B5CD00DF7492 /* Fetcher.m */,
+			);
+			path = Fetcher;
+			sourceTree = "<group>";
+		};
+		B0F4C47623F2BE4700E21616 /* ErrorMessageProvider */ = {
+			isa = PBXGroup;
+			children = (
+				B0F4C47723F2BE9200E21616 /* ErrorMessageProvider.h */,
+				B0F4C47823F2BE9200E21616 /* ErrorMessageProvider.m */,
+			);
+			path = ErrorMessageProvider;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B0788C272350B25600DF7492 /* Nemeio.MacAutoInstaller */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0788C392350B25800DF7492 /* Build configuration list for PBXNativeTarget "Nemeio.MacAutoInstaller" */;
+			buildPhases = (
+				B0788C242350B25600DF7492 /* Sources */,
+				B0788C252350B25600DF7492 /* Frameworks */,
+				B0788C262350B25600DF7492 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nemeio.MacAutoInstaller;
+			productName = Nemeio.MacAutoInstaller;
+			productReference = B0788C282350B25600DF7492 /* Nemeio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B0788C202350B25600DF7492 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = "Kevin Sibue";
+				TargetAttributes = {
+					B0788C272350B25600DF7492 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+				};
+			};
+			buildConfigurationList = B0788C232350B25600DF7492 /* Build configuration list for PBXProject "Nemeio.MacAutoInstaller" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B0788C1F2350B25600DF7492;
+			productRefGroup = B0788C292350B25600DF7492 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B0788C272350B25600DF7492 /* Nemeio.MacAutoInstaller */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B0788C262350B25600DF7492 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0788C2F2350B25800DF7492 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B0788C242350B25600DF7492 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B02B52FD2355EC6000C9878E /* PlatformInfo.m in Sources */,
+				B0F4C47923F2BE9200E21616 /* ErrorMessageProvider.m in Sources */,
+				B02B52F42355E36F00C9878E /* UpdateInfo.m in Sources */,
+				B0788C352350B25800DF7492 /* main.m in Sources */,
+				B05ABAF22356126800C88DF1 /* NSData+MD5.m in Sources */,
+				B02B52F82355E3CF00C9878E /* SoftwareInfo.m in Sources */,
+				B03CEBF523D1A931007E03C9 /* USBDevice.m in Sources */,
+				B0788C452350B5CD00DF7492 /* Fetcher.m in Sources */,
+				B0788C402350B55900DF7492 /* MainViewController.m in Sources */,
+				B0788C2D2350B25600DF7492 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B0788C372350B25800DF7492 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B0788C382350B25800DF7492 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B0788C3A2350B25800DF7492 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Nemeio.MacAutoInstaller/Nemeio_MacAutoInstaller.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = Q7R7F3ZZDC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Nemeio.MacAutoInstaller/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.29;
+				PRODUCT_BUNDLE_IDENTIFIER = com.witekio.karmeliet.installer;
+				PRODUCT_NAME = Nemeio;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		B0788C3B2350B25800DF7492 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Nemeio.MacAutoInstaller/Nemeio_MacAutoInstaller.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = Q7R7F3ZZDC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Nemeio.MacAutoInstaller/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.29;
+				PRODUCT_BUNDLE_IDENTIFIER = com.witekio.karmeliet.installer;
+				PRODUCT_NAME = Nemeio;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B0788C232350B25600DF7492 /* Build configuration list for PBXProject "Nemeio.MacAutoInstaller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0788C372350B25800DF7492 /* Debug */,
+				B0788C382350B25800DF7492 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0788C392350B25800DF7492 /* Build configuration list for PBXNativeTarget "Nemeio.MacAutoInstaller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0788C3A2350B25800DF7492 /* Debug */,
+				B0788C3B2350B25800DF7492 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B0788C202350B25600DF7492 /* Project object */;
+}

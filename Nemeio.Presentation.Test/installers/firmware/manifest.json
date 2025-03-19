@@ -1,0 +1,14 @@
+{
+  "cpu": {
+    "version": "0.2.44.11044",
+    "name": "LDLC-Karmeliet-0.2.44.11044.sfb"
+  },
+  "ble": {
+    "version": "0.2.43.20176",
+    "name": "Nemeio_Keyboard_NRF52_pkg_complete-0.2.43.20176.zip"
+  },
+  "ite": {
+    "version": "0.3.20.6",
+    "name": "IT8951_DX_8M_1496x624_6M14T_120MHz_75HZ_LDLC_v.0.3T6"
+  }
+}

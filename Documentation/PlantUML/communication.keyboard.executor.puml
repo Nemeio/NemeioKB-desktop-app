@@ -1,0 +1,18 @@
+@startuml
+
+package "Nemeio.Core" {
+
+    interface IKeyboardCommandExecutor {
+        + ExecuteCommand(IKeyboardCommand command) : Task
+    }
+
+    class KeyboardCommandExecutor {
+        - Commands : Queue<IKeyboardCommand>
+    }
+
+}
+
+KeyboardCommandExecutor --|> IKeyboardCommandExecutor
+KeyboardCommandExecutor *-- IKeyboardIO
+
+@enduml

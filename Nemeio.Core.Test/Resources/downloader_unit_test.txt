@@ -1,0 +1,2 @@
+﻿File used for downloader unit test.
+Do not alter name nor content.

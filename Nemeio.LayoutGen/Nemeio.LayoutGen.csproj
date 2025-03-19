@@ -1,0 +1,535 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Nemeio.LayoutGen</RootNamespace>
+    <AssemblyName>Nemeio.LayoutGen</AssemblyName>
+    <Platforms>AnyCPU</Platforms>
+    <Configurations>Debug;CliDebug;Release;CliRelease</Configurations>
+    <OutputPath>bin\$(Configuration)</OutputPath>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CliDebug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CliRelease|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Converters\**" />
+    <EmbeddedResource Remove="Converters\**" />
+    <None Remove="Converters\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Images\001-cool-19.svg" />
+    <None Remove="Resources\Images\001-type.svg" />
+    <None Remove="Resources\Images\002-cool-18.svg" />
+    <None Remove="Resources\Images\002-pen-2.svg" />
+    <None Remove="Resources\Images\003-cool-17.svg" />
+    <None Remove="Resources\Images\003-text.svg" />
+    <None Remove="Resources\Images\004-cool-16.svg" />
+    <None Remove="Resources\Images\004-paint-spray.svg" />
+    <None Remove="Resources\Images\005-cool-15.svg" />
+    <None Remove="Resources\Images\005-share.svg" />
+    <None Remove="Resources\Images\006-cool-14.svg" />
+    <None Remove="Resources\Images\006-select-2.svg" />
+    <None Remove="Resources\Images\007-cool-13.svg" />
+    <None Remove="Resources\Images\007-select-1.svg" />
+    <None Remove="Resources\Images\008-cool-12.svg" />
+    <None Remove="Resources\Images\008-select.svg" />
+    <None Remove="Resources\Images\009-cool-11.svg" />
+    <None Remove="Resources\Images\009-scale.svg" />
+    <None Remove="Resources\Images\010-cool-10.svg" />
+    <None Remove="Resources\Images\010-ruler-1.svg" />
+    <None Remove="Resources\Images\011-happy-17.svg" />
+    <None Remove="Resources\Images\011-ruler.svg" />
+    <None Remove="Resources\Images\012-cool-9.svg" />
+    <None Remove="Resources\Images\012-set-square.svg" />
+    <None Remove="Resources\Images\013-cool-8.svg" />
+    <None Remove="Resources\Images\013-rotation.svg" />
+    <None Remove="Resources\Images\014-cool-7.svg" />
+    <None Remove="Resources\Images\014-rgb.svg" />
+    <None Remove="Resources\Images\015-cool-6.svg" />
+    <None Remove="Resources\Images\015-responsive.svg" />
+    <None Remove="Resources\Images\016-cool-5.svg" />
+    <None Remove="Resources\Images\016-reflection.svg" />
+    <None Remove="Resources\Images\017-cool-4.svg" />
+    <None Remove="Resources\Images\017-pencil.svg" />
+    <None Remove="Resources\Images\018-cool-3.svg" />
+    <None Remove="Resources\Images\018-pen-1.svg" />
+    <None Remove="Resources\Images\019-canvas.svg" />
+    <None Remove="Resources\Images\019-cool-2.svg" />
+    <None Remove="Resources\Images\020-cool-1.svg" />
+    <None Remove="Resources\Images\020-paint-roller.svg" />
+    <None Remove="Resources\Images\021-crying-3.svg" />
+    <None Remove="Resources\Images\021-paint-bucket.svg" />
+    <None Remove="Resources\Images\022-magic-wand.svg" />
+    <None Remove="Resources\Images\022-muted-6.svg" />
+    <None Remove="Resources\Images\023-crying-2.svg" />
+    <None Remove="Resources\Images\023-vector.svg" />
+    <None Remove="Resources\Images\024-crying-1.svg" />
+    <None Remove="Resources\Images\024-lasso.svg" />
+    <None Remove="Resources\Images\025-crying.svg" />
+    <None Remove="Resources\Images\025-grid.svg" />
+    <None Remove="Resources\Images\026-dead-5.svg" />
+    <None Remove="Resources\Images\026-gradient.svg" />
+    <None Remove="Resources\Images\027-dead-4.svg" />
+    <None Remove="Resources\Images\027-eyedropper.svg" />
+    <None Remove="Resources\Images\028-dead-3.svg" />
+    <None Remove="Resources\Images\028-eraser.svg" />
+    <None Remove="Resources\Images\029-dead-2.svg" />
+    <None Remove="Resources\Images\029-graphic-design.svg" />
+    <None Remove="Resources\Images\030-browser.svg" />
+    <None Remove="Resources\Images\030-dead-1.svg" />
+    <None Remove="Resources\Images\031-cutter.svg" />
+    <None Remove="Resources\Images\031-dead.svg" />
+    <None Remove="Resources\Images\032-crop.svg" />
+    <None Remove="Resources\Images\032-sad-7.svg" />
+    <None Remove="Resources\Images\033-cmyk.svg" />
+    <None Remove="Resources\Images\033-happy-16.svg" />
+    <None Remove="Resources\Images\034-paint-brush-1.svg" />
+    <None Remove="Resources\Images\034-sad-6.svg" />
+    <None Remove="Resources\Images\035-paint-brush.svg" />
+    <None Remove="Resources\Images\035-sad-5.svg" />
+    <None Remove="Resources\Images\036-bored.svg" />
+    <None Remove="Resources\Images\036-shapes.svg" />
+    <None Remove="Resources\Images\037-bezier-1.svg" />
+    <None Remove="Resources\Images\037-smile-2.svg" />
+    <None Remove="Resources\Images\038-bezier.svg" />
+    <None Remove="Resources\Images\038-sad-4.svg" />
+    <None Remove="Resources\Images\039-happy-15.svg" />
+    <None Remove="Resources\Images\039-pen.svg" />
+    <None Remove="Resources\Images\040-artboard.svg" />
+    <None Remove="Resources\Images\040-sad-3.svg" />
+    <None Remove="Resources\Images\041-muted-5.svg" />
+    <None Remove="Resources\Images\042-surprised-8.svg" />
+    <None Remove="Resources\Images\043-nervous-3.svg" />
+    <None Remove="Resources\Images\044-muted-4.svg" />
+    <None Remove="Resources\Images\045-muted-3.svg" />
+    <None Remove="Resources\Images\046-happy-14.svg" />
+    <None Remove="Resources\Images\047-thinking-2.svg" />
+    <None Remove="Resources\Images\048-thinking-1.svg" />
+    <None Remove="Resources\Images\049-happy-13.svg" />
+    <None Remove="Resources\Images\050-sad-2.svg" />
+    <None Remove="Resources\Images\051-happy-12.svg" />
+    <None Remove="Resources\Images\052-sceptic-3.svg" />
+    <None Remove="Resources\Images\053-sceptic-2.svg" />
+    <None Remove="Resources\Images\054-happy-11.svg" />
+    <None Remove="Resources\Images\055-shocked-2.svg" />
+    <None Remove="Resources\Images\056-muted-2.svg" />
+    <None Remove="Resources\Images\057-surprised-7.svg" />
+    <None Remove="Resources\Images\058-surprised-6.svg" />
+    <None Remove="Resources\Images\059-happy-10.svg" />
+    <None Remove="Resources\Images\060-smile-1.svg" />
+    <None Remove="Resources\Images\061-happy-9.svg" />
+    <None Remove="Resources\Images\062-smile.svg" />
+    <None Remove="Resources\Images\063-confused.svg" />
+    <None Remove="Resources\Images\064-sceptic-1.svg" />
+    <None Remove="Resources\Images\065-surprised-5.svg" />
+    <None Remove="Resources\Images\066-sick-3.svg" />
+    <None Remove="Resources\Images\067-sick-2.svg" />
+    <None Remove="Resources\Images\068-muted-1.svg" />
+    <None Remove="Resources\Images\069-surprised-4.svg" />
+    <None Remove="Resources\Images\070-happy-8.svg" />
+    <None Remove="Resources\Images\071-sad-1.svg" />
+    <None Remove="Resources\Images\072-happy-7.svg" />
+    <None Remove="Resources\Images\073-surprised-3.svg" />
+    <None Remove="Resources\Images\074-happy-6.svg" />
+    <None Remove="Resources\Images\075-muted.svg" />
+    <None Remove="Resources\Images\076-angry-4.svg" />
+    <None Remove="Resources\Images\077-sceptic.svg" />
+    <None Remove="Resources\Images\078-angry-3.svg" />
+    <None Remove="Resources\Images\079-angry-2.svg" />
+    <None Remove="Resources\Images\080-angry-1.svg" />
+    <None Remove="Resources\Images\081-happy-5.svg" />
+    <None Remove="Resources\Images\082-surprised-2.svg" />
+    <None Remove="Resources\Images\083-angry.svg" />
+    <None Remove="Resources\Images\084-happy-4.svg" />
+    <None Remove="Resources\Images\085-sick-1.svg" />
+    <None Remove="Resources\Images\086-nervous-2.svg" />
+    <None Remove="Resources\Images\087-nervous-1.svg" />
+    <None Remove="Resources\Images\088-sad.svg" />
+    <None Remove="Resources\Images\089-sick.svg" />
+    <None Remove="Resources\Images\090-surprised-1.svg" />
+    <None Remove="Resources\Images\091-happy-3.svg" />
+    <None Remove="Resources\Images\092-nervous.svg" />
+    <None Remove="Resources\Images\093-shocked-1.svg" />
+    <None Remove="Resources\Images\094-happy-2.svg" />
+    <None Remove="Resources\Images\095-shocked.svg" />
+    <None Remove="Resources\Images\096-thinking.svg" />
+    <None Remove="Resources\Images\097-happy-1.svg" />
+    <None Remove="Resources\Images\098-cool.svg" />
+    <None Remove="Resources\Images\099-surprised.svg" />
+    <None Remove="Resources\Images\100-happy.svg" />
+    <None Remove="Resources\Images\arrowDown.svg" />
+    <None Remove="Resources\Images\arrowLeft.svg" />
+    <None Remove="Resources\Images\arrowRight.svg" />
+    <None Remove="Resources\Images\arrowUp.svg" />
+    <None Remove="Resources\Images\backspace.svg" />
+    <None Remove="Resources\Images\capslock.svg" />
+    <None Remove="Resources\Images\cmd.svg" />
+    <None Remove="Resources\Images\default.svg" />
+    <None Remove="Resources\Images\diagonaluparrow.svg" />
+    <None Remove="Resources\Images\hand.svg" />
+    <None Remove="Resources\Images\icoAdd.svg" />
+    <None Remove="Resources\Images\icoArrow.svg" />
+    <None Remove="Resources\Images\icoBattery.svg" />
+    <None Remove="Resources\Images\icoCalendar.svg" />
+    <None Remove="Resources\Images\icoCheck.svg" />
+    <None Remove="Resources\Images\icoClose.svg" />
+    <None Remove="Resources\Images\icoCrayon.svg" />
+    <None Remove="Resources\Images\icoCustomText.svg" />
+    <None Remove="Resources\Images\icoDelete.svg" />
+    <None Remove="Resources\Images\icoDesync.svg" />
+    <None Remove="Resources\Images\icoDl.svg" />
+    <None Remove="Resources\Images\icoEdit.svg" />
+    <None Remove="Resources\Images\icoEnveloppe.svg" />
+    <None Remove="Resources\Images\icoEsc.svg" />
+    <None Remove="Resources\Images\icoExport.svg" />
+    <None Remove="Resources\Images\icoFolder.svg" />
+    <None Remove="Resources\Images\icoGoutte.svg" />
+    <None Remove="Resources\Images\icoHeart.svg" />
+    <None Remove="Resources\Images\icoHeartEmpty.svg" />
+    <None Remove="Resources\Images\icoIcon.svg" />
+    <None Remove="Resources\Images\icoInfos.svg" />
+    <None Remove="Resources\Images\icoKeyboard.svg" />
+    <None Remove="Resources\Images\icoLibrary.svg" />
+    <None Remove="Resources\Images\icoLinkApp.svg" />
+    <None Remove="Resources\Images\icoLogo.svg" />
+    <None Remove="Resources\Images\icoMerge.svg" />
+    <None Remove="Resources\Images\icoMore.svg" />
+    <None Remove="Resources\Images\icoNc.svg" />
+    <None Remove="Resources\Images\icoNd.svg" />
+    <None Remove="Resources\Images\icoNemeio.svg" />
+    <None Remove="Resources\Images\icoNewsletter.svg" />
+    <None Remove="Resources\Images\icoPage.svg" />
+    <None Remove="Resources\Images\icoPhoto.svg" />
+    <None Remove="Resources\Images\icoPipette.svg" />
+    <None Remove="Resources\Images\icoPlume.svg" />
+    <None Remove="Resources\Images\icoPrint.svg" />
+    <None Remove="Resources\Images\icoProgram.svg" />
+    <None Remove="Resources\Images\icoReset.svg" />
+    <None Remove="Resources\Images\icoSales.svg" />
+    <None Remove="Resources\Images\icoSave.svg" />
+    <None Remove="Resources\Images\icoSave1.svg" />
+    <None Remove="Resources\Images\icoSelect.svg" />
+    <None Remove="Resources\Images\icoSettings.svg" />
+    <None Remove="Resources\Images\icoShortcut.svg" />
+    <None Remove="Resources\Images\icoSound.svg" />
+    <None Remove="Resources\Images\icoSouris.svg" />
+    <None Remove="Resources\Images\icoSplit2.svg" />
+    <None Remove="Resources\Images\icoSplit4.svg" />
+    <None Remove="Resources\Images\icoSwitch.svg" />
+    <None Remove="Resources\Images\icoSync.svg" />
+    <None Remove="Resources\Images\icoSyncOk.svg" />
+    <None Remove="Resources\Images\icoUndo.svg" />
+    <None Remove="Resources\Images\icoWarranty.svg" />
+    <None Remove="Resources\Images\icoWindows.svg" />
+    <None Remove="Resources\Images\icoWww.svg" />
+    <None Remove="Resources\Images\maj.svg" />
+    <None Remove="Resources\Images\menu.svg" />
+    <None Remove="Resources\Images\mic.svg" />
+    <None Remove="Resources\Images\moon.svg" />
+    <None Remove="Resources\Images\mute.svg" />
+    <None Remove="Resources\Images\nemeioDesync.svg" />
+    <None Remove="Resources\Images\nemeioSync.svg" />
+    <None Remove="Resources\Images\project.svg" />
+    <None Remove="Resources\Images\return.svg" />
+    <None Remove="Resources\Images\screenshot.svg" />
+    <None Remove="Resources\Images\search.svg" />
+    <None Remove="Resources\Images\soundHigh.svg" />
+    <None Remove="Resources\Images\soundLow.svg" />
+    <None Remove="Resources\Images\sunhigh.svg" />
+    <None Remove="Resources\Images\sunlow.svg" />
+    <None Remove="Resources\Images\tab.svg" />
+    <None Remove="Resources\Images\windows.svg" />
+    <None Remove="Resources\Map\nemeio.eink.xml" />
+    <None Remove="Resources\Map\nemeio.holitech.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-app\CSharp\SonarLint.xml" Link="SonarLint.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\001-cool-19.svg" />
+    <EmbeddedResource Include="Resources\Images\001-type.svg" />
+    <EmbeddedResource Include="Resources\Images\002-cool-18.svg" />
+    <EmbeddedResource Include="Resources\Images\002-pen-2.svg" />
+    <EmbeddedResource Include="Resources\Images\003-cool-17.svg" />
+    <EmbeddedResource Include="Resources\Images\003-text.svg" />
+    <EmbeddedResource Include="Resources\Images\004-cool-16.svg" />
+    <EmbeddedResource Include="Resources\Images\004-paint-spray.svg" />
+    <EmbeddedResource Include="Resources\Images\005-cool-15.svg" />
+    <EmbeddedResource Include="Resources\Images\005-share.svg" />
+    <EmbeddedResource Include="Resources\Images\006-cool-14.svg" />
+    <EmbeddedResource Include="Resources\Images\006-select-2.svg" />
+    <EmbeddedResource Include="Resources\Images\007-cool-13.svg" />
+    <EmbeddedResource Include="Resources\Images\007-select-1.svg" />
+    <EmbeddedResource Include="Resources\Images\008-cool-12.svg" />
+    <EmbeddedResource Include="Resources\Images\008-select.svg" />
+    <EmbeddedResource Include="Resources\Images\009-cool-11.svg" />
+    <EmbeddedResource Include="Resources\Images\009-scale.svg" />
+    <EmbeddedResource Include="Resources\Images\010-cool-10.svg" />
+    <EmbeddedResource Include="Resources\Images\010-ruler-1.svg" />
+    <EmbeddedResource Include="Resources\Images\011-happy-17.svg" />
+    <EmbeddedResource Include="Resources\Images\011-ruler.svg" />
+    <EmbeddedResource Include="Resources\Images\012-cool-9.svg" />
+    <EmbeddedResource Include="Resources\Images\012-set-square.svg" />
+    <EmbeddedResource Include="Resources\Images\013-cool-8.svg" />
+    <EmbeddedResource Include="Resources\Images\013-rotation.svg" />
+    <EmbeddedResource Include="Resources\Images\014-cool-7.svg" />
+    <EmbeddedResource Include="Resources\Images\014-rgb.svg" />
+    <EmbeddedResource Include="Resources\Images\015-cool-6.svg" />
+    <EmbeddedResource Include="Resources\Images\015-responsive.svg" />
+    <EmbeddedResource Include="Resources\Images\016-cool-5.svg" />
+    <EmbeddedResource Include="Resources\Images\016-reflection.svg" />
+    <EmbeddedResource Include="Resources\Images\017-cool-4.svg" />
+    <EmbeddedResource Include="Resources\Images\017-pencil.svg" />
+    <EmbeddedResource Include="Resources\Images\018-cool-3.svg" />
+    <EmbeddedResource Include="Resources\Images\018-pen-1.svg" />
+    <EmbeddedResource Include="Resources\Images\019-canvas.svg" />
+    <EmbeddedResource Include="Resources\Images\019-cool-2.svg" />
+    <EmbeddedResource Include="Resources\Images\020-cool-1.svg" />
+    <EmbeddedResource Include="Resources\Images\020-paint-roller.svg" />
+    <EmbeddedResource Include="Resources\Images\021-crying-3.svg" />
+    <EmbeddedResource Include="Resources\Images\021-paint-bucket.svg" />
+    <EmbeddedResource Include="Resources\Images\022-magic-wand.svg" />
+    <EmbeddedResource Include="Resources\Images\022-muted-6.svg" />
+    <EmbeddedResource Include="Resources\Images\023-crying-2.svg" />
+    <EmbeddedResource Include="Resources\Images\023-vector.svg" />
+    <EmbeddedResource Include="Resources\Images\024-crying-1.svg" />
+    <EmbeddedResource Include="Resources\Images\024-lasso.svg" />
+    <EmbeddedResource Include="Resources\Images\025-crying.svg" />
+    <EmbeddedResource Include="Resources\Images\025-grid.svg" />
+    <EmbeddedResource Include="Resources\Images\026-dead-5.svg" />
+    <EmbeddedResource Include="Resources\Images\026-gradient.svg" />
+    <EmbeddedResource Include="Resources\Images\027-dead-4.svg" />
+    <EmbeddedResource Include="Resources\Images\027-eyedropper.svg" />
+    <EmbeddedResource Include="Resources\Images\028-dead-3.svg" />
+    <EmbeddedResource Include="Resources\Images\028-eraser.svg" />
+    <EmbeddedResource Include="Resources\Images\029-dead-2.svg" />
+    <EmbeddedResource Include="Resources\Images\029-graphic-design.svg" />
+    <EmbeddedResource Include="Resources\Images\030-browser.svg" />
+    <EmbeddedResource Include="Resources\Images\030-dead-1.svg" />
+    <EmbeddedResource Include="Resources\Images\031-cutter.svg" />
+    <EmbeddedResource Include="Resources\Images\031-dead.svg" />
+    <EmbeddedResource Include="Resources\Images\032-crop.svg" />
+    <EmbeddedResource Include="Resources\Images\032-sad-7.svg" />
+    <EmbeddedResource Include="Resources\Images\033-cmyk.svg" />
+    <EmbeddedResource Include="Resources\Images\033-happy-16.svg" />
+    <EmbeddedResource Include="Resources\Images\034-paint-brush-1.svg" />
+    <EmbeddedResource Include="Resources\Images\034-sad-6.svg" />
+    <EmbeddedResource Include="Resources\Images\035-paint-brush.svg" />
+    <EmbeddedResource Include="Resources\Images\035-sad-5.svg" />
+    <EmbeddedResource Include="Resources\Images\036-bored.svg" />
+    <EmbeddedResource Include="Resources\Images\036-shapes.svg" />
+    <EmbeddedResource Include="Resources\Images\037-bezier-1.svg" />
+    <EmbeddedResource Include="Resources\Images\037-smile-2.svg" />
+    <EmbeddedResource Include="Resources\Images\038-bezier.svg" />
+    <EmbeddedResource Include="Resources\Images\038-sad-4.svg" />
+    <EmbeddedResource Include="Resources\Images\039-happy-15.svg" />
+    <EmbeddedResource Include="Resources\Images\039-pen.svg" />
+    <EmbeddedResource Include="Resources\Images\040-artboard.svg" />
+    <EmbeddedResource Include="Resources\Images\040-sad-3.svg" />
+    <EmbeddedResource Include="Resources\Images\041-muted-5.svg" />
+    <EmbeddedResource Include="Resources\Images\042-surprised-8.svg" />
+    <EmbeddedResource Include="Resources\Images\043-nervous-3.svg" />
+    <EmbeddedResource Include="Resources\Images\044-muted-4.svg" />
+    <EmbeddedResource Include="Resources\Images\045-muted-3.svg" />
+    <EmbeddedResource Include="Resources\Images\046-happy-14.svg" />
+    <EmbeddedResource Include="Resources\Images\047-thinking-2.svg" />
+    <EmbeddedResource Include="Resources\Images\048-thinking-1.svg" />
+    <EmbeddedResource Include="Resources\Images\049-happy-13.svg" />
+    <EmbeddedResource Include="Resources\Images\050-sad-2.svg" />
+    <EmbeddedResource Include="Resources\Images\051-happy-12.svg" />
+    <EmbeddedResource Include="Resources\Images\052-sceptic-3.svg" />
+    <EmbeddedResource Include="Resources\Images\053-sceptic-2.svg" />
+    <EmbeddedResource Include="Resources\Images\054-happy-11.svg" />
+    <EmbeddedResource Include="Resources\Images\055-shocked-2.svg" />
+    <EmbeddedResource Include="Resources\Images\056-muted-2.svg" />
+    <EmbeddedResource Include="Resources\Images\057-surprised-7.svg" />
+    <EmbeddedResource Include="Resources\Images\058-surprised-6.svg" />
+    <EmbeddedResource Include="Resources\Images\059-happy-10.svg" />
+    <EmbeddedResource Include="Resources\Images\060-smile-1.svg" />
+    <EmbeddedResource Include="Resources\Images\061-happy-9.svg" />
+    <EmbeddedResource Include="Resources\Images\062-smile.svg" />
+    <EmbeddedResource Include="Resources\Images\063-confused.svg" />
+    <EmbeddedResource Include="Resources\Images\064-sceptic-1.svg" />
+    <EmbeddedResource Include="Resources\Images\065-surprised-5.svg" />
+    <EmbeddedResource Include="Resources\Images\066-sick-3.svg" />
+    <EmbeddedResource Include="Resources\Images\067-sick-2.svg" />
+    <EmbeddedResource Include="Resources\Images\068-muted-1.svg" />
+    <EmbeddedResource Include="Resources\Images\069-surprised-4.svg" />
+    <EmbeddedResource Include="Resources\Images\070-happy-8.svg" />
+    <EmbeddedResource Include="Resources\Images\071-sad-1.svg" />
+    <EmbeddedResource Include="Resources\Images\072-happy-7.svg" />
+    <EmbeddedResource Include="Resources\Images\073-surprised-3.svg" />
+    <EmbeddedResource Include="Resources\Images\074-happy-6.svg" />
+    <EmbeddedResource Include="Resources\Images\075-muted.svg" />
+    <EmbeddedResource Include="Resources\Images\076-angry-4.svg" />
+    <EmbeddedResource Include="Resources\Images\077-sceptic.svg" />
+    <EmbeddedResource Include="Resources\Images\078-angry-3.svg" />
+    <EmbeddedResource Include="Resources\Images\079-angry-2.svg" />
+    <EmbeddedResource Include="Resources\Images\080-angry-1.svg" />
+    <EmbeddedResource Include="Resources\Images\081-happy-5.svg" />
+    <EmbeddedResource Include="Resources\Images\082-surprised-2.svg" />
+    <EmbeddedResource Include="Resources\Images\083-angry.svg" />
+    <EmbeddedResource Include="Resources\Images\084-happy-4.svg" />
+    <EmbeddedResource Include="Resources\Images\085-sick-1.svg" />
+    <EmbeddedResource Include="Resources\Images\086-nervous-2.svg" />
+    <EmbeddedResource Include="Resources\Images\087-nervous-1.svg" />
+    <EmbeddedResource Include="Resources\Images\088-sad.svg" />
+    <EmbeddedResource Include="Resources\Images\089-sick.svg" />
+    <EmbeddedResource Include="Resources\Images\090-surprised-1.svg" />
+    <EmbeddedResource Include="Resources\Images\091-happy-3.svg" />
+    <EmbeddedResource Include="Resources\Images\092-nervous.svg" />
+    <EmbeddedResource Include="Resources\Images\093-shocked-1.svg" />
+    <EmbeddedResource Include="Resources\Images\094-happy-2.svg" />
+    <EmbeddedResource Include="Resources\Images\095-shocked.svg" />
+    <EmbeddedResource Include="Resources\Images\096-thinking.svg" />
+    <EmbeddedResource Include="Resources\Images\097-happy-1.svg" />
+    <EmbeddedResource Include="Resources\Images\098-cool.svg" />
+    <EmbeddedResource Include="Resources\Images\099-surprised.svg" />
+    <EmbeddedResource Include="Resources\Images\100-happy.svg" />
+    <EmbeddedResource Include="Resources\Images\arrowDown.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\arrowLeft.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\arrowRight.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\arrowUp.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\backspace.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\capslock.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\cmd.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\default.svg" />
+    <EmbeddedResource Include="Resources\Images\diagonaluparrow.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\hand.svg" />
+    <EmbeddedResource Include="Resources\Images\icoAdd.svg" />
+    <EmbeddedResource Include="Resources\Images\icoArrow.svg" />
+    <EmbeddedResource Include="Resources\Images\icoBattery.svg" />
+    <EmbeddedResource Include="Resources\Images\icoCalendar.svg" />
+    <EmbeddedResource Include="Resources\Images\icoCheck.svg" />
+    <EmbeddedResource Include="Resources\Images\icoClose.svg" />
+    <EmbeddedResource Include="Resources\Images\icoCrayon.svg" />
+    <EmbeddedResource Include="Resources\Images\icoCustomText.svg" />
+    <EmbeddedResource Include="Resources\Images\icoDelete.svg" />
+    <EmbeddedResource Include="Resources\Images\icoDesync.svg" />
+    <EmbeddedResource Include="Resources\Images\icoDl.svg" />
+    <EmbeddedResource Include="Resources\Images\icoEdit.svg" />
+    <EmbeddedResource Include="Resources\Images\icoEnveloppe.svg" />
+    <EmbeddedResource Include="Resources\Images\icoEsc.svg" />
+    <EmbeddedResource Include="Resources\Images\icoExport.svg" />
+    <EmbeddedResource Include="Resources\Images\icoFolder.svg" />
+    <EmbeddedResource Include="Resources\Images\icoGoutte.svg" />
+    <EmbeddedResource Include="Resources\Images\icoHeart.svg" />
+    <EmbeddedResource Include="Resources\Images\icoHeartEmpty.svg" />
+    <EmbeddedResource Include="Resources\Images\icoIcon.svg" />
+    <EmbeddedResource Include="Resources\Images\icoInfos.svg" />
+    <EmbeddedResource Include="Resources\Images\icoKeyboard.svg" />
+    <EmbeddedResource Include="Resources\Images\icoLibrary.svg" />
+    <EmbeddedResource Include="Resources\Images\icoLinkApp.svg" />
+    <EmbeddedResource Include="Resources\Images\icoLogo.svg" />
+    <EmbeddedResource Include="Resources\Images\icoMerge.svg" />
+    <EmbeddedResource Include="Resources\Images\icoMore.svg" />
+    <EmbeddedResource Include="Resources\Images\icoNc.svg" />
+    <EmbeddedResource Include="Resources\Images\icoNd.svg" />
+    <EmbeddedResource Include="Resources\Images\icoNemeio.svg" />
+    <EmbeddedResource Include="Resources\Images\icoNewsletter.svg" />
+    <EmbeddedResource Include="Resources\Images\icoPage.svg" />
+    <EmbeddedResource Include="Resources\Images\icoPhoto.svg" />
+    <EmbeddedResource Include="Resources\Images\icoPipette.svg" />
+    <EmbeddedResource Include="Resources\Images\icoPlume.svg" />
+    <EmbeddedResource Include="Resources\Images\icoPrint.svg" />
+    <EmbeddedResource Include="Resources\Images\icoProgram.svg" />
+    <EmbeddedResource Include="Resources\Images\icoReset.svg" />
+    <EmbeddedResource Include="Resources\Images\icoSales.svg" />
+    <EmbeddedResource Include="Resources\Images\icoSave.svg" />
+    <EmbeddedResource Include="Resources\Images\icoSave1.svg" />
+    <EmbeddedResource Include="Resources\Images\icoSelect.svg" />
+    <EmbeddedResource Include="Resources\Images\icoSettings.svg" />
+    <EmbeddedResource Include="Resources\Images\icoShortcut.svg" />
+    <EmbeddedResource Include="Resources\Images\icoSound.svg" />
+    <EmbeddedResource Include="Resources\Images\icoSouris.svg" />
+    <EmbeddedResource Include="Resources\Images\icoSplit2.svg" />
+    <EmbeddedResource Include="Resources\Images\icoSplit4.svg" />
+    <EmbeddedResource Include="Resources\Images\icoSwitch.svg" />
+    <EmbeddedResource Include="Resources\Images\icoSync.svg" />
+    <EmbeddedResource Include="Resources\Images\icoSyncOk.svg" />
+    <EmbeddedResource Include="Resources\Images\icoUndo.svg" />
+    <EmbeddedResource Include="Resources\Images\icoWarranty.svg" />
+    <EmbeddedResource Include="Resources\Images\icoWindows.svg" />
+    <EmbeddedResource Include="Resources\Images\icoWww.svg" />
+    <EmbeddedResource Include="Resources\Images\maj.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\menu.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\mic.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\moon.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\mute.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\nemeioDesync.svg" />
+    <EmbeddedResource Include="Resources\Images\nemeioSync.svg" />
+    <EmbeddedResource Include="Resources\Images\project.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\return.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\screenshot.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\search.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\soundHigh.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\soundLow.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\sunhigh.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\sunlow.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\tab.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\windows.svg">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Map\nemeio.eink.xml" />
+    <EmbeddedResource Include="Resources\Map\nemeio.holitech.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SkiaSharp" Version="1.68.3" />
+    <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nemeio.Core\Nemeio.Core.csproj" />
+  </ItemGroup>
+
+</Project>

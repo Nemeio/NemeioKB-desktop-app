@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.121 26.207">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke-width: 0.5px;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #fff;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <g id="Symbole_62_1" data-name="Symbole 62 – 1" transform="translate(-337.439 -711.396)">
+    <g id="sync_1_" transform="translate(289 707)">
+      <path id="Tracé_230" data-name="Tracé 230" class="cls-1" d="M9.091,3.409V0L4.545,4.545,9.091,9.091V5.682A6.841,6.841,0,0,1,15.909,12.5a7.256,7.256,0,0,1-.8,3.182l1.707,1.707A10.15,10.15,0,0,0,18.182,12.5,9.118,9.118,0,0,0,9.091,3.409Zm0,15.909A6.841,6.841,0,0,1,2.273,12.5a7.256,7.256,0,0,1,.8-3.182L1.364,7.611A10.2,10.2,0,0,0,0,12.5a9.118,9.118,0,0,0,9.091,9.091V25l4.545-4.545L9.091,15.909Z" transform="translate(52 5)"/>
+    </g>
+    <line id="Ligne_20" data-name="Ligne 20" class="cls-2" y1="24" x2="24" transform="translate(338.5 712.5)"/>
+  </g>
+</svg>

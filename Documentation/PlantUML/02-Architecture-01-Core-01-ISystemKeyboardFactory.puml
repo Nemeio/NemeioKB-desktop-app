@@ -1,0 +1,62 @@
+@startuml
+
+title ISystemKeyboardFactory (Core: common) - Interface Diagram
+
+interface ISystemKeyboardFactory {
+	IKeyboardComm CreateTypedKeyboardComm(IDevice device, ILayoutManager layoutManager);
+	IKeyboardListWatcher CreateTypedKeyboardListInstance(DeviceCommunicationType type);
+	ILayoutManager CreateLayoutManager(IBlacklistDbRepository blacklistDbRepository, ILayoutCrudManager layoutCrudManager);
+	IOsKeyboardProxy CreateKeyboardProxy(ILayoutManager layoutManager, IDevice device);
+	ISessionLockWatcher CreateSessionLockWatcher(ILayoutManager layoutManager, IConnectionManager connectionManager);
+	IForegroundApplicationWatcher CreateForegroundApplicationWatcher(ILogger logger);
+}
+note left #cyan
+	according to the executing system,
+	this interface instantiate the right
+	implementation of desired interface
+end note
+
+interface IKeyboardComm
+interface IKeyboardListWatcher
+interface ILayoutManager
+interface IOSKeyboardProxy
+interface ISessionLockWatcher
+interface IForegroundApplicationWatcher
+
+ISystemKeyboardFactory -up-> IKeyboardComm: Create
+note top
+  implementation of keyboard communication
+  specific to system (Bluetooth Low Energy)
+end note
+
+ISystemKeyboardFactory -up-> IKeyboardListWatcher: Create
+note top
+  mecanisms to follow connected devices usually
+  specific to system (USB & BLE)
+end note
+
+ISystemKeyboardFactory -up-> ILayoutManager : Create
+note top
+  system definition of layout
+  amongst layout Id
+end note
+
+ISystemKeyboardFactory --> IOSKeyboardProxy : Create
+note bottom
+  the implmentation emulates keyboard events
+  so system specific
+end note	
+
+ISystemKeyboardFactory --> ISessionLockWatcher : Create
+note bottom
+  mecanism to lock/unlock session
+  is very system specific
+end note
+
+ISystemKeyboardFactory --> IForegroundApplicationWatcher : Create
+note bottom
+  mecanism to listen to active application 
+  is also system specific
+end note
+
+@enduml

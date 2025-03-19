@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<!--
+ Loco xml export: Java properties XML
+ Project: Débarqué
+ Release: Working copy
+ Locale: en, English
+ Exported by: clem clement
+ Exported at: Mon, 21 Oct 2019 13:37:41 +0200 
+-->
+<properties>
+	<comment>Loco export of Débarqué</comment>
+	<entry key="CommonDay">day</entry>
+	<entry key="CommonHour">hour</entry>
+	<entry key="CommonMinute">minute</entry>
+	<entry key="CommonSecond">second</entry>
+	<entry key="CommonDayGlyph">d</entry>
+	<entry key="CommonHourGlyph">h</entry>
+	<entry key="CommonMinuteGlyph">m</entry>
+	<entry key="CommonSecondGlyph">s</entry>
+	<entry key="BatteryTimeToFull">Total charge</entry>
+	<entry key="BatteryTimeToEmpty">Total discharge</entry>
+	<entry key="ApplicationErrorOpenSoftware">Unable to open the application. Please try again later.</entry>
+	<entry key="ApplicationErrorOpenWebsite">Unable to open the URL.</entry>
+	<entry key="ApplicationTitleName">Nemeio</entry>
+	<entry key="AssociatedApplications">Associated app(s):</entry>
+	<entry key="BatteryMessageCurrentLevel">Battery:</entry>
+	<entry key="BatteryMessageLevel">Battery level</entry>
+	<entry key="BatteryLowLevelMessageNotification">Your Nemeio keyboard will be shutting down soon. Please connect it to a power source.</entry>
+	<entry key="BatteryVeryLowLevelMessageNotification">Your Nemeio keyboard will shut down if you do not immediately connect it to a power source.</entry>
+	<entry key="BatteryMessageNotification">Your battery is low, remember to connect your Nemeio keyboard</entry>
+	<entry key="BatteryTitleNotification">Low battery level</entry>
+	<entry key="CommonButtonQuit">Quit</entry>
+	<entry key="CommonCancel">Cancel</entry>
+	<entry key="CommonLoading">Loading ...</entry>
+	<entry key="CommonNo">No</entry>
+	<entry key="CommonOk">Ok</entry>
+	<entry key="CommonYes">Yes</entry>
+	<entry key="CommonVersion">Version {0}</entry>
+	<entry key="CommonStandard">Standard</entry>
+	<entry key="CommonCustom">Custom</entry>
+	<entry key="CommonConnected">Connected</entry>
+	<entry key="ConnectionError">Connection failed</entry>
+	<entry key="ConnectionErrorBase">Connection to &lt;{0}&gt; failed</entry>
+	<entry key="ConnectionErrorCommandFailed">The keyboard did not answer to &lt;{0}&gt;</entry>
+	<entry key="ConnectionErrorUnkown">Unknown Error. Stack Trace :&lt;{0}&gt;</entry>
+	<entry key="ConnectionMessageAdvice">Try to restart the keyboard or contact support if error persist</entry>
+	<entry key="ConfiguratorButtonOpen">Open Keyboard Manager</entry>
+	<entry key="ConfiguratorErrorUnavailable">The Keyboard Manager seems unavailable</entry>
+	<entry key="ConfiguratorTitle">Keyboard Manager</entry>
+	<entry key="Empty"/>
+	<entry key="FileSelectorTitle">Nemeio</entry>
+	<entry key="FileSelectorMessage">Select location to export file to</entry>
+	<entry key="FilePickerMessage">Choose a file</entry>
+	<entry key="KeyboardMessageMultiple">Several Nemeio keyboards are connected to this computer.</entry>
+	<entry key="KeyboardTitleMultiple">Nemeio keyboard</entry>
+	<entry key="KeychainErrorMessageUserUnauthorized">To operate properly, Nemeio requires access to the KeyChain.</entry>
+	<entry key="QuitQuestion">Are you sure?</entry>
+	<entry key="QuitDisclaimer">You won't be able to fully use the nemeio keyboard</entry>
+	<entry key="SynchronizationCompleteAddedMessage">{0} new configuration(s) added</entry>
+	<entry key="SynchronizationCompleteMessage">Keyboard synchronization has been completed:</entry>
+	<entry key="SynchronizationCompleteRemovedMessage">{0} configuration(s) removed</entry>
+	<entry key="SynchronizationCompleteTitle">Nemeio Keyboard Synchronization</entry>
+	<entry key="SynchronizationCompleteUpdatedMessage">{0} configuration(s) updated</entry>
+	<entry key="SynchronizationLayoutMessage">Keyboard synchronization in progress</entry>
+	<entry key="SynchronizationLayoutTitle">Synchronizing</entry>
+	<entry key="UpdatesMessageNotAvailable">No update available</entry>
+	<entry key="SelectLanguageTitle">Select your language</entry>
+	<entry key="SelectLanguageInformationText">For your comfort of use, please select a language</entry>
+	<entry key="SelectLanguageValidButton">Select</entry>
+	<entry key="AskAdminRightTitle">Request access</entry>
+	<entry key="AskAdminRightInformationText">The use of your keyboard with the application {0} requires to be executed in administrator mode in order to have access:&#13;- to personalized configurations&#13;- to the automatic switch functionality&#13;&#13;If you deny, you can continue to use your keyboard without these features.</entry>
+	<entry key="AskAdminRightOkButtonText">Accept</entry>
+	<entry key="AskAdminRightCancelButtonText">Deny</entry>
+	<entry key="AskAdminRightDoNotAskAnymoreText">Don't ask me again</entry>
+	<entry key="FactoryResetTitle">Factory reset</entry>
+	<entry key="FactoryResetExplanation">Resetting will erase all the configurations and parameters present on your keyboard.</entry>
+	<entry key="FactoryResetValidButtonText">Start</entry>
+	<entry key="PackageUpdaterTitle">Update</entry>
+	<entry key="PackageUpdaterUpdateAvailableTitle">An update is available</entry>
+	<entry key="PackageUpdaterNoUsbConnectionTitle">Cannot continue</entry>
+	<entry key="PackageUpdaterNoUsbConnectionSubtitle">Please plug in your Nemeio keyboard to proceed with the installation.</entry>
+	<entry key="PackageUpdaterNoUsbConnectionRetryButton">Continue</entry>
+	<entry key="PackageUpdaterDownloadTitle">Downloading ...</entry>
+	<entry key="PackageUpdaterDownloadEndTitle">Download complete!</entry>
+	<entry key="PackageUpdaterDownloadEndSubtitle">The update has been successfully downloaded. Do you want to install it?</entry>
+	<entry key="PackageUpdaterDownloadEndCloseButton">Later</entry>
+	<entry key="PackageUpdaterDownloadEndInstallButton">Install the update</entry>
+	<entry key="PackageUpdaterErrorTitle">Oops!</entry>
+	<entry key="PackageUpdaterErrorApplicationSubtitle">The update of your Nemeio application has failed, please go to the FAQ section to remedy this.</entry>
+	<entry key="PackageUpdaterErrorEmbeddedSubtitle">The update of your Nemeio keyboard has failed, please go to the FAQ section to remedy this.</entry>
+	<entry key="PackageUpdaterErrorCloseButton">Close</entry>
+	<entry key="PackageUpdaterInstallingCloseButton">Ok, I understand</entry>
+	<entry key="PackageUpdaterUpdateAvailableDownloadButton">Download</entry>
+	<entry key="PackageUpdaterEmbeddedInstallSucceed">The keyboard update is a success!</entry>
+	<entry key="PackageUpdaterUpdatedStateTitle">Up to date</entry>
+	<entry key="PackageUpdaterCanBeUpdatedStateTitle">Update available</entry>
+	<entry key="PackageUpdaterNeedToBeUpdatedStateTitle">Update required</entry>
+	<entry key="PackageUpdaterCheckingStateTitle">Checking in progress ...</entry>
+	<entry key="PackageUpdaterErrorStateTitle">Error</entry>
+	<entry key="PackageUpdaterInstallingTitle">Installing</entry>
+	<entry key="PackageUpdaterCheckUpdateTitle">Checking the update ...</entry>
+	<entry key="PackageUpdaterSoftwareInstallSucceed">The application update is a success!</entry>
+	<entry key="PackageUpdaterSoftwareInstallFailed">The update could not be completed. The keyboard restored the previous version.</entry>
+	<entry key="CommonClose">Close</entry>
+
+	<entry key="PackageUpdaterDesktopAppAvailableUpdateMessage">An update is available for your Nemeio. Please download and install it to take advantage of the new features.</entry>
+	<entry key="PackageUpdaterKeyboardUsbConnectedUpdateMessage">Your Nemeio keyboard is no longer up to date. Please install the new version now so that you can continue to use your custom configurations and enjoy the full functionality of your keyboard.</entry>
+	<entry key="PackageUpdaterDesktopAppAvailableWithPluggedKeyboardWithInternetAccess">Your Nemeio company is no longer up to date. Please download the latest update and install it . You can then continue to use your custom configurations and enjoy all the features of your keyboard.</entry>
+	<entry key="PackageUpdaterDesktopAppAvailableWithPluggedKeyboardWithoutInternetAccess">Your Nemeio company is no longer up to date. Please connect to the internet to download the latest update and install it. To install the new version now, please click here. You will then be able to continue to use your custom configurations and enjoy all the features of your keyboard.</entry>
+	<entry key="PackageUpdaterInstallingPopUpMessage">Updating your Nemeio keyboard in progress. This may take a few minutes, please do not unplug and switch off your Nemeio keyboard.</entry>
+
+	<entry key="KeyboardInitFailedModalTitle">Initialization failed</entry>
+	<entry key="KeyboardInitFailedModalExplanation">The initialization of your Nemeio keyboard has failed. Please unplug and replug your keyboard to retry a connection. If the problem persists, please contact our service department.</entry>
+	<entry key="KeyboardInitFailedModalCloseButtonText">Ok, I get it</entry>
+
+	<entry key="ComponentUnknown">Unknown</entry>
+	<entry key="ComponentSystem">CPU</entry>
+	<entry key="ComponentFlashMemory">Flash memory</entry>
+	<entry key="ComponentFileSystem">File system</entry>
+	<entry key="ComponentDisplay">Screen</entry>
+	<entry key="ComponentBluetoothLE">NRF</entry>
+	<entry key="ComponentFuelGauge">Fuel gauge</entry>
+
+	<entry key="KeyboardLayoutPrefix">Keyboard</entry>
+	<entry key="DevSettingsChangedMessage">The development parameters have been updated</entry>
+
+	<entry key="CustomLayoutRemovedByHidDeletion">The removal of the {0}{1}{0} language resulted in the desynchronization of the following custom layouts {0}{2}.{0} Please put the deleted system language back in or go to the configurator to associate them with a new language and re-enable them.</entry>
+
+</properties>

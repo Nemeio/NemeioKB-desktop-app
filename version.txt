@@ -1,0 +1,3 @@
+# When changing major number, you need to remove APP_BUILD_NUMBER line
+
+APP_MAJOR_NUMBER=67

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DeployedProjects>
+    <string>Nemeio.Api\Nemeio.Api.csproj</string>
+    <string>Nemeio.Acl\Nemeio.Acl.csproj</string>
+    <string>Nemeio.Core\Nemeio.Core.csproj</string>
+    <string>Nemeio.Infrastructure\Nemeio.Infrastructure.csproj</string>
+    <string>Nemeio.LayoutGen\Nemeio.LayoutGen.csproj</string>
+    <string>Nemeio.Presentation\Nemeio.Presentation.csproj</string>
+    <string>Nemeio.Wpf\Nemeio.Wpf.csproj</string>
+  </DeployedProjects>
+  <DirectoryMappings>
+    <Item Key="" Value="INSTALLFOLDER" />
+  </DirectoryMappings>
+  <FileMappings />
+  <DeploySymbols>false</DeploySymbols>
+  <DeployLocalizations>false</DeployLocalizations>
+  <DeployExternalLocalizations>false</DeployExternalLocalizations>
+</Configuration>

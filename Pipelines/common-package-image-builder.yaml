@@ -1,0 +1,78 @@
+### This document is the root of the pipeline [Desktop] Package Image Builder
+### It builds the Package Image Builder for Windows and Linux
+### on a schedule (every night) based on what is on the branch develop
+
+name: $(Rev:rrrr)
+
+variables:
+  - group: Common
+  - name: SolutionName
+    value: 'Nemeio'
+  - name: SolutionFileName
+    value: 'Nemeio.sln'
+
+pr: none
+
+trigger:
+  paths:
+    include:
+      - Nemeio.Tools.Image.ImagePackageBuilder
+      - Pipelines/common-package-image-builder.yaml
+      - Pipelines/Templates/package-image-builder.yaml
+
+schedules:
+- cron: "0 0 * * *"
+  displayName: "Daily midnight build"
+  branches:
+    include:
+    - develop
+  always: true
+
+stages:
+- stage: PIB_Build
+  condition: succeeded()
+  jobs:
+  - job: "PIB_Build_Win"
+    variables:
+      BuildConfiguration: 'CliRelease'
+      BuildPlatform: x64
+    pool:
+      vmImage: "windows-2019"
+    steps:
+    - checkout: self
+      persistCredentials: true
+    - template: Templates/package-image-builder.yaml
+      parameters:
+        checkoutPath: "$(Build.SourcesDirectory)"
+    - task: ArchiveFiles@2
+      inputs:
+        rootFolderOrFile: '$(Build.SourcesDirectory)/Nemeio.Tools.Image.ImagePackageBuilder/bin/Debug/net5.0/'
+        includeRootFolder: false
+        archiveType: 'zip'
+        archiveFile: '$(Build.ArtifactStagingDirectory)/ImagePackageBuilder-Windows.zip'
+        verbose: true
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact'
+      inputs:
+        artifactName: "ImagePackageBuilder-Windows"
+
+  - job: "PIB_Build_Linux_Ubuntu"
+    pool:
+      vmImage: "ubuntu-20.04"
+    steps:
+    - checkout: self
+      persistCredentials: true
+    - template: Templates/package-image-builder.yaml
+      parameters:
+        checkoutPath: "$(Build.SourcesDirectory)"
+    - task: ArchiveFiles@2
+      inputs:
+        rootFolderOrFile: '$(Build.SourcesDirectory)/Nemeio.Tools.Image.ImagePackageBuilder/bin/Debug/net5.0/'
+        includeRootFolder: false
+        archiveType: 'zip'
+        archiveFile: '$(Build.ArtifactStagingDirectory)/ImagePackageBuilder-Linux.zip'
+        verbose: true
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact'
+      inputs:
+        artifactName: "ImagePackageBuilder-Linux"

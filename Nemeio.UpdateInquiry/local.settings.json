@@ -1,0 +1,30 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=b2047storageaccount;AccountKey=bE99pHp6r08bCZnrybwLCbEW//NbN4T5jc51xz9ckiWfvkABjBU0AHMwR79RXXiUv1BTEauViPMbpmOLCGUt2A==;EndpointSuffix=core.windows.net",
+    "AzureWebJobsDashboard": "UseDevelopmentStorage=true"
+  },
+  "bindings": [
+    {
+      "name": "blobAddedDevelop",
+      "type": "blobTrigger",
+      "path": "develop/{filename}",
+      "direction": "in",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "name": "blobAddedTesting",
+      "type": "blobTrigger",
+      "path": "testing/{filename}",
+      "direction": "in",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "name": "blobAddedMaster",
+      "type": "blobTrigger",
+      "path": "master/{filename}",
+      "direction": "in",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}

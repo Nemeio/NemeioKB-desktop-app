@@ -1,0 +1,54 @@
+### This document is the root of the pipeline [Desktop] Update Inquiry
+### It builds and pushes the code to the Azure Functions 
+### when there is an update in them in the branch develop
+
+variables: 
+  - group: 'Services'
+  - name: SolutionFileName
+    value: 'Nemeio.sln'
+  - name: BuildPlatform
+    value: 'x64'
+
+trigger: 
+  branches:
+    include:
+    - develop
+  paths:
+      include:
+      - 'Nemeio.UpdateInquiry/'
+
+pr: none
+
+pool:
+    vmImage: "ubuntu-20.04"
+
+steps:
+
+- task: DotNetCoreCLI@2
+  displayName: Restore
+  inputs:
+    command: restore
+    projects: '**/Nemeio.UpdateInquiry.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    command: build
+    projects: '**/Nemeio.UpdateInquiry.csproj'
+    arguments: '--configuration Release'
+
+- task: DotNetCoreCLI@2
+  displayName: Publish
+  inputs:
+    command: 'publish'
+    projects: '**/Nemeio.UpdateInquiry.csproj'
+    publishWebProjects: false
+    zipAfterPublish: true
+
+- task: AzureFunctionApp@1
+  displayName: Deploy to Azure
+  inputs:
+    azureSubscription: $(AzureSubscriptionName)
+    appType: functionAppLinux
+    appName: $(AzureFunctionName)
+    package: $(System.DefaultWorkingDirectory)/**/Nemeio.UpdateInquiry/**/*.zip

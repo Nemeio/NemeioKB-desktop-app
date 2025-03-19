@@ -1,0 +1,36 @@
+@startuml
+
+skinparam packagestyle frame
+
+' title Nemeio Desktop Application - WKeyboard XCode
+
+' package definition
+
+package WKeyboard #Gold
+{
+    note "XCode project" as N
+}
+
+' dependency graph
+
+package WKeyboard #Gold
+{
+
+class NSObject {
+}
+
+class WKeyboard {
++ CFStringRef createStringForKeyWithModifiers(CGKeyCode keyCode, BOOL shift, BOOL altGr);
++ CFStringRef createStringForKey(CGKeyCode keyCode);
++ CGKeyCode keyCodeForChar(const char c);
++ void registerAppAtLogin();
++ void unregisterAppAtLogin();
+}
+
+NSObject <|-- WKeyboard
+}
+
+' caption
+caption Nemeio WKeyboard Assembly
+
+@enduml

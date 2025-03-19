@@ -1,0 +1,35 @@
+@startuml
+
+[*] --> Connected : Keyboard plugged
+
+state Connected {
+
+    [*] --> Init
+    Init --> Ready : KeyboardReady
+    Ready --> Update : UpdateStarted
+
+}
+
+Connected -left-> Disconnecting : Keyboard Unplugged
+
+note right of Connected
+  Dès lors qu'un Nemeio est créer il est dans l'état "Connected"
+end note
+
+note right of Init
+  Il s'agit d'un sous-état de "Connected".
+
+  Dans cette phase on récupère le serialNumber du clavier.
+end note
+
+note right of Ready
+  Le clavier est initialisé.
+  Il est en attente d'une mise à jour.
+end note
+
+note right of Update
+  Lors de cette phase le clavier reçois la mise à 
+  jour des firmwares.
+end note
+
+@enduml

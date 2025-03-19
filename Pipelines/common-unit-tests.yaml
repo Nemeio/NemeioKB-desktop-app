@@ -1,0 +1,113 @@
+### This document is the root of the pipeline [Desktop] Unit Tests
+### It builds and runs the tests and Sonar analysis
+### when there is a PR on develop and on a schedule (every night) based
+### on what is on the branch develop
+
+variables:
+  - group: Common
+  - group: SonarCloud
+  - name: SolutionFileName
+    value: 'Nemeio.sln'
+  - name: BuildConfiguration
+    value: 'WinDebug'
+  - name: BuildPlatform
+    value: x64
+
+trigger: none
+
+pr:
+  branches:
+    include:
+    - develop
+  paths:
+    exclude:
+    - 'Nemeio.WinAutoInstaller/'
+    - 'Nemeio.MacAutoInstaller/'
+    - 'Nemeio.Mac/'
+    - 'Pipelines'
+
+schedules:
+- cron: "0 0 * * *"
+  displayName: "Daily midnight test"
+  branches:
+    include:
+    - develop
+  always: true
+
+pool:
+  vmImage: "windows-2019"
+
+steps:
+- checkout: self
+  submodules: true
+  lfs: true
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: 'Write-Host "##vso[task.setvariable variable=NUGET_PACKAGES;]$(System.DefaultWorkingDirectory)/NugetCache"'
+
+- task: Cache@2
+  inputs:
+    key: NugetCache
+    path: $(System.DefaultWorkingDirectory)/NugetCache
+
+- task: NuGetToolInstaller@1
+  displayName: 'Use NuGet'
+
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    restoreSolution: '**\$(SolutionFileName)'
+
+- task: SonarCloudPrepare@1
+  displayName: 'Prepare SonarCloud analysis'
+  inputs:
+    SonarCloud: 'B2047 - SonarCloud'
+    organization: '$(Organization)'
+    scannerMode: 'MSBuild'
+    projectKey: '$(ProjectKey)'
+    projectName: '$(ProjectName)'
+    projectVersion: '$(Build.BuildNumber)'
+    extraProperties: |
+        sonar.exclusions=**/*.js,**/*.html,**/*.css,Nemeio.Mac/StaticLibrary/WKeyboard.cs,**/*.php,**/*.xml,*/*.Test,**/WKeyboard/**,**/Pipelines/**,**/*.cake,**/*.sh,**/*.bat,**/NugetCache/**
+
+- task: VSBuild@1
+  displayName: 'Build solution **\$(SolutionFileName)'
+  inputs:
+    solution: '**\$(SolutionFileName)'
+    platform: '$(BuildPlatform)'
+    configuration: '$(BuildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: '.NetCore Unit Tests'
+  continueOnError: true
+  inputs:
+    command: test
+    projects: |
+      **\*.Test.csproj
+      !**\Nemeio.Wpf.Test.csproj
+      !**\Nemeio.Mac.Test.csproj
+
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\Nemeio.Wpf.Test\bin\WinDebug\Nemeio.Wpf.Test.dll
+      **\Nemeio.Mac.Test\bin\Debug\Nemeio.Mac.Test.dll
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    pathtoCustomTestAdapters: '$(System.DefaultWorkingDirectory)\NugetCache'
+    otherConsoleOptions: '/Platform:x64'
+
+- task: PublishSymbols@2
+  displayName: 'Publish symbols path'
+  inputs:
+    SearchPattern: '**\bin\**\*.pdb'
+    PublishSymbols: false
+  continueOnError: true
+
+- task: SonarCloudAnalyze@1
+  displayName: 'Run SonarCloud code analysis'
+
+- task: SonarCloudPublish@1
+  displayName: 'Publish SonarCloud quality gate results'

@@ -1,0 +1,920 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<keyboard flipHorizontal="false">
+  <size width="1496" height="624"></size>
+  <buttons>
+    <button x="7" y="8" width="75" height="75">
+      <windows isFirstLine="true" isModifier="true">
+        <keyCode>0x1</keyCode>
+        <displayValue>Esc</displayValue>
+        <dataValue>Esc</dataValue>
+      </windows>
+      <macOS isFirstLine="true" isModifier="true">
+        <keyCode>0x35</keyCode>
+        <displayValue>esc</displayValue>
+        <dataValue>Esc</dataValue>
+      </macOS>
+    </button>
+    <button x="101" y="8" width="75" height="75">
+      <windows isFirstLine="true" isModifier="true">
+        <keyCode>0x3b</keyCode>
+        <displayValue>F1</displayValue>
+        <dataValue>F1</dataValue>
+        <function>
+          <displayValue>mute.svg</displayValue>
+          <dataValue>VolMute</dataValue>
+        </function>
+      </windows>
+      <macOS isFirstLine="true" isModifier="true">
+        <keyCode>0x7A</keyCode>
+        <displayValue>F1</displayValue>
+        <dataValue>F1</dataValue>
+        <function>
+          <displayValue>mute.svg</displayValue>
+          <dataValue>VolMute</dataValue>
+        </function>
+      </macOS>
+    </button>
+    <button x="195" y="8" width="75" height="75">
+      <windows isFirstLine="true" isModifier="true">
+        <keyCode>0x3c</keyCode>
+        <displayValue>F2</displayValue>
+        <dataValue>F2</dataValue>
+        <function>
+          <displayValue>soundLow.svg</displayValue>
+          <dataValue>VolDown</dataValue>
+        </function>
+      </windows>
+      <macOS isFirstLine="true" isModifier="true">
+        <keyCode>0x78</keyCode>
+        <displayValue>F2</displayValue>
+        <dataValue>F2</dataValue>
+        <function>
+          <displayValue>soundLow.svg</displayValue>
+          <dataValue>VolDown</dataValue>
+        </function>
+      </macOS>
+    </button>
+    <button x="289" y="8" width="75" height="75">
+      <windows isFirstLine="true" isModifier="true">
+        <keyCode>0x3d</keyCode>
+        <displayValue>F3</displayValue>
+        <dataValue>F3</dataValue>
+        <function>
+          <displayValue>soundHigh.svg</displayValue>
+          <dataValue>VolUp</dataValue>
+        </function>
+      </windows>
+      <macOS isFirstLine="true" isModifier="true">
+        <keyCode>0x63</keyCode>
+        <displayValue>F3</displayValue>
+        <dataValue>F3</dataValue>
+        <function>
+          <displayValue>soundHigh.svg</displayValue>
+          <dataValue>VolUp</dataValue>
+        </function>
+      </macOS>
+    </button>
+    <button x="383" y="8" width="75" height="75">
+      <windows isFirstLine="true" isModifier="true">
+        <keyCode>0x3e</keyCode>
+        <displayValue>F4</displayValue>
+        <dataValue>F4</dataValue>
+        <function>
+          <displayValue></displayValue>
+          <dataValue></dataValue>
+        </function>
+      </windows>
+      <macOS isFirstLine="true" isModifier="true">
+        <keyCode>0x76</keyCode>
+        <displayValue>F4</displayValue>
+        <dataValue>F4</dataValue>
+        <function>
+          <displayValue></displayValue>
+          <dataValue></dataValue>
+        </function>
+      </macOS>
+    </button>
+    <button x="477" y="8" width="75" height="75" >
+      <windows isFirstLine="true" isModifier="true">
+        <keyCode>0x3f</keyCode>
+        <displayValue>F5</displayValue>
+        <dataValue>F5</dataValue>
+        <function>
+          <displayValue></displayValue>
+          <dataValue></dataValue>
+        </function>
+      </windows>
+      <macOS isFirstLine="true" isModifier="true">
+        <keyCode>0x60</keyCode>
+        <displayValue>F5</displayValue>
+        <dataValue>F5</dataValue>
+        <function>
+          <displayValue></displayValue>
+          <dataValue></dataValue>
+        </function>
+      </macOS>
+    </button>
+    <button x="571" y="8" width="75" height="75" >
+      <windows isFirstLine="true" isModifier="true">
+        <keyCode>0x40</keyCode>
+        <displayValue>F6</displayValue>
+        <dataValue>F6</dataValue>
+        <function>
+          <displayValue></displayValue>
+          <dataValue></dataValue>
+        </function>
+      </windows>
+      <macOS isFirstLine="true" isModifier="true">
+        <keyCode>0x61</keyCode>
+        <displayValue>F6</displayValue>
+        <dataValue>F6</dataValue>
+        <function>
+          <displayValue></displayValue>
+          <dataValue></dataValue>
+        </function>
+      </macOS>
+    </button>
+    <button x="665" y="8" width="75" height="75" >
+      <windows isFirstLine="true" isModifier="true">
+        <keyCode>0x41</keyCode>
+        <displayValue>F7</displayValue>
+        <dataValue>F7</dataValue>
+        <function>
+          <displayValue></displayValue>
+          <dataValue></dataValue>
+        </function>
+      </windows>
+      <macOS isFirstLine="true" isModifier="true">
+        <keyCode>0x62</keyCode>
+        <displayValue>F7</displayValue>
+        <dataValue>F7</dataValue>
+        <function>
+          <displayValue></displayValue>
+          <dataValue></dataValue>
+        </function>
+      </macOS>
+    </button>
+    <button x="759" y="8" width="75" height="75" >
+      <windows isFirstLine="true" isModifier="true">
+        <keyCode>0x42</keyCode>
+        <displayValue>F8</displayValue>
+        <dataValue>F8</dataValue>
+        <function>
+          <displayValue></displayValue>
+          <dataValue></dataValue>
+        </function>
+      </windows>
+      <macOS isFirstLine="true" isModifier="true">
+        <keyCode>0x64</keyCode>
+        <displayValue>F8</displayValue>
+        <dataValue>F8</dataValue>
+        <function>
+          <displayValue></displayValue>
+          <dataValue></dataValue>
+        </function>
+      </macOS>
+    </button>
+    <button x="853" y="8" width="75" height="75" >
+      <windows isFirstLine="true" isModifier="true">
+        <keyCode>0x43</keyCode>
+        <displayValue>F9</displayValue>
+        <dataValue>F9</dataValue>
+        <function>
+          <displayValue>search.svg</displayValue>
+          <dataValue>Search</dataValue>
+        </function>
+      </windows>
+      <macOS isFirstLine="true" isModifier="true">
+        <keyCode>0x65</keyCode>
+        <displayValue>F9</displayValue>
+        <dataValue>F9</dataValue>
+        <function>
+          <displayValue>search.svg</displayValue>
+          <dataValue>Search</dataValue>
+        </function>
+      </macOS>
+    </button>
+    <button x="947" y="8" width="75" height="75" >
+      <windows isFirstLine="true" isModifier="true">
+        <keyCode>0x44</keyCode>
+        <displayValue>F10</displayValue>
+        <dataValue>F10</dataValue>
+        <function>
+          <displayValue></displayValue>
+          <dataValue></dataValue>
+        </function>
+      </windows>
+      <macOS isFirstLine="true" isModifier="true">
+        <keyCode>0x6d</keyCode>
+        <displayValue>F10</displayValue>
+        <dataValue>F10</dataValue>
+        <function>
+          <displayValue></displayValue>
+          <dataValue></dataValue>
+        </function>
+      </macOS>
+    </button>
+    <button x="1041" y="8" width="75" height="75" >
+      <windows isFirstLine="true" isModifier="true">
+        <keyCode>0x57</keyCode>
+        <displayValue>F11</displayValue>
+        <dataValue>F11</dataValue>
+        <function>
+          <displayValue>sunlow.svg</displayValue>
+          <dataValue>LightLow</dataValue>
+        </function>
+      </windows>
+      <macOS isFirstLine="true" isModifier="true">
+        <keyCode>0x67</keyCode>
+        <displayValue>F11</displayValue>
+        <dataValue>F11</dataValue>
+        <function>
+          <displayValue>sunlow.svg</displayValue>
+          <dataValue>LightLow</dataValue>
+        </function>
+      </macOS>
+    </button>
+    <button x="1135" y="8" width="75" height="75" >
+      <windows isFirstLine="true" isModifier="true">
+        <keyCode>0x58</keyCode>
+        <displayValue>F12</displayValue>
+        <dataValue>F12</dataValue>
+        <function>
+          <displayValue>sunhigh.svg</displayValue>
+          <dataValue>LightUp</dataValue>
+        </function>
+      </windows>
+      <macOS isFirstLine="true" isModifier="true">
+        <keyCode>0x6f</keyCode>
+        <displayValue>F12</displayValue>
+        <dataValue>F12</dataValue>
+        <function>
+          <displayValue>sunhigh.svg</displayValue>
+          <dataValue>LightUp</dataValue>
+        </function>
+      </macOS>
+    </button>
+    <button x="1229" y="8" width="75" height="75" >
+      <windows isFirstLine="true" isModifier="true">
+        <keyCode>0x52</keyCode>
+        <displayValue>Inser</displayValue>
+        <dataValue>Ins</dataValue>
+        <function>
+          <displayValue>moon.svg</displayValue>
+          <dataValue>StandBy</dataValue>
+        </function>
+      </windows>
+      <macOS isFirstLine="true" isModifier="true">
+        <keyCode>0x72</keyCode>
+        <displayValue>Inser</displayValue>
+        <dataValue>Ins</dataValue>
+        <function>
+          <displayValue>moon.svg</displayValue>
+          <dataValue>StandBy</dataValue>
+        </function>
+      </macOS>
+    </button>
+    <button x="1323" y="8" width="75" height="75" >
+      <windows isFirstLine="true" isModifier="true">
+        <keyCode>0x54</keyCode>
+        <displayValue>screenshot.svg</displayValue>
+        <dataValue>PRTSC</dataValue>
+      </windows>
+      <macOS isFirstLine="true" isModifier="true">
+        <keyCode>0x44</keyCode>
+        <displayValue>screenshot.svg</displayValue>
+        <dataValue>PRTSC</dataValue>
+      </macOS>
+    </button>
+    <button x="1417" y="8" width="75" height="75" >
+      <windows isFirstLine="true" isModifier="true">
+        <keyCode>0x53</keyCode>
+        <displayValue>Del</displayValue>
+        <dataValue>Del</dataValue>
+      </windows>
+      <macOS isFirstLine="true" isModifier="true">
+        <keyCode>0x33</keyCode>
+        <displayValue>Del</displayValue>
+        <dataValue>Del</dataValue>
+      </macOS>
+    </button>
+    <button x="7" y="120" width="83" height="83" >
+      <windows>
+        <keyCode>0x29</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x32</keyCode>
+      </macOS>
+    </button>
+    <button x="111" y="120" width="83" height="83" >
+      <windows>
+        <keyCode>0x2</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x12</keyCode>
+      </macOS>
+    </button>
+    <button x="215" y="120" width="83" height="83" >
+      <windows>
+        <keyCode>0x3</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x13</keyCode>
+      </macOS>
+    </button>
+    <button x="316" y="120" width="83" height="83" >
+      <windows>
+        <keyCode>0x4</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x14</keyCode>
+      </macOS>
+    </button>
+    <button x="419" y="120" width="83" height="83" >
+      <windows>
+        <keyCode>0x5</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x15</keyCode>
+      </macOS>
+    </button>
+    <button x="522" y="120" width="83" height="83" >
+      <windows>
+        <keyCode>0x6</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x17</keyCode>
+      </macOS>
+    </button>
+    <button x="625" y="120" width="83" height="83" >
+      <windows>
+        <keyCode>0x7</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x16</keyCode>
+      </macOS>
+    </button>
+    <button x="728" y="120" width="83" height="83" >
+      <windows>
+        <keyCode>0x8</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x1a</keyCode>
+      </macOS>
+    </button>
+    <button x="831" y="120" width="83" height="83" >
+      <windows>
+        <keyCode>0x9</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x1c</keyCode>
+      </macOS>
+    </button>
+    <button x="930" y="120" width="83" height="83" >
+      <windows>
+        <keyCode>0xa</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x19</keyCode>
+      </macOS>
+    </button>
+    <button x="1033" y="120" width="83" height="83" >
+      <windows>
+        <keyCode>0xb</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x1d</keyCode>
+      </macOS>
+    </button>
+    <button x="1135" y="120" width="83" height="83" >
+      <windows>
+        <keyCode>0xc</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x1b</keyCode>
+      </macOS>
+    </button>
+    <button x="1238" y="120" width="83" height="83" >
+      <windows>
+        <keyCode>0xd</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x18</keyCode>
+      </macOS>
+    </button>
+    <!-- Backspace -->
+    <button x="1339" y="120" width="166" height="83" >
+      <windows IsModifier="true">
+        <keyCode>0xe</keyCode>
+        <displayValue>backspace.svg</displayValue>
+        <dataValue>BKSP</dataValue>
+      </windows>
+      <macOS>
+        <keyCode>0x75</keyCode>
+        <displayValue>backspace.svg</displayValue>
+        <dataValue>BKSP</dataValue>
+      </macOS>
+    </button>
+    <!-- Tab -->
+    <button x="7" y="222" width="146" height="83" >
+      <windows IsModifier="true">
+        <keyCode>0xf</keyCode>
+        <displayValue>tab.svg</displayValue>
+        <dataValue>Tab</dataValue>
+      </windows>
+      <macOS>
+        <keyCode>0x30</keyCode>
+        <displayValue>tab.svg</displayValue>
+        <dataValue>Tab</dataValue>
+      </macOS>
+    </button>
+    <button x="173" y="222" width="83" height="83" >
+      <windows>
+        <keyCode>0x10</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x0c</keyCode>
+      </macOS>
+    </button>
+    <button x="276" y="222" width="83" height="83" >
+      <windows>
+        <keyCode>0x11</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x0d</keyCode>
+      </macOS>
+    </button>
+    <button x="379" y="222" width="83" height="83" >
+      <windows>
+        <keyCode>0x12</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x0E</keyCode>
+      </macOS>
+    </button>
+    <button x="482" y="222" width="83" height="83" >
+      <windows>
+        <keyCode>0x13</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x0F</keyCode>
+      </macOS>
+    </button>
+    <button x="585" y="222" width="83" height="83" >
+      <windows>
+        <keyCode>0x14</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x11</keyCode>
+      </macOS>
+    </button>
+    <button x="688" y="222" width="83" height="83" >
+      <windows>
+        <keyCode>0x15</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x10</keyCode>
+      </macOS>
+    </button>
+    <button x="791" y="222" width="83" height="83" >
+      <windows>
+        <keyCode>0x16</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x20</keyCode>
+      </macOS>
+    </button>
+    <button x="892" y="222" width="83" height="83" >
+      <windows>
+        <keyCode>0x17</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x22</keyCode>
+      </macOS>
+    </button>
+    <button x="995" y="222" width="83" height="83" >
+      <windows>
+        <keyCode>0x18</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x1f</keyCode>
+      </macOS>
+    </button>
+    <button x="1098" y="222" width="83" height="83" >
+      <windows>
+        <keyCode>0x19</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x23</keyCode>
+      </macOS>
+    </button>
+    <button x="1201" y="222" width="83" height="83" >
+      <windows>
+        <keyCode>0x1a</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x21</keyCode>
+      </macOS>
+    </button>
+    <button x="1304" y="222" width="83" height="83" >
+      <windows>
+        <keyCode>0x1b</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x1e</keyCode>
+      </macOS>
+    </button>
+    <button x="1407" y="222" width="83" height="83" >
+      <windows>
+        <keyCode>0x28</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x27</keyCode>
+      </macOS>
+    </button>
+    <!-- MajLock -->
+    <button x="7" y="325" width="166" height="83" >
+      <windows IsModifier="true">
+        <keyCode>0x3a</keyCode>
+        <displayValue>capslock.svg</displayValue>
+        <dataValue>CapsLock</dataValue>
+      </windows>
+      <macOS>
+        <keyCode>0x39</keyCode>
+      </macOS>
+    </button>
+    <button x="193" y="325" width="83" height="83" >
+      <windows>
+        <keyCode>0x1e</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x00</keyCode>
+      </macOS>
+    </button>
+    <button x="296" y="325" width="83" height="83" >
+      <windows>
+        <keyCode>0x1f</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x01</keyCode>
+      </macOS>
+    </button>
+    <button x="399" y="325" width="83" height="83" >
+      <windows>
+        <keyCode>0x20</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x02</keyCode>
+      </macOS>
+    </button>
+    <button x="502" y="325" width="83" height="83" >
+      <windows>
+        <keyCode>0x21</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x03</keyCode>
+      </macOS>
+    </button>
+    <button x="605" y="325" width="83" height="83" >
+      <windows>
+        <keyCode>0x22</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x05</keyCode>
+      </macOS>
+    </button>
+    <button x="708" y="325" width="83" height="83" >
+      <windows>
+        <keyCode>0x23</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x04</keyCode>
+      </macOS>
+    </button>
+    <button x="811" y="325" width="83" height="83" >
+      <windows>
+        <keyCode>0x24</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x26</keyCode>
+      </macOS>
+    </button>
+    <button x="914" y="325" width="83" height="83" >
+      <windows>
+        <keyCode>0x25</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x28</keyCode>
+      </macOS>
+    </button>
+    <button x="1015" y="325" width="83" height="83" >
+      <windows>
+        <keyCode>0x26</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x25</keyCode>
+      </macOS>
+    </button>
+    <button x="1118" y="325" width="83" height="83" >
+      <windows>
+        <keyCode>0x27</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x29</keyCode>
+      </macOS>
+    </button>
+    <button x="1220" y="325" width="83" height="83" >
+      <windows>
+        <keyCode>0x2b</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x2a</keyCode>
+      </macOS>
+    </button>
+    <!-- Return -->
+    <button x="1323" y="325" width="166" height="83" >
+      <windows IsModifier="true">
+        <keyCode>0x1c</keyCode>
+        <displayValue>return.svg</displayValue>
+        <dataValue>Enter</dataValue>
+      </windows>
+      <macOS>
+        <keyCode>0x24</keyCode>
+        <displayValue>return.svg</displayValue>
+        <dataValue>Enter</dataValue>
+      </macOS>
+    </button>
+    <!-- Left Shift -->
+    <button x="7" y="426" width="146" height="83" >
+      <windows IsModifier="true">
+        <keyCode>0x2a</keyCode>
+        <displayValue>maj.svg</displayValue>
+        <dataValue>Shift</dataValue>
+      </windows>
+      <macOS>
+        <keyCode>0x38</keyCode>
+        <displayValue>maj.svg</displayValue>
+        <dataValue>Shift</dataValue>
+      </macOS>
+    </button>
+    <button x="173" y="426" width="83" height="83" >
+      <windows>
+        <keyCode>0x56</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x0a</keyCode>
+      </macOS>
+    </button>
+    <button x="276" y="426" width="83" height="83" >
+      <windows>
+        <keyCode>0x2c</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x06</keyCode>
+      </macOS>
+    </button>
+    <button x="379" y="426" width="83" height="83" >
+      <windows>
+        <keyCode>0x2d</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x07</keyCode>
+      </macOS>
+    </button>
+    <button x="482" y="426" width="83" height="83" >
+      <windows>
+        <keyCode>0x2e</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x08</keyCode>
+      </macOS>
+    </button>
+    <button x="585" y="426" width="83" height="83" >
+      <windows>
+        <keyCode>0x2f</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x09</keyCode>
+      </macOS>
+    </button>
+    <button x="688" y="426" width="83" height="83" >
+      <windows>
+        <keyCode>0x30</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x0b</keyCode>
+      </macOS>
+    </button>
+    <button x="791" y="426" width="83" height="83" >
+      <windows>
+        <keyCode>0x31</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x2d</keyCode>
+      </macOS>
+    </button>
+    <button x="896" y="426" width="83" height="83" >
+      <windows>
+        <keyCode>0x32</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x2e</keyCode>
+      </macOS>
+    </button>
+    <button x="995" y="426" width="83" height="83" >
+      <windows>
+        <keyCode>0x33</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x2b</keyCode>
+      </macOS>
+    </button>
+    <button x="1098" y="426" width="83" height="83" >
+      <windows>
+        <keyCode>0x34</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x2f</keyCode>
+      </macOS>
+    </button>
+    <button x="1200" y="426" width="83" height="83" >
+      <windows>
+        <keyCode>0x35</keyCode>
+      </windows>
+      <macOS>
+        <keyCode>0x2c</keyCode>
+      </macOS>
+    </button>
+    <button x="1303" y="426" width="83" height="83" >
+      <windows>
+        <keyCode>0x48</keyCode>
+        <displayValue>arrowUp.svg</displayValue>
+        <dataValue>Up</dataValue>
+      </windows>
+      <macOS>
+        <keyCode>0x7e</keyCode>
+        <displayValue>arrowUp.svg</displayValue>
+        <dataValue>Up</dataValue>
+      </macOS>
+    </button>
+    <!-- Right shift -->
+    <button x="1406" y="426" width="83" height="83" >
+      <windows IsModifier="true">
+        <keyCode>0x36</keyCode>
+        <displayValue>maj.svg</displayValue>
+        <dataValue>Shift</dataValue>
+      </windows>
+      <macOS>
+        <keyCode>0x3c</keyCode>
+        <displayValue>maj.svg</displayValue>
+        <dataValue>Shift</dataValue>
+      </macOS>
+    </button>
+    <!-- Control right -->
+    <button x="9" y="530" width="83" height="83" >
+      <windows IsModifier="true">
+        <keyCode>0x1d</keyCode>
+        <displayValue>Ctrl</displayValue>
+        <dataValue>Ctrl</dataValue>
+      </windows>
+      <macOS>
+        <keyCode>0x3f</keyCode>
+        <displayValue>fn</displayValue>
+        <dataValue>Fn</dataValue>
+      </macOS>
+    </button>
+    <!-- Function -->
+    <button x="112" y="530" width="83" height="83" >
+      <windows IsModifier="true">
+        <keyCode>0x0</keyCode>
+        <displayValue>Fn</displayValue>
+        <dataValue>Fn</dataValue>
+      </windows>
+      <macOS>
+        <keyCode>0x3b</keyCode>
+        <displayValue>ctrl</displayValue>
+        <dataValue>Ctrl</dataValue>
+      </macOS>
+    </button>
+    <!-- Windows -->
+    <button x="215" y="530" width="83" height="83" >
+      <windows IsModifier="true">
+        <keyCode>0x5b</keyCode>
+        <displayValue>windows.svg</displayValue>
+        <dataValue>Os</dataValue>
+      </windows>
+      <macOS>
+        <keyCode>0x3a</keyCode>
+        <displayValue>alt</displayValue>
+        <dataValue>Alt</dataValue>
+      </macOS>
+    </button>
+    <!-- Alt -->
+    <button x="317" y="530" width="83" height="83" >
+      <windows IsModifier="true">
+        <keyCode>0x38</keyCode>
+        <displayValue>Alt</displayValue>
+        <dataValue>Alt</dataValue>
+      </windows>
+      <macOS>
+        <keyCode>0x37</keyCode>
+        <displayValue>cmd.svg</displayValue>
+        <dataValue>Cmd</dataValue>
+      </macOS>
+    </button>
+    <button x="420" y="530" width="495" height="83" >
+      <windows>
+        <keyCode>0x39</keyCode>
+        <displayValue></displayValue>
+        <dataValue></dataValue>
+      </windows>
+      <macOS>
+        <keyCode>0x31</keyCode>
+        <displayValue></displayValue>
+        <dataValue></dataValue>
+      </macOS>
+    </button>
+    <!-- AltGr -->
+    <button x="945" y="530" width="83" height="83" >
+      <windows IsModifier="true">
+        <keyCode>0xa5</keyCode>
+        <displayValue>AltGr</displayValue>
+        <dataValue>AltGr</dataValue>
+      </windows>
+      <macOS>
+        <keyCode>0x93</keyCode>
+        <displayValue>cmd.svg</displayValue>
+        <dataValue>Cmd</dataValue>
+      </macOS>
+    </button>
+    <!-- Control Left -->
+    <button x="1048" y="530" width="83" height="83" >
+      <windows IsModifier="true">
+        <keyCode>0xa3</keyCode>
+        <displayValue>Ctrl</displayValue>
+        <dataValue>Ctrl</dataValue>
+        <function>
+          <displayValue>menu.svg</displayValue>
+          <dataValue>Menu</dataValue>
+        </function>
+      </windows>
+      <macOS>
+        <keyCode>0x3d</keyCode>
+        <displayValue>alt</displayValue>
+        <dataValue>AltGr</dataValue>
+      </macOS>
+    </button>
+    <button x="1203" y="530" width="83" height="83" >
+      <windows>
+        <keyCode>0x4b</keyCode>
+        <displayValue>arrowLeft.svg</displayValue>
+        <dataValue>Left</dataValue>
+        <function>
+          <displayValue>diagonaluparrow.svg</displayValue>
+          <dataValue>Start</dataValue>
+        </function>
+      </windows>
+      <macOS>
+        <keyCode>0x7b</keyCode>
+        <displayValue>arrowLeft.svg</displayValue>
+        <dataValue>Left</dataValue>
+        <function>
+          <displayValue>diagonaluparrow.svg</displayValue>
+          <dataValue>Start</dataValue>
+        </function>
+      </macOS>
+    </button>
+    <button x="1307" y="530" width="83" height="83" >
+      <windows >
+        <keyCode>0x50</keyCode>
+        <displayValue>arrowDown.svg</displayValue>
+        <dataValue>Down</dataValue>
+      </windows>
+      <macOS>
+        <keyCode>0x7d</keyCode>
+        <displayValue>arrowDown.svg</displayValue>
+        <dataValue>Down</dataValue>
+      </macOS>
+    </button>
+    <button x="1407" y="530" width="83" height="83" >
+      <windows >
+        <keyCode>0x4d</keyCode>
+        <displayValue>arrowRight.svg</displayValue>
+        <dataValue>Right</dataValue>
+        <function>
+          <displayValue>End</displayValue>
+          <dataValue>End</dataValue>
+        </function>
+      </windows>
+      <macOS>
+        <keyCode>0x7c</keyCode>
+        <displayValue>arrowRight.svg</displayValue>
+        <dataValue>Right</dataValue>
+        <function>
+          <displayValue>End</displayValue>
+          <dataValue>End</dataValue>
+        </function>
+      </macOS>
+    </button>
+  </buttons>
+</keyboard>

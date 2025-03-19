@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+
+  <?if $(var.Platform) = x64 ?>
+  <?define PRODUCT_DESCRIPTION = "!(loc.installer.product.description) (x64)" ?>
+  <?define IsWin64 = "yes" ?>
+  <?define PlatformProgramFilesFolder = "ProgramFiles64Folder" ?>
+  <?define ARCH_DEPS = $(var.ProjectDir)Dependencies\x64\ ?>
+  <?else?>
+  <?define PRODUCT_DESCRIPTION = "!(loc.installer.product.description) (x86)" ?>
+  <?define IsWin64 = "no" ?>
+  <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
+  <?define ARCH_DEPS = $(var.ProjectDir)Dependencies\x86\ ?>
+  <?endif?>
+
+  <?define DepsCommon = "$(var.ProjectDir)..\Nemeio.Wpf\bin\$(var.Platform)\$(var.Configuration)" ?>
+  <?define DepsVCRedist = "$(var.ProjectDir)Dependencies\vcredist\" ?>
+
+  <?define PRODUCT_NAME = "!(loc.installer.product.name)" ?>
+  <?define COMPANY_NAME = "Nemeio" ?>
+  <?define CA.CreateLaunchTask_TargetDir=$(var.ProjectDir)CustomActions\bin\$(var.Configuration)\CustomActions.CA.dll?>
+
+  <?define PRODUCT_VERSION = "!(bind.FileVersion.Nemeio.exe)" ?>
+  <Product Id="*"
+           Name="$(var.PRODUCT_NAME)"
+           Language="!(loc.ID)"
+           Version="$(var.PRODUCT_VERSION)"
+           Manufacturer="$(var.COMPANY_NAME)"
+           UpgradeCode="0342A2A8-9122-421C-8334-4607E888DB7B">
+
+    <Package Platform="$(var.Platform)"
+             InstallerVersion="301"
+             Compressed="yes"
+             Languages="!(loc.ID)"
+             InstallScope="perMachine"
+             InstallPrivileges="elevated" />
+
+	<MediaTemplate EmbedCab="yes"/>
+
+    <!-- DowngradeErrorMessage="!(loc.installer.error.newerversion)" -->
+    <!-- Rule for version control -->
+    <MajorUpgrade AllowDowngrades="yes"/>
+
+    <Icon Id="app.ico"
+          SourceFile="$(var.ProjectDir)..\icon-nemeio-ico-48.ico" />
+
+    <!-- .NET Framework -->
+    <PropertyRef Id="WIX_IS_NETFRAMEWORK_461_OR_LATER_INSTALLED" />
+    <Condition Message="!(loc.installer.dependencies.dotnetframework)">
+      <![CDATA[Installed OR WIX_IS_NETFRAMEWORK_461_OR_LATER_INSTALLED]]>
+    </Condition>
+
+    <!-- Check Plateform -->
+    <?if $(var.Platform) = x86 ?>
+    <Condition Message="This application is only supported on 32-bit systems.">
+      <![CDATA[Installed OR (VersionNT64 = undefined)]]>
+    </Condition>
+    <?endif?>
+
+    <!-- Add app icon on program list -->
+    <Property Id="ARPPRODUCTICON" Value="app.ico" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch $(var.PRODUCT_NAME)" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
+    <Property Id="WixShellExecTarget" Value="[INSTALLFOLDER]\Nemeio.exe" />
+    <Property Id="NemeioAppVersion">$(var.PRODUCT_VERSION)</Property>
+
+    <Feature Id="VCRedist" Title="Visual C++ Redist" AllowAdvertise="no" Display="hidden" Level="1">
+        <ComponentGroupRef Id="VCRedist" />
+    </Feature>
+
+    <Feature Id="ProductFeature" Title="Nemeio.WindowsInstaller" Level="1">
+
+        <!-- Hanlde application component dependencies and split -->
+        <ComponentGroupRef Id="CommonComponentGroup" />
+
+        <!-- Support of StartMenu shortcut declaration -->
+        <ComponentRef Id="StartMenuShortcutComponent" />
+
+        <!-- Support of Desktop shortcut declaration -->
+        <ComponentRef Id="DesktopShortcutComponent" />
+
+        <!-- Support of Startup shortcut declaration for automation-->
+        <ComponentRef Id="StartupShortcutComponent" />
+
+    </Feature>
+
+    <Binary Id="CustomActions.CA.dll"
+            SourceFile="$(var.CA.CreateLaunchTask_TargetDir)" />
+
+    <WixVariable Id="WixUICostingPopupOptOut"
+                 Value="0" />
+
+    <UI>
+      <UIRef Id="WixUI_NemeioCustom" />
+
+      <!-- Add checkbox : Launch app -->
+      <Publish Dialog="ExitDialog"
+               Control="Finish"
+               Event="DoAction"
+               Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+    </UI>
+
+    <CustomAction Id="LaunchApplication"
+                  BinaryKey="WixCA"
+                  DllEntry="WixShellExec" />
+
+    <CustomAction Id="RemoveTask"
+                  Return="check"
+                  Execute="deferred"
+                  BinaryKey="CustomActions.CA.dll"
+                  DllEntry="RemoveScheduleTask"
+                  Impersonate="no"/>
+
+    <CustomAction Id="RemoveApplicationData"
+                  Return="check"
+                  Execute="deferred"
+                  BinaryKey="CustomActions.CA.dll"
+                  DllEntry="RemoveApplicationData"
+                  Impersonate="no"/>
+
+    <CustomAction Id="RemoveLeftOverFiles"
+                  Return="check"
+                  Execute="deferred"
+                  BinaryKey="CustomActions.CA.dll"
+                  DllEntry="RemoveLeftOverFiles"
+                  Impersonate="no"/>
+
+    <CustomAction Id="Nemeio.TaskKill"
+                  Return="check"
+                  Execute="deferred"
+                  BinaryKey="CustomActions.CA.dll"
+                  DllEntry="CloseProcesses"
+                  Impersonate="no"/>
+	  
+	<CustomAction Id="InstallVCRedistributable"
+                  FileKey="VCREDISEXE"
+                  ExeCommand="/install /passive /norestart"
+                  Execute="commit"
+                  Impersonate="no"
+                  Return="asyncNoWait" />
+	  
+	<!-- Add VC++ Redistribuable to installer -->
+	<ComponentGroup Id="VCRedist" Directory="VCREDISTDIR">
+	    <?if $(var.IsWin64) = "yes" ?>
+        <Component Id="vc_redist.x64.exe" Guid="{AFF56A37-B922-4024-B5AB-F29476BBE699}" Win64="yes">
+            <File Id="VCREDISEXE" Name="vc_redist.x64.exe" KeyPath="yes" Source="$(var.DepsVCRedist)" Checksum="yes"></File>
+        </Component>
+        <?else?>
+        <Component Id="vc_redist.x86.exe" Guid="{AFF56A37-B922-4024-B5AB-F29476BBE699}" Win64="no">
+            <File Id="VCREDISEXE" Name="vc_redist.x86.exe" KeyPath="yes" Source="$(var.DepsVCRedist)" Checksum="yes"></File>
+        </Component>
+        <?endif?>
+    </ComponentGroup>
+
+    <!-- Execute Custom action on this order -->
+    <InstallExecuteSequence>
+        <Custom Action='Nemeio.TaskKill' Before='RemoveFiles'>Installed OR WIX_UPGRADE_DETECTED OR PATCH</Custom>
+		<!-- Install VCRedist when install -->
+	    <Custom Action="InstallVCRedistributable" Before="InstallFinalize"><![CDATA[NOT Installed]]></Custom>
+        <Custom Action="RemoveTask" Before="InstallFinalize">(NOT UPGRADINGPRODUCTCODE) AND (REMOVE="ALL")</Custom>
+        <Custom Action="RemoveApplicationData" Before="InstallFinalize">(NOT UPGRADINGPRODUCTCODE) AND (REMOVE="ALL")</Custom>
+        <Custom Action="RemoveLeftOverFiles" Before="InstallFinalize">(NOT UPGRADINGPRODUCTCODE) AND (REMOVE="ALL")</Custom>
+    </InstallExecuteSequence>
+
+    <!-- Add shortcut on Start Program -->
+    <DirectoryRef Id="StartMenuShortcutFolder">
+        <Component Id="StartMenuShortcutComponent"
+                    Guid="FF28DE88-D46D-47DD-A251-52259C9C27F4">
+        <Shortcut Id="StartMenuShortcut"
+                    Name="$(var.PRODUCT_NAME)"
+                    Description="$(var.PRODUCT_DESCRIPTION)"
+                    Target="[INSTALLFOLDER]\Nemeio.exe"
+                    WorkingDirectory="INSTALLFOLDER"
+                    Icon ="app.ico" />
+        <RemoveFolder Id="RemoveStartMenuShortcutFolder"
+                        Directory="StartMenuShortcutFolder"
+                        On="uninstall" />
+        <RegistryValue Root="HKCU"
+                        Key="Software\$(var.PRODUCT_NAME)>"
+                        Name="installed"
+                        Type="integer"
+                        Value="1"
+                        KeyPath="yes" />
+        </Component>
+    </DirectoryRef>
+
+    <!-- Add shortcut on Desktop -->
+    <DirectoryRef Id="DesktopShortcutFolder">
+      <Component Id="DesktopShortcutComponent"
+                 Guid="E480FB85-A40B-424F-9F24-78439168B5C1">
+        <Shortcut Id="DesktopShortcut"
+                  Name="$(var.PRODUCT_NAME)"
+                  Description="$(var.PRODUCT_DESCRIPTION)"
+                  Target="[INSTALLFOLDER]\Nemeio.exe"
+                  WorkingDirectory="INSTALLFOLDER"
+                  Icon ="app.ico"/>
+        <RemoveFolder Id="RemoveDesktopShortcutFolder"
+                      Directory="DesktopShortcutFolder"
+                      On="uninstall" />
+        <RegistryValue Root="HKCU"
+                       Key="Software\$(var.PRODUCT_NAME)"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <!-- Add shortcut on Startup -->
+    <DirectoryRef Id="StartupShortcutFolder">
+        <Component Id="StartupShortcutComponent" Guid="85A23C24-4104-43CA-81C0-3496B5D60803">
+            <Shortcut Id="StartupShortcut" Name="$(var.PRODUCT_NAME)" Description="$(var.PRODUCT_DESCRIPTION)" Target="[INSTALLFOLDER]\Nemeio.exe" WorkingDirectory="INSTALLFOLDER" Icon ="app.ico"/>
+            <RemoveFolder Id="RemoveStartupShortcutFolder" Directory="StartupShortcutFolder" On="uninstall" />
+            <RegistryValue Root="HKCU" Key="Software\$(var.PRODUCT_NAME)" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+        </Component>
+    </DirectoryRef>
+
+  </Product>
+
+  <Fragment>
+	  
+    <Directory Id="TARGETDIR" Name="SourceDir">
+		
+	    <Directory Id="VCREDISTDIR" Name="VCRedist">
+        </Directory>
+
+        <!-- base application installation -->
+        <Directory Id="$(var.PlatformProgramFilesFolder)">
+            <Directory Id="INSTALLFOLDER" Name="$(var.PRODUCT_NAME)" />
+        </Directory>
+
+        <!-- Manage Desktop shortcut -->
+        <Directory Id="DesktopFolder">
+            <Directory Id="DesktopShortcutFolder" />
+        </Directory>
+
+        <!-- Manage StartMenu shortcut -->
+        <Directory Id="ProgramMenuFolder">
+            <Directory Id="StartMenuShortcutFolder" />
+        </Directory>
+
+        <!-- Manage Startup shortcut -->
+        <Directory Id="StartupFolder">
+            <Directory Id="StartupShortcutFolder" />
+        </Directory>
+
+    </Directory>
+
+  </Fragment>
+	
+</Wix>

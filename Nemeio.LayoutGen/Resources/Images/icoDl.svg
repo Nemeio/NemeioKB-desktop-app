@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.75 25">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Symbole_61_2" data-name="Symbole 61 – 2" transform="translate(-170.5 -710.5)">
+    <g id="Groupe_437" data-name="Groupe 437" transform="translate(171 717.5)">
+      <g id="Groupe_436" data-name="Groupe 436">
+        <path id="Tracé_304" data-name="Tracé 304" class="cls-1" d="M18.125,153.6H13.781v1.25H17.5v15H1.25v-15H4.99V153.6H.625a.623.623,0,0,0-.625.625v16.25a.623.623,0,0,0,.625.625h17.5a.623.623,0,0,0,.625-.625v-16.25A.623.623,0,0,0,18.125,153.6Z" transform="translate(0 -153.6)"/>
+      </g>
+    </g>
+    <g id="Groupe_439" data-name="Groupe 439" transform="translate(176.002 711)">
+      <g id="Groupe_438" data-name="Groupe 438">
+        <path id="Tracé_305" data-name="Tracé 305" class="cls-1" d="M111.021,11.436a.625.625,0,0,0-.884-.01l-2.69,2.632V.625a.625.625,0,0,0-1.25,0V14.058l-2.686-2.632a.625.625,0,0,0-.874.894l3.75,3.667a.625.625,0,0,0,.884-.01l3.74-3.657A.629.629,0,0,0,111.021,11.436Z" transform="translate(-102.45)"/>
+      </g>
+    </g>
+  </g>
+</svg>

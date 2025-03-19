@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Nemeio.Tools.LayoutConverter": {
+      "commandName": "Project",
+      "commandLineArgs": "-folder \"C:\\Temp\\Nemeio\\Test\" -id \"67896332\" -format \"1bpp\" -type \"classic\""
+    }
+  }
+}

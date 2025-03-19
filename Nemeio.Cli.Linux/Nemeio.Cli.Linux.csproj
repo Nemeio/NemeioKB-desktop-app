@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <Configurations>Debug;Release;CliDebug;CliRelease</Configurations>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+    <StartupObject>Nemeio.Cli.Linux.Program</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="UsbEventWatcher.Linux.so" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-app\CSharp\SonarLint.xml" Link="SonarLint.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="UsbEventWatcher.Linux.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nemeio.Cli\Nemeio.Cli.csproj" />
+    <ProjectReference Include="..\Nemeio.Keyboard.Communication.Linux\Nemeio.Keyboard.Communication.Linux.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Nemeio.Wpf.Styles">
+    <!-- Base LDLC colors -->
+    <SolidColorBrush x:Key="LdlcViolet"         Color="#FF6D42C9" />
+    <SolidColorBrush x:Key="LdlcDarkViolet"     Color="#FF1A1230" />
+    <SolidColorBrush x:Key="LdlcGreen"          Color="#FF4DF1A6" />
+    <SolidColorBrush x:Key="LdlcMustard"        Color="#FFFFC400" />
+    <SolidColorBrush x:Key="LdlcDarkGray"       Color="#FF2F2F2F" />
+    <SolidColorBrush x:Key="LdlcGray"           Color="#FF9F9F9F" />
+    <SolidColorBrush x:Key="LdlcDarkShadow"     Color="#00000076" />
+    <SolidColorBrush x:Key="LdlcShadow"         Color="#00000029" />
+    <SolidColorBrush x:Key="LdlcBlue"           Color="#FF0082FC" />
+    <SolidColorBrush x:Key="LdlcRed"            Color="#FFDC143C" />
+</ResourceDictionary>

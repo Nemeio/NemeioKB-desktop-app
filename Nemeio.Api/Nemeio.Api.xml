@@ -1,0 +1,487 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Nemeio.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Nemeio.Api.Controllers.AboutController.GetApplicationVersion">
+            <summary>
+            Returns the current version of the landed application. The returned version has 4 digits (e.g. 0.1.30.5)
+            </summary>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.AboutController.GetApplicationArchitecture">
+            <summary>
+            Returns the current platform of the landed application (e.g. x64).
+            </summary>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.AboutController.GetFonts">
+            <summary>
+            Returns all available fonts
+            </summary>
+            <returns>FontsOutDto</returns>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.AboutController.GetSupportedLanguages">
+            <summary>
+            Returns all available languages
+            </summary>
+            <returns>LanguageOutDto</returns>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.ApplicationSettingsController.GetApplicationLanguage">
+            <summary>
+            Allows you to retrieve the language used to display information about the desktop application. By default, the language is the system language, until the user manually changes it via the configurator.
+            </summary>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.ApplicationSettingsController.SetApplicationLanguage(Nemeio.Api.Dto.In.LanguageInDto)">
+            <summary>
+            Allows you to change the current language
+            </summary>
+            <param name="inDto">Wanted language</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.ApplicationSettingsController.GetApplicationSettings">
+            <summary>
+            Allow to retrieve application's settings. Contains current language, augmented image status (enabled / disabled), grant privilege window status (enabled / disabled).
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.ApplicationSettingsController.SetAugmentedImageStatus(Nemeio.Api.Dto.In.AugmentedImageStatusInDto)">
+            <summary>
+            Allow user to change augmented image status : enabled or disabled
+            </summary>
+            <param name="inDto">Wanted status</param>
+            <returns>ApplicationSettingsOutDto</returns>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.ApplicationSettingsController.SetShowGrantPrivilegeWindow(Nemeio.Api.Dto.In.ShowGrantPrivilegeWindow)">
+            <summary>
+            Allow user to change grant privilege window status : enabled or disabled
+            </summary>
+            <returns>ApplicationSettingsOutDto</returns>
+            <param name="showGrantPrivilegeWindow">Wanted status</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.BlacklistController.GetBlacklists">
+            <summary>
+            Allow user to get every blacklisted applications. Returns system's applications automatically blacklisted and user's application.
+            </summary>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.BlacklistController.PostBlacklist(System.String)">
+            <summary>
+            Add new application on blacklist
+            </summary>
+            <param name="name">Application's name</param>
+            <returns>BlacklistApiOutDto</returns>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.BlacklistController.Deleteblacklist(System.Int32)">
+            <summary>
+            Remove application from blacklist. User can't delete system's application.
+            </summary>
+            <param name="id">Application's id</param>
+        </member>
+        <member name="T:Nemeio.Api.Controllers.LayoutOption">
+            <summary>
+            Layout display option.
+            All = With layouts
+            None = Without layouts
+            </summary>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.CategoryController.GetCategories(Nemeio.Api.Controllers.LayoutOption)">
+            <summary>
+            Allows to retrieve all the categories of the database (without layouts). OptionLayout allows you to retrieve all the layouts associated with a category or not. The possible values are all or none. The value is mandatory.
+            </summary>
+            <param name="optionLayout">Layout options : All (with layouts) or None (without layouts)</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.CategoryController.GetCategoryById(System.Int32)">
+            <summary>
+            Retrieve a category by is identifier.
+            </summary>
+            <param name="id">Category's id</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.CategoryController.PostCategory(Nemeio.Api.Dto.In.Category.PostCategoryApiInDto)">
+            <summary>
+            Allows you to add a new category to the database. The data must be in JSON format.
+            </summary>
+            <param name="content">Category's information</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.CategoryController.PutCategory(System.Int32,Nemeio.Api.Dto.In.Category.PutCategoryApiInDto)">
+            <summary>
+            Update a category.
+            </summary>
+            <param name="id">Category's id</param>
+            <param name="inDto">Category's updated information</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.CategoryController.DeleteCategory(System.Int32)">
+            <summary>
+            Allows you to permanently delete a category from the database. If the category isn't empty, all layouts will be transfered to the default category.
+            </summary>
+            <param name="id">Category's id</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.DefaultController.ErrorResponse(Nemeio.Core.Errors.ErrorCode)">
+            <summary>
+            We always return a 200 HttpCode because webserver communication is valid but 
+            actully there are an error occcured on Api call
+            </summary>
+        </member>
+        <member name="T:Nemeio.Api.Controllers.ErrorController">
+            <summary>
+            WARNING! This controller is only available for developer tests. It will be disable on release.
+            </summary>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.ErrorController.PostTestError(System.Int32)">
+            <summary>
+            Developer purpose only ! Allow to test success and error response
+            </summary>
+            <param name="code">Error code</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.KeyboardApiController.GetKeyboardParameters">
+            <summary>
+            Allow user to retrieve keyboard's parameters. This method can return error if no keyboard is currently plugged. 
+            </summary>
+            <returns>KeyboardParametersOutDto</returns>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.KeyboardApiController.SetKeyboardParameter(Nemeio.Api.Dto.In.Events.KeyboardParameterInDto)">
+            <summary>
+            Allow user to change one keyboard's parameter. This method can return error if no keyboard is currently plugged.
+            WARNING! Swagger auto-gen documentation is wrong. Please not send "InaciveTime" but the associated value: https://adeneo-embedded.atlassian.net/wiki/spaces/BLDLCK/pages/861339653/Gestion+des+v+nements
+            </summary>
+            <param name="eventInDto">Keyboard's parameter description</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.KeyboardApiController.GetKeyboardBattery">
+            <summary>
+            Allow user to retrieve keyboard's battery information. This method can return error if no keyboard is currently plugged.
+            </summary>
+            <returns>BatteryInformationOutDto</returns>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.KeyboardApiController.StartFactoryReset">
+            <summary>
+            Allow user to start a factory reset on keyboard. This method can return error if no keyboard is currently plugged.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Nemeio.Api.Controllers.KeyOption">
+            <summary>
+            Key display option.
+            All = Display all layout's keys
+            None and NotSet = Not display layout's key
+            </summary>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.GetLayouts">
+            <summary>
+            Allows you to retrieve all categories containing all layouts (including keys).
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.GetLayoutById(System.String,Nemeio.Api.Controllers.KeyOption)">
+            <summary>
+            Retrieve a layout by is identifier. OptionKey allows you to retrieve all the keys associated with the layout or not. The possible values are all or none. The value is mandatory.
+            </summary>
+            <param name="id">Layout's id</param>
+            <param name="keyOption">Key's option : All (returns layouts with keys), None (without keys)</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.PutLayout(System.String,Nemeio.Api.Dto.In.Layout.PutLayoutApiInDto)">
+            <summary>
+            Allow user to update layout's information. If the call failed, transaction is lost and layout has not been updated in database. This endpoint will recreate layout's image onnly if user change UI settings (e.g. background color, main font, ...).
+            </summary>
+            <param name="id">Layout's id</param>
+            <param name="inDto">Layout's updated information</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.CherryPickUnmodifiedKeys(Nemeio.Core.Services.Layouts.ILayout,Nemeio.Core.Services.Layouts.ILayout)">
+            <summary>
+            Replaces any Unedited key in targetLayout with the corresponding key in refLayout
+            </summary>
+            <param name="targetLayout"></param>
+            <param name="refLayout"></param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.DeleteLayout(System.String)">
+            <summary>
+            Delete layout from the database. It's impossible to delete Hid layout. CAUTION: The deletion is definitive.
+            </summary>
+            <param name="id">Layout's id</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.SetDefaultLayout(System.String)">
+            <summary>
+            Activate the provided layout Id as being the default layout and being active
+            </summary>
+            <param name="id">Layout's id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.GetTemplates">
+            <summary>
+            Allow user to retrieve template layouts to create custom layout.
+            </summary>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.PostLayout(Nemeio.Api.Dto.In.Layout.PostLayoutInDto)">
+            <summary>
+            Allow user to create a custom layout from template.
+            </summary>
+            <param name="inDto">Creation's parameters</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.GetHidLayouts">
+            <summary>
+            Allow user to retrieve only hid layouts
+            </summary>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.GetCustomLayouts">
+            <summary>
+            Allow user to retrieve only custom layouts
+            </summary>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.GetHidImage(System.String)">
+            <summary>
+            Allow configurator to retrieve embedded images
+            </summary>
+            <param name="imageName">Wanted image name</param>
+            <returns>Base64 encoded image</returns>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.UpdateLayoutKey(System.String,System.Int32,Nemeio.Api.Dto.In.Layout.PutLayoutKeyInDto)">
+            <summary>
+            Allow user to update layout keys. Works only with custom layouts. WARNING ! The layout image is not recreated after this call. You must commit changes to recreate image.
+            </summary>
+            <param name="id">Layout's id</param>
+            <param name="keyId">Key's id</param>
+            <param name="keyInDto">Key's updated information</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.Reset(System.String,System.Int32)">
+            <summary>
+            Allow user to reset a layout key. Works only with custom layouts. WARNING ! The layout image is not recreated after this call. You must commit changes to recreate image.
+            </summary>
+            <param name="id">Layout's id</param>
+            <param name="keyId">Key's id</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.CommitUIChanges(System.String)">
+            <summary>
+            Allow user to recreate layout's image.
+            </summary>
+            <param name="id">Layout's id</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.DuplicateLayout(Nemeio.Api.Dto.In.Layout.DuplicateLayoutInDto)">
+            <summary>
+            Allow user to duplicate layout.
+            </summary>
+            <param name="duplicateLayoutInDto">Duplication information</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.ExportLayout(System.String)">
+            <summary>
+            Export a layout file on json format.
+            </summary>
+            <param name="id">Layout's id</param>
+            
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.ExportLayoutForCli(System.String)">
+            <summary>
+            Export a zip package for CLI.
+            </summary>
+            <param name="id">Layout's id</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.OpenExportedLayout(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Open an exported layout file.
+            </summary>
+            <param name="file">File selected by user</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.ImportLayout(Nemeio.Api.Dto.Out.Layout.LayoutExportApiOutDto)">
+            <summary>
+            Import a custom layout.
+            </summary>
+            <param name="layoutExportApiOutDto">Import parameters</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LayoutController.PostLayoutNameIsAvailable(Nemeio.Api.Dto.In.Layout.PostLayoutNameIsAvailableInDto)">
+            <summary>
+            You can test if a name is already taken by another layout
+            </summary>
+            <param name="inDto">Check information</param>
+        </member>
+        <member name="M:Nemeio.Api.Controllers.LogsController.PostErrorLogs(Nemeio.Api.Dto.In.LogInDto)">
+            <summary>
+            Allow developer to post log on desktop application's logs
+            </summary>
+            <param name="log">Log content</param>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.AugmentedImageStatusInDto.Status">
+            <summary>
+            Augmented image status.
+            True = Enabled
+            False = Disabled
+            </summary>
+        </member>
+        <member name="T:Nemeio.Api.Dto.In.Category.PostCategoryApiInDto">
+            <summary>
+            Create new category information
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Category.PostCategoryApiInDto.Index">
+            <summary>
+            Category's index
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Category.PostCategoryApiInDto.Title">
+            <summary>
+            Category's name. Must be unique.
+            </summary>
+        </member>
+        <member name="T:Nemeio.Api.Dto.In.Events.KeyboardParameterInDto">
+            <summary>
+            Parameter information
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Events.KeyboardParameterInDto.Type">
+            <summary>
+            Parameter's type
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Events.KeyboardParameterInDto.Data">
+            <summary>
+            New parameter's value
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.LanguageInDto.Language">
+            <summary>
+            Language code (e.g. fr-FR / en-US)
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.DuplicateLayoutInDto.LayoutId">
+            <summary>
+            Duplicated layout id
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.DuplicateLayoutInDto.Title">
+            <summary>
+            Duplicated layout new name. Must be unique.
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PostLayoutInDto.TemplateId">
+            <summary>
+            Related template's id.
+            Custom layout will have same information as choosen template.
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PostLayoutInDto.Title">
+            <summary>
+            Layout's name. Must be unique.
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PostLayoutNameIsAvailableInDto.Name">
+            <summary>
+            Search name
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutFontInDto.Name">
+            <summary>
+            Font's name. Must be available on application's font.
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutFontInDto.Size">
+            <summary>
+            Three different font size : Small, Medium, Large
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutLayoutApiInDto.Title">
+            <summary>
+            Is optional. Must be unique.
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutLayoutApiInDto.Subtitle">
+            <summary>
+            Is optional. .
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutLayoutApiInDto.CategoryId">
+            <summary>
+            Is optional.
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutLayoutApiInDto.Enable">
+            <summary>
+            Is optional. ALlow to enable or disable layout. When layout is disabled, it's removed from keyboard.
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutLayoutApiInDto.Index">
+            <summary>
+            Is optional.
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutLayoutApiInDto.LinkApplicationPath">
+            <summary>
+            All linked application. When an app is linked and focus, layout is set on keyboard.
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutLayoutApiInDto.LinkApplicationEnable">
+            <summary>
+            Is optional.
+            Layout can have linked application but can not trigger apply layout on application focus.
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutLayoutApiInDto.IsDarkMode">
+            <summary>
+            Is optional.
+            UI settings. Determine if background color is black (true) or white (false)
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutLayoutApiInDto.AssociatedId">
+            <summary>
+            Is optional.
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutLayoutApiInDto.Font">
+            <summary>
+            Is optional.
+            UI settings. Font used to display text on layout's image. You can choose only on available fonts.
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutLayoutApiInDto.ImageType">
+            <summary>
+            Is optional.
+            UI settings. Each type have different behavior when display on keyboard.
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutLayoutApiInDto.AugmentedHidEnable">
+            <summary>
+            Is optional.
+            UI settings. By default, desktop application create layout's image. But you can use hommade image with this option.
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutLayoutKeyActionInDto.Display">
+            <summary>
+            Value displayed on keyboard.
+            UI settings.
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutLayoutKeyActionInDto.Modifier">
+            <summary>
+            Modifier linked to this action. A key can only have one time each modifier.
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutLayoutKeyActionInDto.IsGrey">
+            <summary>
+            To let API manage grey level depending on White/Black background #
+            </summary>
+        </member>
+        <member name="T:Nemeio.Api.Dto.In.Layout.PutLayoutKeyInDto">
+            <summary>
+            All key related information to update
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutLayoutSubactionInDto.Data">
+            <summary>
+            Data linked to the current subaction. Depends of current type.
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.Layout.PutLayoutSubactionInDto.Type">
+            <summary>
+            Subaction type. Can be :
+            Unicode = 1, Special = 2, Application = 3, Url = 4, Layout = 5, Back = 7, Forward = 8
+            </summary>
+        </member>
+        <member name="P:Nemeio.Api.Dto.In.ShowGrantPrivilegeWindow.Status">
+            <summary>
+            GrantPrivilege Window status.
+            True = Enabled
+            False = Disabled
+            </summary>
+        </member>
+        <member name="T:Nemeio.Api.PatchApplier.BasePatchApplier`2">
+            <summary>
+            
+            </summary>
+            <typeparam name="T">Input class type</typeparam>
+            <typeparam name="O">Output class type</typeparam>
+        </member>
+    </members>
+</doc>

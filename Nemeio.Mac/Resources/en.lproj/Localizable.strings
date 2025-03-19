@@ -1,0 +1,121 @@
+﻿/*
+ * Loco ios export: iOS Localizable.strings
+ * Project: Débarqué
+ * Release: Working copy
+ * Locale: en-GB, English (UK)
+ * Exported by: clem clement
+ * Exported at: Fri, 05 Jul 2019 09:59:30 +0200
+ */
+
+/* loco:5be93c857ec8ae59ac7e4431 */
+"battery" = "battery";
+
+/* loco:5be93c857ec8ae59ac7e4432 */
+"battery_level" = "Battery level";
+
+/* loco:5be93c857ec8ae59ac7e4439 */
+"open_configurator" = "Open configurator";
+
+/* loco:5be93c857ec8ae59ac7e443a */
+"quit" = "Quit";
+
+/* loco:5be93c857ec8ae59ac7e443b */
+"update_needed" = "Update available";
+
+/* loco:5be93c857ec8ae59ac7e443c */
+"no_update_available" = "No update available";
+
+/* loco:5be93c857ec8ae59ac7e443d */
+"update_available_title" = "Update available";
+
+/* loco:5be93c857ec8ae59ac7e443e */
+"keyboard_update_available_message" = "An update is available for your Nemeio keyboard";
+
+/* loco:5be93c857ec8ae59ac7e443f */
+"battery_notification_title" = "Low battery level";
+
+/* loco:5be93c857ec8ae59ac7e4440 */
+"battery_notification_message" = "Your battery is low, remember to connect your Nemeio keyboard";
+
+/* loco:5be93c857ec8ae59ac7e4441 */
+"current_battery_level" = "Battery :";
+
+/* loco:5be93c857ec8ae59ac7e4442 */
+"multiple_keyboard_message" = "Several Nemeio keyboards are connected to this computer.";
+
+/* loco:5be93c857ec8ae59ac7e4443 */
+"multiple_keyboard_title" = "Nemeio keyboard";
+
+/* loco:5c0fb3597ec8ae605d61a4c2 */
+"error_udp_setup_failed_title" = "A problem with your keyboard has occurred";
+
+/* loco:5c0fb3e67ec8ae60c75c96b2 */
+"error_udp_setup_failed_message" = "Unable to communicate with your keyboard. Please unplug your keyboard and try again!";
+
+/* loco:5c62d714a08ef120de1ab362 */
+"error_configurator_unavailable" = "The configurator seems unavailable";
+
+/* loco:5c6a5152a08ef13e3a1f8872 */
+"title_configurator" = "Configurator";
+
+/* loco:5d0c88c1ed0cfa3b7b14fba5 */
+"app_update_available_message" = "An update is available for the Nemeio application";
+
+/* loco:5d0ca051ed0cfa419b0c0ea5 */
+"apply_updates" = "Install updates";
+
+/* loco:5d0ca97ded0cfa44227100d2 */
+"applying_updates" = "Applying updates...";
+
+/* loco:5d0ca9a1ed0cfa43f03e6e9d */
+"downloading_updates" = "Downloading updates...";
+
+/* loco:5d1060e9c38e0f7285579d12 */
+"updates_downloaded" = "Updates downloaded";
+
+/* loco:5d106108c38e0f72876401d2 */
+"updates_downloaded_message" = "The download is complete, you can install the updates";
+
+/* loco:5d10611ec38e0f72894024d2 */
+"updates_download_error_title" = "Oops!";
+
+/* loco:5d106138c38e0f728b7e48e2 */
+"updates_download_error_message" = "An error occurred when downloading updates. Please try again later.";
+
+/* loco:5d10622ac38e0f7281671b63 */
+"updates_apply_question" = "Are you sure you want to install the updates now? Your keyboard and application will be unusable during installation.";
+
+/* loco:5d124e89ed0cfa392a7e4f82 */
+"updates_in_progress_message" = "An update is in progress. Please do not disconnect the keyboard.";
+
+/* loco:5d130deded0cfa54ac3218d2 */
+"updates_installation_error_message" = "A problem occurred during the installation of an update. Please try again later.";
+
+/* loco:5d131678ed0cfa55de473542 */
+"updates_finish_success_message" = "The update has been completed.";
+
+/* loco:5d15b290ed0cfa0e9b775a63 */
+"updates_apply_failed_message" = "An error occurred when applying the update. Please try again later.";
+
+/* loco:5d1c630ced0cfa385279e334 */
+"updates_in_progress_quit_app_message" = "An update is in progress. Are you sure you want to leave the application?";
+
+"common_yes" = "Yes";
+
+"common_no" = "No";
+
+"common_ok" = "Ok";
+
+"error_keychain_user_unauthorized_message" = "To operate properly, Nemeio requires access to the KeyChain.";
+
+"synchonization_complete_added_message" = "{0} new configuration(s) added";
+
+"synchonization_complete_message" = "Keyboard synchronization has been completed:";
+
+"synchonization_complete_removed_message" = "{0} configuration(s) removed";
+
+"synchonization_complete_title" = "Nemeio Keyboard Synchronization";
+
+"synchronization_layout_message" = "Keyboard synchronization in progress";
+
+"synchronization_layout_title" = "Synchronizing";

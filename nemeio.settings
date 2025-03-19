@@ -1,0 +1,4 @@
+<settings>
+	<apiPort>1234</apiPort>
+	<swaggerEnable>true</swaggerEnable>
+</settings>

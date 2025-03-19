@@ -1,0 +1,62 @@
+@startuml
+
+title ConnectionManagerManager - System implementations
+
+package Core
+{
+    class ConnectionManager {
+    }
+    class KeyboardConnectionSelector {
+	}
+    class KeyboardConnectionWatcher {
+	}
+    abstract class KeyboardListWatcher {
+	}
+}
+
+package macOS {
+    class MacUsbListWatcher {
+	}
+    note top
+     IoKitUsbExtern? 
+     WKeyboard?
+    end note
+    
+    class MacBleListWatcher {
+	}
+    note bottom
+     using native macOS
+     Bluetooth capabilities
+    end note
+}
+
+package Windows {
+    class WinUsbListWatcher {
+	}
+    note top
+     based on WMI
+     (Windows Management 
+     Instrumentation)
+    end note
+    class WinBleListWatcher {
+	}
+    note bottom
+     based on UWP
+     (Univesral Windows
+     Platform)
+     Windows 8 and above
+    end note
+}
+
+ConnectionManager "1" *-down- KeyboardConnectionSelector
+KeyboardConnectionSelector "1" *-down- KeyboardConnectionWatcher
+KeyboardConnectionWatcher "1 - Usb" *-down- KeyboardListWatcher
+KeyboardConnectionWatcher "1 - Ble" *-down- KeyboardListWatcher
+KeyboardListWatcher <|-left- WinUsbListWatcher
+KeyboardListWatcher <|-left-- WinBleListWatcher
+MacUsbListWatcher -right|> KeyboardListWatcher
+MacBleListWatcher -right|> KeyboardListWatcher
+MacUsbListWatcher -down[Hidden]- MacBleListWatcher 
+WinUsbListWatcher -down[Hidden]- WinBleListWatcher 
+
+@enduml

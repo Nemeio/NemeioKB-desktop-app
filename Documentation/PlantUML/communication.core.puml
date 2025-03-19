@@ -1,0 +1,196 @@
+@startuml
+
+package "Nemeio.Core" {
+
+    abstract class Nemeio {
+        + ProtocolVersion : Version
+    }
+
+    class NemeioRunner {
+
+    }
+
+    class UpdateContent {
+        + byte[] Content { get; }
+    }
+
+    class NemeioUpdater {
+        void Update(UpdateContent content)
+    }
+
+    class NemeioFactory {
+      
+    }
+
+    interface INemeioFactory {
+        Nemeio CreateRunner(Keyboard keyboard);
+        Nemeio CreateUpdater(Keyboard keyboard);
+    }
+
+    interface INemeioBuilder {
+        Nemeio CreateNemeio(Keyboard keyboard);
+    }
+
+    class NemeioBuilder {
+
+    }
+
+    together {
+
+        class SerialNumber {
+
+        }
+
+        class Firmware {
+            Stm : Version
+            Nrf : Version
+            Version : Ite
+        }
+
+    }
+
+    together {
+
+        class BatteryInformation {
+            RemainingCapacity : ushort
+            Cycles : ushort
+            Age : byte
+        }
+
+        class BatteryLevel {
+
+        }
+
+        class BatteryTime {
+            StandBy : bool
+            Interval : TimeSpan
+        }
+
+    }
+    
+    together {
+
+        class KeepAliveMonitor {
+
+        }
+
+        class BatteryMonitor {
+
+        }
+
+        class ApplyConfigurationMonitor {
+
+        }
+
+        class ConfigurationChangedMonitor {
+
+        }
+
+        class KeyPressedMonitor {
+
+        }
+
+        class VersionMonitor {
+
+        }
+
+        class SerialNumberMonitor {
+
+        }
+
+        class ParametersMonitor {
+
+        }
+
+        class FactoryResetMonitor {
+
+        }
+
+        class CrashMonitor {
+
+        }
+
+        class UpdateMonitor {
+
+        }
+
+        together {
+
+            class SynchornizerMonitor {
+
+            }
+
+            class DatabaseSynchornizerMonitor {
+
+            }
+
+            class CloudSynchronizerMonitor {
+
+            }
+
+            class KeyboardSynchronizerMonitor {
+
+            }
+
+            note left of Synchornizer
+                S'occupe de synchroniser tous les layouts
+                entre les différents acteurs (cloud, clavier, database)
+            end note
+
+        }
+
+    }
+
+}
+
+Nemeio *-- KeyboardCommandExecutor
+NemeioRunner *-- KeepAliveChecker
+NemeioRunner *-- BatteryChecker
+NemeioRunner *-- Synchornizer
+NemeioRunner *-- CrashMonitor
+NemeioRunner *-- FactoryResetMonitor
+NemeioRunner *-- ParametersMonitor
+Nemeio *-- SerialNumberMonitor
+NemeioRunner *-- VersionMonitor
+NemeioRunner *-- KeyPressedMonitor
+NemeioRunner *-- ConfigurationChangedMonitor
+NemeioRunner *-- ApplyConfigurationMonitor
+NemeioUpdater *-- UpdateMonitor
+
+NemeioUpdater --|> Nemeio
+NemeioRunner --|> Nemeio
+INemeioFactory --|> NemeioFactory
+NemeioBuilder --|> INemeioBuilder
+INemeioBuilder " " -- "0...1" INemeioFactory
+
+Nemeio " " -- "0...1" Firmware
+Nemeio " " -- "0...1" SerialNumber
+
+Synchornizer *-- DatabaseSynchornizer
+Synchornizer *-- CloudSynchronizer
+Synchornizer *-- KeyboardSynchronizer
+
+KeepAliveChecker *-- KeyboardCommandExecutor
+BatteryChecker *-- KeyboardCommandExecutor
+KeyboardSynchronizer *-- KeyboardCommandExecutor
+
+BatteryInformation " " -- "0..1" BatteryLevel : Level
+BatteryInformation " " -- "0..1" BatteryTime : TimeToFull
+BatteryInformation " " -- "0..1" BatteryTime : TimeToEmpty
+
+NemeioRunner " " -- "0..1" BatteryInformation : Battery
+
+note top of Nemeio
+  Cette classe représente un clavier Nemeio.
+  
+  Elle possède son propre état et instancie elle-même 
+  toutes les classes relatives à ce gestion.
+
+  Elle possède la state-machine du comportement du clavier.
+end note
+
+note top of KeyboardSynchronizer
+  S'occupe à la fois de la commande "SendData" et de la commande "DeleteConfig"
+end note
+
+@enduml

@@ -1,0 +1,32 @@
+### This template builds the Package Image Builder
+
+parameters:
+- name: 'preBuild'
+  type: stepList
+  default: []
+- name: 'postBuild'
+  type: stepList
+  default: []
+- name: 'checkoutPath'
+  type: string
+  default: 'self'
+
+steps:
+
+- ${{ parameters.preBuild }}
+
+- task: NuGetToolInstaller@1
+  displayName: 'Use NuGet'
+
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    restoreSolution: '${{ parameters.checkoutPath }}/**/$(SolutionFileName)'
+  continueOnError: false
+
+- script: |
+    cd ${{ parameters.checkoutPath }}/Nemeio.Tools.Image.ImagePackageBuilder
+    dotnet build Nemeio.Tools.Image.ImagePackageBuilder.csproj
+  displayName: 'Build the Package Image Builder'
+
+- ${{ parameters.postBuild }}

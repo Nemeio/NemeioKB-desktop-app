@@ -1,0 +1,57 @@
+@startuml
+
+package "Nemeio.Core" {
+
+    together {
+
+        interface IKeyboardCommand {
+
+        }
+
+        interface IKeyboardCommandFactory {
+            IKeyboardCommand CreateCommand(CommandId id);
+        }
+
+        interface IKeepAliveCommandFactory {
+            IKeyboardCommand CreateKeepAliveCommand();
+        }
+
+    }
+
+}
+
+package "Nemeio.Keyboard.Communication" {
+
+    together {
+
+        class KeyboardCommandFactory {
+            
+        }
+
+        class KeepAliveCommandFactory {
+
+        }
+
+        class KeepAliveCommand {
+
+        }
+
+        class BatteryCommand {
+
+        }
+
+        class LayoutIdsCommand {
+            
+        }
+
+    }
+
+}
+
+KeepAliveCommand --|> IKeyboardCommand
+BatteryCommand --|> IKeyboardCommand
+LayoutIdsCommand --|> IKeyboardCommand
+KeyboardCommandFactory --|> IKeyboardCommandFactory
+KeepAliveCommandFactory --|> IKeepAliveCommandFactory
+KeyboardCommandFactory *-- IKeepAliveCommandFactory
+@enduml

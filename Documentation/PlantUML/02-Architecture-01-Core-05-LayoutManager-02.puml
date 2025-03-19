@@ -1,0 +1,60 @@
+@startuml
+
+title LayoutManager (Core: common) - System implementations
+
+package Core
+{
+    interface ILayoutManager {
+    }
+
+    abstract class LayoutManager {
+    /* Shared implementation*/
+    }
+
+    class OsLayoutId {
+	}
+    note bottom
+        System oriented
+        LayoutId based on
+        StringType
+    end note
+}
+
+package macOS {
+    class MacLayoutManager{
+    }
+    class MacOsLayoutId{
+    }
+    note bottom
+        Based on system
+        Culture string
+    end note
+}
+
+package Windows {
+    class WinLayoutManager {
+    }
+    class WinOsLayoutId {
+    }
+    note bottom
+        Based on system
+        layout handle
+        IntPtr
+    end note
+}
+
+
+ILayoutManager <|-down- LayoutManager
+LayoutManager <|-left- MacLayoutManager
+LayoutManager <|-right- WinLayoutManager
+
+OsLayoutId <-down-- LayoutManager
+OsLayoutId <|-left- MacOsLayoutId
+OsLayoutId <|-right- WinOsLayoutId
+MacOsLayoutId <-down-- MacLayoutManager
+WinOsLayoutId <-down-- WinLayoutManager
+
+
+'TaskBarIconMenuView *-up- TaskBarIconMenuViewModel : Binding
+
+@enduml

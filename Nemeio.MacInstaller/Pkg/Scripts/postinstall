@@ -1,0 +1,6 @@
+#!/bin/sh
+
+#   Open Nemeio
+sleep 2 && open "/Applications/Nemeio.app"
+
+exit 0

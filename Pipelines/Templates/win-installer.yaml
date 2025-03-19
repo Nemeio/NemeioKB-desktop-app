@@ -1,0 +1,93 @@
+### This template builds the application and its installer for Windows
+
+parameters:
+- name: 'preBuild'
+  type: stepList
+  default: []
+- name: 'postBuild'
+  type: stepList
+  default: []
+- name: 'checkoutPath'
+  type: string
+  default: 'self'
+- name: 'timeService'
+  type: string
+  default: 'http://timestamp.digicert.com'
+- name: 'certificatName'
+  type: string
+  default: 'karmeliet.pfx'
+
+steps:
+
+- ${{ parameters.preBuild }}
+
+- task: NuGetToolInstaller@1
+  displayName: 'Use NuGet'
+
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    restoreSolution: '${{ parameters.checkoutPath }}/**/$(SolutionFileName)'
+  continueOnError: false
+
+#regular application build (without installer)
+- task: VSBuild@1
+  displayName: 'Build $(SolutionName)'
+  timeoutInMinutes: 20
+  inputs:
+    solution: '${{ parameters.checkoutPath }}/**/$(SolutionFileName)'
+    msbuildLocationMethod: version
+    platform: '$(BuildPlatform)'
+    configuration: '$(BuildConfiguration)'
+    logFileVerbosity: diagnostic
+    msbuildArgs: '/p:RunWixToolsOutOfProc=true'
+
+- task: AzureCLI@2
+  displayName: 'Signing $(SolutionName) Assemblies'
+  inputs:
+    azureSubscription: $(AzureSubscriptionName)
+    scriptType: ps
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      dotnet tool install --global AzureSignTool
+      Get-ChildItem -recurse -Include '${{ parameters.checkoutPath }}/**/$(SolutionName).*.dll' | ForEach-Object {
+        $filePath = $_.FullName
+        AzureSignTool sign --azure-key-vault-url "$(AzureKeyVaultUrl)" --azure-key-vault-managed-identity true --azure-key-vault-certificate "$(AzureKeyVaultCertificateName)" --timestamp-rfc3161 "${{ parameters.timeService }}" --file-digest "SHA256" --description "$(SolutionName) Assembly" --verbose "$filePath"
+      }
+
+- task: AzureCLI@2
+  displayName: 'Signing $(SolutionName) Executable'
+  inputs:
+    azureSubscription: $(AzureSubscriptionName)
+    scriptType: ps
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      Get-ChildItem -recurse -Include '${{ parameters.checkoutPath }}/**/$(SolutionName).exe' | ForEach-Object {
+        $filePath = $_.FullName
+        AzureSignTool sign --azure-key-vault-url "$(AzureKeyVaultUrl)" --azure-key-vault-managed-identity true --azure-key-vault-certificate "$(AzureKeyVaultCertificateName)" --timestamp-rfc3161 "${{ parameters.timeService }}" --file-digest "SHA256" --description "$(SolutionName) Assembly" --verbose "$filePath"
+      }
+
+# rebuild without cleaning and create now the wix installer
+- task: VSBuild@1
+  displayName: 'Build $(SolutionName) Installer'
+  timeoutInMinutes: 10
+  inputs:
+    solution: '${{ parameters.checkoutPath }}/**/$(SolutionName).WindowsInstaller/*.wixproj'
+    platform: '$(BuildPlatform)'
+    configuration: '$(BuildConfiguration)'
+    msbuildArgs: '/p:BuildProjectReferences=false 
+                  /p:RunWixToolsOutOfProc=true'
+
+- task: AzureCLI@2
+  displayName: 'Signing $(SolutionName) Installer'
+  inputs:
+    azureSubscription: $(AzureSubscriptionName)
+    scriptType: ps
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      Get-ChildItem -recurse -Include '${{ parameters.checkoutPath }}/**/$(SolutionName).WindowsInstaller/**/Nemeio*.msi' | ForEach-Object {
+        $filePath = $_.FullName
+        AzureSignTool sign --azure-key-vault-url "$(AzureKeyVaultUrl)" --azure-key-vault-managed-identity true --azure-key-vault-certificate "$(AzureKeyVaultCertificateName)" --timestamp-rfc3161 "${{ parameters.timeService }}" --file-digest "SHA256" --description "$(SolutionName) Installer" --verbose "$filePath"
+      }
+
+- ${{ parameters.postBuild }}

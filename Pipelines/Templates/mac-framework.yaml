@@ -1,0 +1,39 @@
+﻿### This template prepares the build environment for the MAC build
+
+parameters:
+  - name: "preBuild"
+    type: stepList
+    default: []
+  - name: "postBuild"
+    type: stepList
+    default: []
+  - name: "checkoutPath"
+    type: string
+    default: "self"
+
+steps:
+  - ${{ parameters.preBuild }}
+
+  - task: InstallAppleCertificate@2
+    displayName: "Install certificate"
+    inputs:
+      certSecureFile: "$(dev_desktop_certificate_filename)"
+      certPwd: "$(dev_desktop_certificate_password)"
+      keychain: "temp"
+      deleteCert: true
+
+  - task: Xcode@5
+    displayName: "Build framework"
+    inputs:
+      actions: "build"
+      scheme: "$(scheme)"
+      sdk: "$(sdk)"
+      configuration: "$(configuration)"
+      xcWorkspacePath: "${{ parameters.checkoutPath }}/**/*.xcodeproj/project.xcworkspace"
+      workingDirectory: "${{ parameters.checkoutPath }}/Nemeio.ExtendedTools"
+      signingOption: "manual"
+      signingIdentity: "$(APPLE_CERTIFICATE_SIGNING_IDENTITY)"
+      exportPath: "${{ parameters.checkoutPath }}/Nemeio.ExtendedTools/DerivedData/ExtendedTools"
+      args: -derivedDataPath ${{ parameters.checkoutPath }}/Nemeio.ExtendedTools/DerivedData/ExtendedTools
+
+  - ${{ parameters.postBuild }}

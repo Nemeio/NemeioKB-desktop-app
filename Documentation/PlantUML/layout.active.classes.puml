@@ -1,0 +1,43 @@
+@startuml
+
+    interface IActiveLayoutStrategy {
+
+    }
+
+    interface IActiveLayoutStrategyFactory {
+
+    }
+
+    interface IActiveLayoutSynchronizer {
+
+    }
+
+    abstract class ActiveLayoutStrategy {
+
+    }
+
+    class ActiveLayoutStrategyFactory {
+
+    }
+
+    class KeyboardFirstStrategy {
+
+    }
+
+    class SystemFirstStrategy {
+
+    }
+
+    SystemFirstStrategy --|> ActiveLayoutStrategy
+    KeyboardFirstStrategy --|> ActiveLayoutStrategy
+    ActiveLayoutSynchronizer --|> IActiveLayoutSynchronizer
+    ActiveLayoutStrategyFactory --|> IActiveLayoutStrategyFactory
+    ActiveLayoutStrategy --|> IActiveLayoutStrategy
+
+    ActiveLayoutSynchronizer "0" -- "1" System
+    ActiveLayoutSynchronizer "0" -- "1" KeyboardController
+    ActiveLayoutSynchronizer "0" -- "1" SystemFirstStrategy
+    ActiveLayoutSynchronizer "0" -- "1" KeyboardFirstStrategy
+    ActiveLayoutSynchronizer "0" -- "1" ActiveLayoutStrategyFactory
+
+@enduml

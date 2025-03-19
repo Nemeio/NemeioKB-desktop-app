@@ -1,0 +1,50 @@
+@startuml
+
+title LanguageManager (Core: common) - Class Diagram
+
+interface ILanguageManager {
+  +event EventHandler<EventArgs> LanguageChanged;
+  ..
+  +void Start();
+  +void Stop();
+  ..
+  +CultureInfo GetCurrentCultureInfo();
+  +void SetCurrentCultureInfo(CultureInfo culture);
+  ..
+  +string GetLocalizedValue(StringId key);
+  ..
+  +void InjectApplicationSettingsDbRepository(IApplicationSettingsDbRepository applicationSettingsDbRepository);
+}
+
+class LanguageManager {
+}
+note top #cyan
+  this is the class which is in
+  charge of supporting GUI text
+  translation for all languages
+  supported by the application
+end note
+
+ILanguageManager <|-right- LanguageManager: Implement
+note right
+  centralized for all platform
+  (in current case Interface was
+  not really necessary)
+end note
+
+StringId <--down- LanguageManager: uses
+
+enum StringId
+note right
+  enum to identify all text strings which
+  require translation.
+
+  <i><b>Enum key composed as:
+  <i><b>Category_Type_Description
+  * <i><b>Category : e.g. Update, Battery, ...
+  * <i><b>Type : e.g. Button, Title, Message, Error, ...
+  * <i><b>Description : e.g. Available, CommandFailed
+  <i><b>e.g: UpdateTitleAvailable
+end note
+
+@enduml

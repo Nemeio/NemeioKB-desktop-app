@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\CefSharp.Wpf.71.0.0\build\CefSharp.Wpf.props" Condition="Exists('..\packages\CefSharp.Wpf.71.0.0\build\CefSharp.Wpf.props')" />
+  <Import Project="..\packages\CefSharp.Common.71.0.0\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.71.0.0\build\CefSharp.Common.props')" />
+  <Import Project="..\packages\cef.redist.x86.3.3578.1863\build\cef.redist.x86.props" Condition="Exists('..\packages\cef.redist.x86.3.3578.1863\build\cef.redist.x86.props')" />
+  <Import Project="..\packages\cef.redist.x64.3.3578.1863\build\cef.redist.x64.props" Condition="Exists('..\packages\cef.redist.x64.3.3578.1863\build\cef.redist.x64.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
+    <OverrideSkiaSharpPlatform>x86</OverrideSkiaSharpPlatform>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1AFA305B-A96A-4955-98C6-51B2D49E90E8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Nemeio.Wpf</RootNamespace>
+    <AssemblyName>Nemeio</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.7.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Nemeio.Wpf.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>nemeio-violet.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <OutputPath>bin\x64\WinDebug\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\WinRelease\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DefineConstants>TRACE</DefineConstants>
+    <PlatformTarget>x64</PlatformTarget>
+    <Optimize>true</Optimize>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\WinDebug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\WinRelease\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CliDebug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\CliDebug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CliDebug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\CliDebug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <Prefer32Bit>true</Prefer32Bit>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CliDebug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\CliDebug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CliRelease|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\CliRelease\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CliRelease|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\CliRelease\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CliRelease|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\CliRelease\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.InteropServices.WindowsRuntime" />
+    <Reference Include="System.Runtime.WindowsRuntime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.Runtime.WindowsRuntime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.WindowsRuntime.UI.Xaml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.Runtime.WindowsRuntime.UI.Xaml.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="windows">
+      <HintPath>C:\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.18362.0\Facade\windows.winmd</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Windows.Foundation.FoundationContract">
+      <HintPath>C:\Program Files (x86)\Windows Kits\10\References\10.0.18362.0\Windows.Foundation.FoundationContract\3.0.0.0\Windows.Foundation.FoundationContract.winmd</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Windows.Foundation.UniversalApiContract">
+      <HintPath>C:\Program Files (x86)\Windows Kits\10\References\10.0.18362.0\Windows.Foundation.UniversalApiContract\8.0.0.0\Windows.Foundation.UniversalApiContract.winmd</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="Windows\App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\PackageUpdateKindToColorConverter.cs" />
+    <Compile Include="Converters\PercentToStringConverter.cs" />
+    <Compile Include="Converters\VisibilityIsSetConverter.cs" />
+    <Compile Include="Converters\VisibilityUpdateViewTypeConverter.cs" />
+    <Compile Include="Helpers\Cef\Dialog\CefSharpDialogHandler.cs" />
+    <Compile Include="Helpers\Cef\CefSharpDownloadHandler.cs" />
+    <Compile Include="Helpers\Cef\Dialog\Modals\FileModal.cs" />
+    <Compile Include="Helpers\Cef\Dialog\Modals\FileSystemEntryModal.cs" />
+    <Compile Include="Helpers\Cef\Dialog\Modals\FileSystemEntryModalFactory.cs" />
+    <Compile Include="Helpers\Cef\Dialog\Modals\FolderModal.cs" />
+    <Compile Include="Helpers\Cef\Dialog\Modals\IFileSystemEntryModal.cs" />
+    <Compile Include="Helpers\DialogCloser.cs" />
+    <Compile Include="Icon\WinApplicationIconProvider.cs" />
+    <Compile Include="Menu\Administrator\WinAdministratorModalStrategy.cs" />
+    <Compile Include="Menu\Administrator\WinAdministratorModalStrategyFactory.cs" />
+    <Compile Include="Modals\WinAdministratorModal.cs" />
+    <Compile Include="Modals\WinConfiguratorModal.cs" />
+    <Compile Include="Modals\WinFactoryResetModal.cs" />
+    <Compile Include="Modals\WinKeyboardInitErrorModal.cs" />
+    <Compile Include="Modals\WinLanguageSelectionModal.cs" />
+    <Compile Include="Modals\WinModalWindow.cs" />
+    <Compile Include="Modals\WinModalWindowFactory.cs" />
+    <Compile Include="Modals\WinRemovedByHidModal.cs" />
+    <Compile Include="Modals\WinQuitModal.cs" />
+    <Compile Include="Modals\WinUpdateModal.cs" />
+    <Compile Include="Models\CommandHandler.cs" />
+    <Compile Include="Models\WinApplicationService.cs" />
+    <Compile Include="Models\WinApplicationVersionProvider.cs" />
+    <Compile Include="Models\WinMainThreadDispatcher.cs" />
+    <Compile Include="Resolution\WinScreenResolutionAdapter.cs" />
+    <Compile Include="Theme\WinSystemThemeProvider.cs" />
+    <Compile Include="UserControls\BatteryView.xaml.cs">
+      <DependentUpon>BatteryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CloseWindow.xaml.cs">
+      <DependentUpon>CloseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ConnectionView.xaml.cs">
+      <DependentUpon>ConnectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DialogWindow.xaml.cs">
+      <DependentUpon>DialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\LayoutView.xaml.cs">
+      <DependentUpon>LayoutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DebugButtonView.xaml.cs">
+      <DependentUpon>DebugButtonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QuitButtonView.xaml.cs">
+      <DependentUpon>QuitButtonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SeparatorView.xaml.cs">
+      <DependentUpon>SeparatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SynchronizationView.xaml.cs">
+      <DependentUpon>SynchronizationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TextSeparatorView.xaml.cs">
+      <DependentUpon>TextSeparatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VersionView.xaml.cs">
+      <DependentUpon>VersionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ConfiguratorButtonView.xaml.cs">
+      <DependentUpon>ConfiguratorButtonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AskAdminRightViewModel.cs" />
+    <Compile Include="ViewModel\BaseActionViewModel.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\BatteryViewModel.cs" />
+    <Compile Include="ViewModel\CloseWindowViewModel.cs" />
+    <Compile Include="ViewModel\ConnectionViewModel.cs" />
+    <Compile Include="ViewModel\DebugButtonViewModel.cs" />
+    <Compile Include="ViewModel\DialogWindowViewModel.cs" />
+    <Compile Include="ViewModel\FactoryResetViewModel.cs" />
+    <Compile Include="ViewModel\KeyboardInitErrorModalViewModel.cs" />
+    <Compile Include="ViewModel\SelectionLanguageViewModel.cs" />
+    <Compile Include="ViewModel\SynchronizationViewModel.cs" />
+    <Compile Include="ViewModel\TextSeparatorViewModel.cs" />
+    <Compile Include="ViewModel\QuitButtonViewModel.cs" />
+    <Compile Include="ViewModel\UpdateViewModel.cs" />
+    <Compile Include="ViewModel\VersionViewModel.cs" />
+    <Compile Include="ViewModel\ConfiguratorButtonViewModel.cs" />
+    <Compile Include="ViewModel\LayoutViewModel.cs" />
+    <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\TaskBarIconViewModel.cs" />
+    <Compile Include="ViewModel\TaskBarIconMenuViewModel.cs" />
+    <Compile Include="UserControls\TaskBarIconMenuView.xaml.cs">
+      <DependentUpon>TaskBarIconMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AskAdminRightWindow.xaml.cs">
+      <DependentUpon>AskAdminRightWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\FactoryResetModal.xaml.cs">
+      <DependentUpon>FactoryResetModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\KeyboardInitErrorModal.xaml.cs">
+      <DependentUpon>KeyboardInitErrorModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\LanguageSelectionWindow.xaml.cs">
+      <DependentUpon>LanguageSelectionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TaskBarIconView.xaml.cs">
+      <DependentUpon>TaskBarIconView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CefMenuHandler.cs" />
+    <Compile Include="UserControls\Spinner.xaml.cs">
+      <DependentUpon>Spinner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\App.Xaml.Mvx.cs" />
+    <Compile Include="Services\WpfBrowserFile.cs" />
+    <Compile Include="Services\WpfDialogService.cs" />
+    <Compile Include="Services\WpfDocument.cs" />
+    <Compile Include="Helpers\Cef\CefSharpInitHelper.cs" />
+    <Compile Include="Windows\Configurator.xaml.cs">
+      <DependentUpon>Configurator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UpdateWindow.xaml.cs">
+      <DependentUpon>UpdateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfSetup.cs" />
+    <Compile Include="Windows\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Styles\BaseDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ColorDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ScrollBarStyleDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\TemplateDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\BatteryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CloseWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ConnectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\LayoutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DebugButtonView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\QuitButtonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SeparatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SynchronizationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TextSeparatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\VersionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ConfiguratorButtonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TaskBarIconMenuView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\AskAdminRightWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\FactoryResetModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\KeyboardInitErrorModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\LanguageSelectionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TaskBarIconView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Spinner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Configurator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UpdateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset">
+      <Link>adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</Link>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Nemeio.Acl\Nemeio.Acl.csproj">
+      <Project>{9826af39-c74b-45e2-9dfb-de8edbc092be}</Project>
+      <Name>Nemeio.Acl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Core\Nemeio.Core.csproj">
+      <Project>{c981dfd7-e6ae-418e-b99c-78a853819557}</Project>
+      <Name>Nemeio.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Infrastructure\Nemeio.Infrastructure.csproj">
+      <Project>{e983d058-3500-497c-befc-cb27624c0db6}</Project>
+      <Name>Nemeio.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Keyboard.Communication.Tools\Nemeio.Keyboard.Communication.Tools.csproj">
+      <Project>{d129409a-56d4-4e45-a218-392389f35e39}</Project>
+      <Name>Nemeio.Keyboard.Communication.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Keyboard.Communication.Windows\Nemeio.Keyboard.Communication.Windows.csproj">
+      <Project>{6732d533-ca8e-4f02-99bb-4826e62f2643}</Project>
+      <Name>Nemeio.Keyboard.Communication.Windows</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Layout.Builder\Nemeio.Layout.Builder.csproj">
+      <Project>{24136c49-7bf6-4d2d-958c-1e371b71c8dd}</Project>
+      <Name>Nemeio.Layout.Builder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.LayoutGen\Nemeio.LayoutGen.csproj">
+      <Project>{6220BF94-E76F-4E44-ABAF-C2E3578681EB}</Project>
+      <Name>Nemeio.LayoutGen</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Platform.Hid.Windows\Nemeio.Platform.Hid.Windows.csproj">
+      <Project>{09a36036-432f-4f1f-806a-45aae305e56a}</Project>
+      <Name>Nemeio.Platform.Hid.Windows</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Presentation\Nemeio.Presentation.csproj">
+      <Project>{cb80002b-c138-4b60-9f0a-45df124c3c67}</Project>
+      <Name>Nemeio.Presentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.System.Windows\Nemeio.Platform.Windows.csproj">
+      <Project>{a9d256f5-92d9-4134-a077-4e4edc5d8268}</Project>
+      <Name>Nemeio.Platform.Windows</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Windows.Application\Nemeio.Windows.Application.csproj">
+      <Project>{9c9647ed-ba05-4ad4-97a5-5d9e3d6ab7bb}</Project>
+      <Name>Nemeio.Windows.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Windows.Win32\Nemeio.Windows.Win32.csproj">
+      <Project>{cef0dadc-1ca1-4b4c-9826-6fbf77cf21b0}</Project>
+      <Name>Nemeio.Windows.Win32</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="cef.redist.x64">
+      <Version>96.0.18</Version>
+    </PackageReference>
+    <PackageReference Include="cef.redist.x86">
+      <Version>96.0.18</Version>
+    </PackageReference>
+    <PackageReference Include="CefSharp.Wpf">
+      <Version>96.0.180</Version>
+    </PackageReference>
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf">
+      <Version>1.0.8</Version>
+    </PackageReference>
+    <PackageReference Include="InputSimulator">
+      <Version>1.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+      <Version>2.2.6</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging">
+      <Version>2.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmCross.Core">
+      <Version>5.7.0</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmCross.Platform">
+      <Version>5.7.0</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Serilog.Extensions.Logging">
+      <Version>2.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Serilog.Sinks.Debug">
+      <Version>1.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Serilog.Sinks.File">
+      <Version>4.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Serilog.Sinks.SQLite">
+      <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="Serilog.Sinks.Udp">
+      <Version>8.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="SkiaSharp">
+      <Version>1.68.3</Version>
+    </PackageReference>
+    <PackageReference Include="SkiaSharp.Svg">
+      <Version>1.60.0</Version>
+    </PackageReference>
+    <PackageReference Include="SQLitePCLRaw.bundle_sqlcipher">
+      <Version>1.1.14</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\nemeio-closed.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\nemeio-sync.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\nemeio.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Custom-48.png" />
+    <Resource Include="Images\Standard-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Version-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Disabled-48.png" />
+    <Resource Include="Images\Enabled-48.png" />
+    <Resource Include="Images\Quit-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Debug-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Battery-100-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Battery-020-48.png" />
+    <Resource Include="Images\Battery-040-48.png" />
+    <Resource Include="Images\Battery-060-48.png" />
+    <Resource Include="Images\Battery-080-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\nemeio-update-complete.ico" />
+    <Resource Include="Icons\nemeio-update-progress.ico" />
+    <Resource Include="Icons\nemeio-update-ready.ico" />
+    <Resource Include="Icons\nemeio-violet.ico" />
+    <Resource Include="Icons\nemeio-wrong.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="nemeio-violet.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Bluetooth-48.png" />
+    <Resource Include="Images\Usb-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\nemeio-blue.ico" />
+    <Resource Include="Icons\nemeio-sync-blue.ico" />
+    <Resource Include="Icons\nemeio-wrong-blue.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Asterisk-48.png" />
+    <Resource Include="Images\Exclamation-48.png" />
+    <Resource Include="Images\Hand-48.png" />
+    <Resource Include="Images\Information-48.png" />
+    <Resource Include="Images\Question-48.png" />
+    <Resource Include="Images\Stop-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Augmented-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\nemeio-available-update-black.ico" />
+    <Resource Include="Icons\nemeio-available-update-white.ico" />
+    <Resource Include="Icons\nemeio-need-update-black.ico" />
+    <Resource Include="Icons\nemeio-need-update-white.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cross-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-app\CSharp\SonarLint.xml">
+      <Link>SonarLint.xml</Link>
+    </AdditionalFiles>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\BLE_version_claire.ico" />
+    <Resource Include="Icons\BLE_version_claire_2.ico" />
+    <Resource Include="Icons\BLE_version_sombre.ico" />
+    <Resource Include="Icons\BLE_version_sombre2.ico" />
+    <Resource Include="Icons\Notification_version_claire.ico" />
+    <Resource Include="Icons\Notification_version_claire_2.ico" />
+    <Resource Include="Icons\Notification_version_sombre.ico" />
+    <Resource Include="Icons\Notification_version_sombre2.ico" />
+    <Resource Include="Icons\pas_connecte_Claire.ico" />
+    <Resource Include="Icons\pas_connecte_sombre.ico" />
+    <Resource Include="Icons\USB_version_claire.ico" />
+    <Resource Include="Icons\USB_version_claire_2.ico" />
+    <Resource Include="Icons\USB_version_sombre.ico" />
+    <Resource Include="Icons\USB_version_sombre2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\pas-connecte-fond-blanc2.ico" />
+    <Resource Include="Icons\pas-connecte-fond-noir-2.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

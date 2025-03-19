@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Language Selection Controller-->
+        <scene sceneID="Zyq-DG-f0x">
+            <objects>
+                <viewController storyboardIdentifier="LanguageSelectionController" id="GiM-ru-vBa" customClass="LanguageSelectionController" sceneMemberID="viewController">
+                    <view key="view" id="Byh-Z2-CiG">
+                        <rect key="frame" x="0.0" y="0.0" width="481" height="249"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="4zD-S4-TXe">
+                                <rect key="frame" x="0.0" y="193" width="56" height="56"/>
+                                <subviews>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bSl-ca-ega">
+                                        <rect key="frame" x="14" y="14" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="bSl-ca-ega" secondAttribute="height" multiplier="1:1" id="iqW-a1-8Tq"/>
+                                        </constraints>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="connected_keyboard" id="EZi-Rw-EwM"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="bSl-ca-ega" firstAttribute="width" secondItem="4zD-S4-TXe" secondAttribute="width" multiplier="1/2" id="2Pe-Qx-uz4"/>
+                                    <constraint firstItem="bSl-ca-ega" firstAttribute="centerY" secondItem="4zD-S4-TXe" secondAttribute="centerY" id="TcU-lc-gBB"/>
+                                    <constraint firstAttribute="width" secondItem="4zD-S4-TXe" secondAttribute="height" id="UIi-8X-VQg"/>
+                                    <constraint firstItem="bSl-ca-ega" firstAttribute="centerX" secondItem="4zD-S4-TXe" secondAttribute="centerX" id="xey-KZ-njm"/>
+                                    <constraint firstAttribute="width" constant="56" id="yg1-Cc-eC1"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="ceV-j1-grI">
+                                <rect key="frame" x="56" y="193" width="425" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="qqx-Uv-nMN"/>
+                                </constraints>
+                            </customView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yb3-v5-q1n">
+                                <rect key="frame" x="70" y="213" width="397" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="Aaq-Mp-cyP">
+                                    <font key="font" metaFont="system" size="14"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="fef-Df-F4E">
+                                <rect key="frame" x="22" y="146" width="437" height="16"/>
+                                <textFieldCell key="cell" selectable="YES" title="Multiline Label" id="UnY-l1-qLu">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SgK-nP-cc7">
+                                <rect key="frame" x="24" y="91" width="436" height="25"/>
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="HrA-g4-Z0c">
+                                    <font key="font" metaFont="titleBar"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <objectValues>
+                                        <string>Item 1</string>
+                                        <string>Item 2</string>
+                                        <string>Item 3</string>
+                                    </objectValues>
+                                </comboBoxCell>
+                            </comboBox>
+                            <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1r2-eg-PZl">
+                                <rect key="frame" x="0.0" y="114" width="481" height="32"/>
+                            </customView>
+                            <customView hidden="YES" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Shu-ov-ztT">
+                                <rect key="frame" x="0.0" y="162" width="417" height="31"/>
+                            </customView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vfV-IU-tla">
+                                <rect key="frame" x="16" y="32" width="449" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="uYg-9v-oK1"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" title="Valider" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jcO-Fd-l7b">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QXb-RX-BEF">
+                                <rect key="frame" x="0.0" y="64" width="481" height="31"/>
+                            </customView>
+                            <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XSY-Wy-aNm">
+                                <rect key="frame" x="0.0" y="0.0" width="481" height="32"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="XSY-Wy-aNm" firstAttribute="leading" secondItem="Byh-Z2-CiG" secondAttribute="leading" id="1AP-Fz-zYR"/>
+                            <constraint firstItem="1r2-eg-PZl" firstAttribute="leading" secondItem="Byh-Z2-CiG" secondAttribute="leading" id="2wb-zJ-8Rg"/>
+                            <constraint firstAttribute="trailing" secondItem="yb3-v5-q1n" secondAttribute="trailing" constant="16" id="3Ed-9e-pxW"/>
+                            <constraint firstItem="QXb-RX-BEF" firstAttribute="top" secondItem="SgK-nP-cc7" secondAttribute="bottom" id="3d8-a2-Ctp"/>
+                            <constraint firstItem="SgK-nP-cc7" firstAttribute="top" secondItem="1r2-eg-PZl" secondAttribute="bottom" id="4PX-RD-SY1"/>
+                            <constraint firstAttribute="trailing" secondItem="ceV-j1-grI" secondAttribute="trailing" id="4Qc-6W-cli"/>
+                            <constraint firstItem="4zD-S4-TXe" firstAttribute="leading" secondItem="Byh-Z2-CiG" secondAttribute="leading" id="4cs-gs-8dI"/>
+                            <constraint firstItem="fef-Df-F4E" firstAttribute="top" secondItem="Shu-ov-ztT" secondAttribute="bottom" id="DUC-EU-lsn"/>
+                            <constraint firstAttribute="trailing" secondItem="XSY-Wy-aNm" secondAttribute="trailing" id="Dw8-Hz-nF8"/>
+                            <constraint firstItem="yb3-v5-q1n" firstAttribute="centerY" secondItem="4zD-S4-TXe" secondAttribute="centerY" id="Fkv-UO-itW"/>
+                            <constraint firstItem="SgK-nP-cc7" firstAttribute="leading" secondItem="fef-Df-F4E" secondAttribute="leading" id="Gf1-ur-UhA"/>
+                            <constraint firstItem="XSY-Wy-aNm" firstAttribute="height" secondItem="1r2-eg-PZl" secondAttribute="height" id="JEK-IP-DVk"/>
+                            <constraint firstItem="yb3-v5-q1n" firstAttribute="leading" secondItem="4zD-S4-TXe" secondAttribute="trailing" constant="16" id="SIu-r7-k4C"/>
+                            <constraint firstItem="4zD-S4-TXe" firstAttribute="top" secondItem="Byh-Z2-CiG" secondAttribute="top" id="SPm-z1-wrj"/>
+                            <constraint firstItem="Shu-ov-ztT" firstAttribute="height" secondItem="1r2-eg-PZl" secondAttribute="height" id="YlE-iH-8Fn"/>
+                            <constraint firstAttribute="bottom" secondItem="XSY-Wy-aNm" secondAttribute="bottom" id="g61-wf-hyg"/>
+                            <constraint firstAttribute="trailing" secondItem="fef-Df-F4E" secondAttribute="trailing" constant="24" id="gUp-N5-lOt"/>
+                            <constraint firstItem="SgK-nP-cc7" firstAttribute="centerX" secondItem="Byh-Z2-CiG" secondAttribute="centerX" id="hF3-0V-VsO"/>
+                            <constraint firstItem="vfV-IU-tla" firstAttribute="leading" secondItem="Byh-Z2-CiG" secondAttribute="leading" constant="16" id="hFr-js-FgY"/>
+                            <constraint firstItem="ceV-j1-grI" firstAttribute="bottom" secondItem="4zD-S4-TXe" secondAttribute="bottom" id="hXl-D2-MXM"/>
+                            <constraint firstItem="fef-Df-F4E" firstAttribute="leading" secondItem="Byh-Z2-CiG" secondAttribute="leading" constant="24" id="kaK-xE-H1L"/>
+                            <constraint firstAttribute="trailing" secondItem="QXb-RX-BEF" secondAttribute="trailing" id="lc6-jD-ghs"/>
+                            <constraint firstAttribute="trailing" secondItem="1r2-eg-PZl" secondAttribute="trailing" id="pX1-8a-8rM"/>
+                            <constraint firstItem="QXb-RX-BEF" firstAttribute="leading" secondItem="Byh-Z2-CiG" secondAttribute="leading" id="pex-TA-Zxs"/>
+                            <constraint firstItem="ceV-j1-grI" firstAttribute="leading" secondItem="4zD-S4-TXe" secondAttribute="trailing" id="qSM-IZ-Ea9"/>
+                            <constraint firstItem="1r2-eg-PZl" firstAttribute="top" secondItem="fef-Df-F4E" secondAttribute="bottom" id="s9s-cG-Axm"/>
+                            <constraint firstItem="vfV-IU-tla" firstAttribute="top" secondItem="QXb-RX-BEF" secondAttribute="bottom" id="tzC-gP-EHG"/>
+                            <constraint firstItem="1r2-eg-PZl" firstAttribute="height" secondItem="QXb-RX-BEF" secondAttribute="height" id="utT-N0-JmJ"/>
+                            <constraint firstItem="XSY-Wy-aNm" firstAttribute="top" secondItem="vfV-IU-tla" secondAttribute="bottom" id="vKO-fP-S3v"/>
+                            <constraint firstItem="Shu-ov-ztT" firstAttribute="top" secondItem="4zD-S4-TXe" secondAttribute="bottom" id="vaP-1U-urv"/>
+                            <constraint firstItem="vfV-IU-tla" firstAttribute="centerX" secondItem="Byh-Z2-CiG" secondAttribute="centerX" id="ysd-U2-5hy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="InformationLabel" destination="fef-Df-F4E" id="jAD-Q8-OFU"/>
+                        <outlet property="LanguagesComboBox" destination="SgK-nP-cc7" id="4oT-pO-o5L"/>
+                        <outlet property="TitleDivider" destination="ceV-j1-grI" id="6qB-Ni-3nT"/>
+                        <outlet property="TitleIconContainer" destination="4zD-S4-TXe" id="tHw-aO-OLg"/>
+                        <outlet property="TitleIconImageView" destination="bSl-ca-ega" id="s0b-mX-F7V"/>
+                        <outlet property="TitleLabel" destination="yb3-v5-q1n" id="4F5-pj-uw5"/>
+                        <outlet property="ValidButton" destination="vfV-IU-tla" id="79n-pR-1dV"/>
+                    </connections>
+                </viewController>
+                <customObject id="0D1-Z9-nYg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="287.5" y="175.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="connected_keyboard" width="16" height="16"/>
+    </resources>
+</document>

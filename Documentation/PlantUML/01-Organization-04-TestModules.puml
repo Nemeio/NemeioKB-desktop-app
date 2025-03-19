@@ -1,0 +1,79 @@
+@startuml
+
+skinparam packagestyle frame
+
+' title Nemeio Desktop Application - Test Assemblies
+
+' package definition
+
+together {
+package Nemeio.Core #LightYellow
+{
+}
+package Nemeio.Infrastructure #LightPink
+{
+}
+package Nemeio.LayoutGen #LightSalmon
+{ 
+}
+package Nemeio.Api #LightBlue
+{ 
+}
+package Nemeio.Acl #LightGreen
+{ 
+}
+package Nemeio.Presentation #Tan
+{ 
+}
+package Nemeio.Wpf #Cyan
+{
+}
+package Nemeio.Mac #Yellow
+{
+}
+}
+
+together {
+package Nemeio.Core.Test #LightYellow
+{
+}
+package Nemeio.Infrastructure.Test #LightPink
+{
+}
+package Nemeio.LayoutGen.Test #LightSalmon
+{ 
+}
+package Nemeio.Api.Test #LightBlue
+{ 
+}
+package Nemeio.Acl.Test #LightGreen
+{ 
+}
+package Nemeio.Presentation.Test #Tan
+{ 
+}
+package Nemeio.Wpf.Test #Cyan
+{
+}
+package Nemeio.Mac.Test #Yellow
+{
+}
+}
+
+' dependency graph
+Nemeio.Core <-- Nemeio.Core.Test : tests
+Nemeio.Core.Test <-- Nemeio.Infrastructure.Test : depends
+Nemeio.Infrastructure <-- Nemeio.Infrastructure.Test : tests
+Nemeio.LayoutGen <-- Nemeio.LayoutGen.Test : tests
+Nemeio.Api <-- Nemeio.Api.Test : tests
+Nemeio.Core.Test <-- Nemeio.Api.Test : depends
+Nemeio.Acl <-- Nemeio.Acl.Test : tests
+Nemeio.Core.Test <-- Nemeio.Acl.Test : depends
+Nemeio.Presentation <-- Nemeio.Presentation.Test : tests
+Nemeio.Wpf <-- Nemeio.Wpf.Test : tests
+Nemeio.Mac <-- Nemeio.Mac.Test : tests
+
+' caption
+caption Nemeio Test Assemblies
+
+@enduml

@@ -1,0 +1,16 @@
+@startuml Update state machine
+
+[*] --> Idle
+Idle --> Updating : StartUpdate
+Idle --> DownloadPending : AddDependency
+DownloadPending --> DownloadPending : AddDependency
+DownloadPending --> Downloading : StartDownload
+Downloading --> Downloading : Download
+Downloading --> UpdatePending : DownloadFinished
+Downloading --> Idle : DownloadFailed
+UpdatePending --> Updating : StartUpdate
+Updating --> Updating : Updating
+Updating --> Idle : UpdateSucceed
+Updating --> Idle : UpdateFailed
+
+@enduml

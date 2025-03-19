@@ -1,0 +1,27 @@
+@startuml
+
+    abstract class Nemeio {
+
+    }
+
+    class NemeioRunner {
+
+    }
+
+    class NemeioUpdater {
+
+    }
+
+    class NemeioBuilder {
+        Nemeio Build();
+    }
+
+    note left of NemeioBuilder
+        Classe chargé de créer l'instance de Nemeio en fonction
+        de l'état de celui-ci
+    end note
+
+    NemeioRunner --> Nemeio
+    NemeioUpdater --> Nemeio
+
+@enduml

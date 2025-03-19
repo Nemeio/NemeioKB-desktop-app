@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{54D17CED-2351-4E9F-84AB-F7C13ACC6D9D}</ProjectGuid>
+    <ProjectTypeGuids>{A3F8F2AB-B479-4A4A-A458-A89E7DC349F1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Nemeio.Platform.Mac</RootNamespace>
+    <AssemblyName>Nemeio.Platform.Mac</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkIdentifier>Xamarin.Mac</TargetFrameworkIdentifier>
+    <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <EnableCodeSigning>false</EnableCodeSigning>
+    <CreatePackage>false</CreatePackage>
+    <EnablePackageSigning>false</EnablePackageSigning>
+    <IncludeMonoRuntime>false</IncludeMonoRuntime>
+    <UseSGen>false</UseSGen>
+    <HttpClientHandler>
+    </HttpClientHandler>
+    <LinkMode>None</LinkMode>
+    <AOTMode>None</AOTMode>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <EnableCodeSigning>false</EnableCodeSigning>
+    <CreatePackage>false</CreatePackage>
+    <EnablePackageSigning>false</EnablePackageSigning>
+    <IncludeMonoRuntime>false</IncludeMonoRuntime>
+    <UseSGen>false</UseSGen>
+    <HttpClientHandler>
+    </HttpClientHandler>
+    <LinkMode>None</LinkMode>
+    <AOTMode>None</AOTMode>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CliRelease|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\CliRelease\</OutputPath>
+    <DefineConstants>__MACOS__;__UNIFIED__;DEBUG;</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.Mac" />
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Keyboards\Commands\VolumeDownCommand.cs" />
+    <Compile Include="Keyboards\Commands\VolumeMuteCommand.cs" />
+    <Compile Include="Keyboards\Commands\VolumeUpCommand.cs" />
+    <Compile Include="Layouts\MacOsLayoutId.cs" />
+    <Compile Include="Keyboards\MacKeyboardBuilder.cs" />
+    <Compile Include="MacKeyboardConstants.cs" />
+    <Compile Include="Applications\MacProtectedDataProvider.cs" />
+    <Compile Include="Layouts\Systems\MacSystemActiveLayoutAdapter.cs" />
+    <Compile Include="Layouts\Systems\MacSystemLayoutInteractor.cs" />
+    <Compile Include="Applications\MacSystemForegroundApplicationAdapter.cs" />
+    <Compile Include="Sessions\MacSystemSessionStateWatcher.cs" />
+    <Compile Include="Sleeps\MacSleepModeAdapter.cs" />
+    <Compile Include="Utils\DispatchQueueUtils.cs" />
+    <Compile Include="Layouts\MacLayoutNativeNameAdapter.cs" />
+    <Compile Include="Layouts\Systems\MacSystemLayoutLoaderAdapter.cs" />
+    <Compile Include="Layouts\Images\MacLayoutGenService.cs" />
+    <Compile Include="Keyboards\MacKeyboardMapFactory.cs" />
+    <Compile Include="Tools\Watchers\MacFileWatcher.cs" />
+    <Compile Include="Tools\Watchers\MacWatcherFactory.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Nemeio.LayoutGen\Nemeio.LayoutGen.csproj">
+      <Project>{6220BF94-E76F-4E44-ABAF-C2E3578681EB}</Project>
+      <Name>Nemeio.LayoutGen</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Layout.Builder\Nemeio.Layout.Builder.csproj">
+      <Project>{24136C49-7BF6-4D2D-958C-1E371B71C8DD}</Project>
+      <Name>Nemeio.Layout.Builder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Core\Nemeio.Core.csproj">
+      <Project>{C981DFD7-E6AE-418E-B99C-78A853819557}</Project>
+      <Name>Nemeio.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nemeio.Mac.Native\Nemeio.Mac.Native.csproj">
+      <Project>{C1A2CD5B-7261-4CDD-A62F-77C4BD215075}</Project>
+      <Name>Nemeio.Mac.Native</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset">
+      <Link>adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</Link>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-app\CSharp\SonarLint.xml">
+      <Link>SonarLint.xml</Link>
+    </AdditionalFiles>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
+</Project>

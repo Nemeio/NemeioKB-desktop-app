@@ -1,0 +1,191 @@
+### This document is the root of the pipeline [Desktop] Installers
+### It builds the installers for Windows (x64 and x32) and MAC
+### on a schedule (every night) based on what is on the branch develop
+
+name: $(Rev:rrrr)
+
+parameters:
+  - name: "timeService"
+    type: string
+    default: "http://timestamp.digicert.com"
+
+variables:
+  - group: Common
+  - group: "Mac Signing"
+  - group: Services
+  - name: SolutionName
+    value: "Nemeio"
+  - name: SolutionFileName
+    value: "Nemeio.sln"
+  - name: MacApplicationDropFolderName
+    value: "Mac Application"
+  - name: FrameworkArtifactName
+    value: "Mac Framework"
+  - name: ExtendedToolFolder
+    value: "$(Build.SourcesDirectory)/Nemeio.ExtendedTools/DerivedData/ExtendedTools/Build/Products/Release"
+  - name: MacInstallerDropFolderName
+    value: "Mac Installer"
+
+pr: none
+
+trigger: none
+
+schedules:
+  - cron: "0 0 * * *"
+    displayName: "Daily midnight build"
+    branches:
+      include:
+        - develop
+    always: true
+
+stages:
+  - stage: Windows_x64
+    condition: succeeded()
+    jobs:
+      - job: "Installer"
+        variables:
+          DropFolderName: "Windows Application and Installer x64"
+          BuildConfiguration: "WinRelease"
+          BuildPlatform: x64
+        pool:
+          vmImage: "windows-2019"
+        steps:
+          - checkout: self
+            persistCredentials: true
+            submodules: true
+            lfs: true
+          - template: Templates/win-installer.yaml
+            parameters:
+              checkoutPath: "$(Build.SourcesDirectory)"
+              timeService: ${{ parameters.timeService }}
+              postBuild:
+                - task: CopyFiles@2
+                  displayName: "Copy Files to: $(Build.ArtifactStagingDirectory)"
+                  inputs:
+                    SourceFolder: "$(Build.SourcesDirectory)/Nemeio.WindowsInstaller/bin/x64/WinRelease/fr-fr"
+                    Contents: "*.msi"
+                    TargetFolder: "$(Build.ArtifactStagingDirectory)"
+                - task: PublishBuildArtifacts@1
+                  displayName: "Publish Artifact"
+                  inputs:
+                    artifactName: "Windows Installer"
+
+  - stage: Mac_x64
+    dependsOn: Windows_x64
+    condition: succeeded()
+    jobs:
+      - job: "Extended_Framework"
+        pool:
+          vmImage: "macOS-11"
+        variables:
+          - name: configuration
+            value: "Release"
+          - name: scheme
+            value: "ExtendedTools Release"
+          - name: sdk
+            value: "macosx"
+        steps:
+          - checkout: self
+            persistCredentials: true
+            submodules: true
+            lfs: true
+          - template: Templates/mac-framework.yaml
+            parameters:
+              checkoutPath: "$(Build.SourcesDirectory)"
+              postBuild:
+                - script: |
+                    ls -l -R "$(ExtendedToolFolder)/ExtendedTools.framework"
+                    tar -czvf "$(ExtendedToolFolder)/ExtendedTools.tgz" -C "$(ExtendedToolFolder)" "ExtendedTools.framework"
+                - task: CopyFiles@2
+                  displayName: "Copy Files to"
+                  inputs:
+                    SourceFolder: "$(ExtendedToolFolder)"
+                    TargetFolder: "$(Build.ArtifactStagingDirectory)"
+                - task: PublishBuildArtifacts@1
+                  displayName: "Publish Artifact"
+                  inputs:
+                    artifactName: $(FrameworkArtifactName)
+      - job: "MacOS_Application"
+        dependsOn: Extended_Framework
+        pool:
+          vmImage: "macOS-11"
+        variables:
+          - name: BuildConfiguration
+            value: "MacRelease"
+        steps:
+          - checkout: self
+            persistCredentials: true
+            submodules: true
+            lfs: true
+          - template: Templates/mac-application.yaml
+            parameters:
+              checkoutPath: "$(Build.SourcesDirectory)"
+              postRestore:
+                - task: DownloadBuildArtifacts@0
+                  inputs:
+                    buildType: "current"
+                    downloadType: "single"
+                    artifactName: $(FrameworkArtifactName)
+                    downloadPath: "$(ExtendedToolFolder)"
+                - task: Bash@3
+                  displayName: "Manage files"
+                  inputs:
+                    targetType: "inline"
+                    script: |
+                      mkdir "$(Build.SourcesDirectory)/CopyFromArtifacts"
+                      tar -xvf "$(ExtendedToolFolder)/$(FrameworkArtifactName)/ExtendedTools.tgz" -C "$(Build.SourcesDirectory)/CopyFromArtifacts"
+                      mv "CopyFromArtifacts/ExtendedTools.framework" "$(ExtendedToolFolder)/ExtendedTools.framework"
+                      chmod 755 "$(ExtendedToolFolder)/ExtendedTools.framework"
+                      ls -l -R "$(ExtendedToolFolder)/ExtendedTools.framework"
+              postBuild:
+                - task: CopyFiles@2
+                  displayName: "Copy Files to: $(Build.ArtifactStagingDirectory)"
+                  inputs:
+                    SourceFolder: "$(Build.SourcesDirectory)/Nemeio.Mac/bin/Release"
+                    Contents: "*.tgz"
+                    TargetFolder: "$(Build.ArtifactStagingDirectory)"
+                - task: PublishBuildArtifacts@1
+                  displayName: "Publish Artifact"
+                  inputs:
+                    artifactName: "MacApplication"
+      - job: "MacOS_Installer"
+        dependsOn: MacOS_Application
+        pool:
+          vmImage: "macOS-11"
+        variables:
+          - name: BuildConfiguration
+            value: "Release"
+        steps:
+          - checkout: self
+            persistCredentials: true
+            submodules: true
+            lfs: true
+          - template: Templates/mac-installer-pkg.yaml
+            parameters:
+              checkoutPath: "$(Build.SourcesDirectory)"
+              preBuild:
+                - task: DownloadBuildArtifacts@0
+                  inputs:
+                    buildType: "current"
+                    downloadType: "single"
+                    artifactName: MacApplication
+                    downloadPath: "$(Build.SourcesDirectory)/Artefacts"
+                - task: Bash@3
+                  displayName: "Manage files"
+                  inputs:
+                    targetType: "inline"
+                    script: |
+                      mkdir "$(Build.SourcesDirectory)/Artefacts/$(BuildConfiguration)"
+                      tar -xvf "$(Build.SourcesDirectory)/Artefacts/MacApplication/Nemeio.app.tgz" -C "$(Build.SourcesDirectory)/Artefacts/$(BuildConfiguration)"
+                      chmod 755 "$(Build.SourcesDirectory)/Artefacts/$(BuildConfiguration)/Nemeio.app/Contents/MacOS/Nemeio"
+              postBuild:
+                - task: CopyFiles@2
+                  displayName: "Copy Files to: $(Build.ArtifactStagingDirectory)"
+                  inputs:
+                    SourceFolder: "$(Build.SourcesDirectory)/Nemeio.MacInstaller"
+                    Contents: "*.pkg"
+                    TargetFolder: "$(Build.ArtifactStagingDirectory)"
+                - task: PublishBuildArtifacts@1
+                  displayName: "Publish Artifact"
+                  inputs:
+                    artifactName: "Mac Installer"

@@ -1,0 +1,45 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Dimensions -->
+    <System:Double
+        x:Key="DoubleMenuMargin">
+        60
+    </System:Double>
+    <GridLength
+        x:Key="GridLengthMenuMargin">
+        60
+    </GridLength>
+    <System:Double
+        x:Key="DisabledOpacity">
+        0.5
+    </System:Double>
+
+    <!-- Fonts -->
+    <Style 
+        TargetType="{x:Type TextBlock}">
+        <Setter 
+            Property="FontFamily" 
+            Value="Open Sans" />
+    </Style>
+    <Style
+        TargetType="{x:Type ListView}">
+        <Setter
+            Property="FontFamily"
+            Value="Open Sans" />
+    </Style>
+    <Style
+        TargetType="{x:Type Control}"
+        x:Key="openSansFont">
+        <Setter
+            Property="FontFamily"
+            Value="Open Sans" />
+    </Style>
+    <Style
+        TargetType="{x:Type Label}"
+        BasedOn="{DynamicResource openSansFont}" />
+    <Style
+        TargetType="{x:Type TextBox}"
+        BasedOn="{DynamicResource openSansFont}" />
+
+</ResourceDictionary>

@@ -1,0 +1,6 @@
+framework module WKeyboard {
+  umbrella header "WKeyboard.h"
+
+  export *
+  module * { export * }
+}

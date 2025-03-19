@@ -1,0 +1,51 @@
+@startuml
+
+[Nemeio.Core] as Core
+[Nemeio.Keyboard.Communication] as KeyboardCommunication
+[Nemeio.Keyboard.Communication.Windows] as KeyboardComWindows
+[Nemeio.Keyboard.Communication.MacOS] as KeyboardCommOSX
+[Nemeio.Keyboard.Update] as KeyboardUpdate
+[Nemeio.Presentation] as Presentation
+[Nemeio.Wpf] as Windows
+[Nemeio.Mac] as Mac
+[Nemeio.Mac.ExtendedTools] as MacExTools
+[Nemeio.LayoutGen] as LayoutGen
+[Nemeio.Infrastructure] as Infra
+[Nemeio.Acl] as Acl
+
+KeyboardComWindows --> KeyboardCommunication
+KeyboardCommOSX --> KeyboardCommunication
+KeyboardCommunication --> Core
+KeyboardUpdate --> Core
+Presentation --> KeyboardCommunication
+Presentation --> KeyboardUpdate
+Presentation --> Infra
+Presentation --> Acl
+Windows --> Presentation
+Mac --> Presentation
+Mac --> MacExTools
+LayoutGen --> Core
+Presentation --> LayoutGen
+
+note right of Core
+  Contient toutes les interfaces
+  et les implémentations communes
+end note
+
+note right of KeyboardCommunication
+  Il s'agit ici d'implémenter la notion de communication 
+  "classique" (KeepAlive, Battery, ...) avec un clavier Nemeio
+end note
+
+note left of KeyboardUpdate
+  Contient toutes les classes permettant la mise à 
+  jour d'un clavier
+end note
+
+note right of Presentation
+  S'occupe d'enregistrer les classes par rapport à leur
+  interfaces pour l'ensemble de l'application via 
+  l'injection de dépendance
+end note
+
+@enduml

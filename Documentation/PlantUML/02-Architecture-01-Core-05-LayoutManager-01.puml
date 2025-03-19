@@ -1,0 +1,118 @@
+@startuml
+
+title LayoutManager (Core: common) - Abstract class Diagram
+
+interface ILayoutManager {
+    LayoutId CurrentLayoutId { get; }
+    LayoutId DefaultLayoutId { get; }
+    IApplicationLayoutManager ApplicationLayoutManager { get; }
+    IEnumerable<Layout> LayoutList { get; }
+    bool Started { get;  }
+
+    event EventHandler<EventArgs> LayoutChanged;
+    event EventHandler<EventArgs> LayoutListChanged;
+
+    void Start();
+    void Stop();
+
+    void RefreshSystemLayoutId();
+    Layout GetLayout(LayoutId id);
+    void LoadLayoutListFromDatabase();
+    void EnforceSystemLayout(LayoutId layoutId);
+    void InjectDeviceLayoutController(DeviceLayoutController deviceLayoutController);
+    void SetDefaultLayout(LayoutId layoutId);
+    void ResetDefaultLayout();
+}
+interface ILayoutCrudManager
+{
+    event EventHandler<EventArgs> LayoutCreated;
+    event EventHandler<EventArgs> LayoutDeleted;
+    event EventHandler<EventArgs> LayoutUpdated;
+
+    Layout CreateLayout(Layout layout);
+    Layout CreateLayout(OsLayoutId osLayoutId, int position);
+
+    IEnumerable<LayoutId> ReadAllLayoutIds();
+    Layout ReadLayout(LayoutId layoutId);
+
+    void UpdateLayout(Layout layout);
+
+    void DeleteLayout(LayoutId layoutId);
+}
+note top
+    The <i>LayoutCrudManager</i>
+    (CRUD for Create, Read, Udate, Destroy)
+    manages Layout persistence on 
+    the system (basically hiding SQlite).
+    Comes with notification mechanism
+    about Layout changes.
+end note
+
+interface IApplicationLayoutManager
+{
+    IList<string> ExceptionNameList { get; }
+    LayoutId FindLatestAssociatedLayoutId(ProcessInformation information);
+    string FindException(ProcessInformation information);
+    Layout GetLayoutByLinkedApplicationPath(string applicationPathOrName);
+}
+note top
+    The <i>IApplicationLayoutManager</i>
+    is the mechanism which monitors 
+    current active application in order
+    to activate the associated Layout
+    whenever appropriate
+end note
+
+interface ILogger;
+
+abstract class BaseLayoutWatcher {
+}
+note bottom
+  To keep an eye on current
+  system seleced layout and
+  possibly notify changes
+end note
+
+
+abstract class LayoutManager {
+}
+note left #cyan
+    This is the abstracted implementation 
+    which centralizes common layout
+    management mechanisms
+end note
+
+class DeviceLayoutController {
+}
+note bottom
+  When connected to a Device,
+  this controller is managing
+  all layout related operations
+  on the Device
+end note
+
+class ProcessInformation {
+}
+note top
+  Holds information related
+  tote current application
+  being active, when not amongst
+  the black-listed ones
+end note
+
+ILayoutManager <|-left- LayoutManager : Implement
+
+LayoutManager "1" *-up-- ILayoutCrudManager
+
+LayoutManager "1" *-up-- IApplicationLayoutManager
+IApplicationLayoutManager -right--> ProcessInformation 
+
+LayoutManager "1" *-down- ILogger
+Layout <-down- LayoutManager
+LayoutId <-down- LayoutManager
+Layout "1" *-right-- LayoutId
+LayoutManager "0,1" *-down-- DeviceLayoutController
+LayoutManager "1" *-down-- BaseLayoutWatcher
+
+
+@enduml

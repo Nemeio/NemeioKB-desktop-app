@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="Nemeio.Wpf.UserControls.VersionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Nemeio.Wpf.UserControls"
+             xmlns:converters="clr-namespace:Nemeio.Wpf.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="40" 
+             d:DesignWidth="255">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/BaseDictionary.xaml" />
+                <ResourceDictionary Source="../Styles/ColorDictionary.xaml" />
+                <ResourceDictionary Source="../Styles/TemplateDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"></converters:BooleanToVisibilityConverter>
+            <converters:PackageUpdateKindToColorConverter x:Key="PackageUpdateKindToColorConverter"></converters:PackageUpdateKindToColorConverter>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <DockPanel 
+        Height="40"
+        Background="Transparent">
+
+        <Border
+            DockPanel.Dock="Left"
+            Width="{StaticResource DoubleMenuMargin}"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+
+            <Image
+                Margin="6"
+                Stretch="Uniform"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Source="/Images/Version-48.png">
+                <Image.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Versions" IsEnabled="False"/>
+                        <MenuItem Header="{Binding ApplicationVersion}" IsEnabled="False"/>
+                        <MenuItem Header="{Binding KeyboardStmVersion}" IsEnabled="False" Visibility="{Binding KeyboardIsPlugged, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        <MenuItem Header="{Binding KeyboardNrfVersion}" IsEnabled="False" Visibility="{Binding KeyboardIsPlugged, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        <MenuItem Header="{Binding KeyboardIteVersion}" IsEnabled="False" Visibility="{Binding KeyboardIsPlugged, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    </ContextMenu>
+                </Image.ContextMenu>
+            </Image>
+        </Border>
+
+        <StackPanel 
+            Orientation="Vertical">
+            <TextBlock
+                Background="Transparent" 
+                Foreground="White" 
+                FontSize="12"
+                Margin="8, 4"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
+                Text="{Binding Title}" />
+
+            <Button
+                Style="{StaticResource regularButton}"
+                Height="14"
+                FontSize="10"
+                Opacity="1"
+                Margin="8, 0"
+                HorizontalAlignment="Right"
+                Foreground="{Binding UpdateKind, Converter={StaticResource PackageUpdateKindToColorConverter }}"
+                Command="{Binding CommandApply}"
+                Content="{Binding Update}" />
+        </StackPanel>
+
+    </DockPanel>
+</UserControl>

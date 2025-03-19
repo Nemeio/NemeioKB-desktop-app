@@ -1,0 +1,70 @@
+@startuml
+
+title DisplayController (Core: common) - Abstract Class Diagram
+
+interface IDisplayController {
+    void ShowNotification(StringId title, StringId message);
+    void ShowNotification(string title, string message);
+    void InjectLayoutManager(ILayoutManager layoutManager);
+    void InjectConnectionManager(IConnectionManager connectionManager);
+    void InjectUpdateManager(IUpdateManager updateManager);
+}
+
+abstract class DisplayController {
+}
+note left #cyan
+    This is the abstracted implementation 
+    which centralizes common application
+    statuses, feedbacks and behaviours
+end note
+
+interface ILogger
+interface ILanguageManager
+interface IDialogService
+interface IConnectionManager
+interface ILayoutManager
+interface IUpdateManager
+
+IDisplayController <|-left- DisplayController : Implement
+
+DisplayController "1" *-up-- ILogger
+note top
+  To log things
+end note 
+
+DisplayController "1" *-up-- ILanguageManager
+note top
+  To support
+  multi-lang
+end note  
+
+DisplayController "1" *-up-- IDialogService
+note top
+  To interact with
+  user through
+  dialog messages
+end note  
+
+DisplayController "1" *-down-- IConnectionManager : PostInjected
+note bottom
+  To given feedback
+  of connection status
+  notably through icon
+end note  
+
+DisplayController "1" *-down-- ILayoutManager : PostInjected
+note bottom
+  To support synchroniztion 
+  between system layout and
+  keyboard displayed layout
+end note
+
+DisplayController "1" *-down-- IUpdateManager : PostInjected
+note bottom
+  To give feedback on update
+  status and progress
+  (mechanism not finalized and
+  expected to be mofiied)
+end note  
+
+@enduml

@@ -1,0 +1,209 @@
+﻿<Window x:Class="Nemeio.Wpf.Windows.UpdateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nemeio.Wpf.Windows"
+        xmlns:converters="clr-namespace:Nemeio.Wpf.Converters"
+        xmlns:vm="clr-namespace:Nemeio.Wpf.ViewModel"
+        xmlns:helpers="clr-namespace:Nemeio.Wpf.Helpers"
+        xmlns:nemeio="clr-namespace:Nemeio.Wpf.UserControls"
+        mc:Ignorable="d"
+        Height="350" 
+        Width="600"
+        WindowStyle="None" 
+        ResizeMode="NoResize"
+        SizeToContent="Height"
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <vm:UpdateViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/BaseDictionary.xaml" />
+                <ResourceDictionary Source="../Styles/ColorDictionary.xaml" />
+                <ResourceDictionary Source="../Styles/TemplateDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <converters:VisibilityUpdateViewTypeConverter x:Key="VisibilityUpdateViewTypeConverter"></converters:VisibilityUpdateViewTypeConverter>
+            <converters:VisibilityIsSetConverter x:Key="VisibilityIsSetConverter"></converters:VisibilityIsSetConverter>
+            <converters:PercentToStringConverter x:Key="PercentToStringConverter"></converters:PercentToStringConverter>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Background="{StaticResource LdlcDarkViolet}"  MouseDown="Grid_MouseDown">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid 
+            Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{StaticResource GridLengthMenuMargin}" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="{StaticResource GridLengthMenuMargin}" />
+            </Grid.ColumnDefinitions>
+            <Border
+                Grid.Column="0"
+                VerticalAlignment="Stretch"
+                Background="{StaticResource LdlcViolet}">
+                <Image
+                    Margin="15,12,12,12"
+                    Stretch="Uniform"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Source="/Icons/nemeio.ico" />
+            </Border>
+            <StackPanel
+                Grid.Column="1"
+                Orientation="Vertical">
+                <Border
+                    Height="48">
+                    <TextBlock
+                        Text="{Binding Title}"
+                        Foreground="{StaticResource LdlcGreen}"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Stretch"
+                        FontSize="18"
+                        Margin="24,2,0,0" />
+                </Border>
+            </StackPanel>
+            <Border
+                Grid.Column="2"
+                VerticalAlignment="Stretch"
+                Background="{StaticResource LdlcRed}">
+                <Button 
+                    Command="{Binding SecondaryActionCommand}"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}">
+                    <Image
+                        Margin="15,12,12,12"
+                        Stretch="Uniform"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Source="/Images/Cross-512.png">
+
+                    </Image>
+                </Button>
+            </Border>
+            <Rectangle
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Bottom"
+                Fill="White"
+                Height="2" />
+        </Grid>
+        <Grid Grid.Row="1" Margin="16" Visibility="{Binding ViewState, Converter={StaticResource VisibilityUpdateViewTypeConverter}, ConverterParameter=Download}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Vertical" Margin="16">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="{Binding PageTitle}" FontSize="16" TextWrapping="Wrap" Foreground="White"/>
+                    <ProgressBar Height="18" Value="{Binding DownloadProgress}" Margin="0, 16, 0, 8"/>
+                    <TextBlock Text="{Binding DownloadProgress, Converter={StaticResource PercentToStringConverter}}" TextAlignment="Right" FontSize="16" Foreground="White"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Grid.Row="2">
+                <Button
+                    Style="{StaticResource regularButton}"
+                    FontSize="14"
+                    Foreground="White"
+                    Background="{ StaticResource LdlcViolet }"
+                    Margin="16"
+                    Command="{Binding SecondaryActionCommand}">
+                    <TextBlock Text="{Binding PageSecondaryAction}" Margin="16, 0"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Margin="16" Visibility="{Binding ViewState, Converter={StaticResource VisibilityUpdateViewTypeConverter}, ConverterParameter=Actions}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Vertical" Margin="16">
+                <TextBlock Text="{Binding PageTitle}" FontSize="18" Foreground="White" TextWrapping="Wrap"/>
+                <TextBlock Text="{Binding PageSubtitle}" FontSize="14" Foreground="White" TextWrapping="Wrap" Margin="0, 16"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button
+                    Style="{StaticResource regularButton}"
+                    FontSize="14"
+                    Foreground="White"
+                    Background="{ StaticResource LdlcViolet }"
+                    Margin="16"
+                    Command="{Binding SecondaryActionCommand}"
+                    Visibility="{Binding PageSecondaryAction, Converter={StaticResource VisibilityIsSetConverter}}">
+                    <TextBlock Text="{Binding PageSecondaryAction}" Margin="16, 0"/>
+                </Button>
+                <Button
+                    Style="{StaticResource regularButton}"
+                    FontSize="14"
+                    Foreground="White"
+                    Background="{ StaticResource LdlcMustard }"
+                    Margin="16"
+                    Command="{Binding MainActionCommand}"
+                    Visibility="{Binding PageMainAction, Converter={StaticResource VisibilityIsSetConverter}}">
+                    <TextBlock Text="{Binding PageMainAction}" Margin="16, 0"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Margin="16" Visibility="{Binding ViewState, Converter={StaticResource VisibilityUpdateViewTypeConverter}, ConverterParameter=Installing}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="96"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <nemeio:Spinner Grid.Column="0" Balls="10" BallSize="15" BallBrush="{ StaticResource LdlcViolet }" Margin="0, 0, 16, 16" Width="64" Height="64"/>
+                <StackPanel Grid.Column="1" Orientation="Vertical">
+                    <TextBlock Text="{Binding PageTitle}" FontSize="18" Foreground="White" TextWrapping="Wrap"/>
+                    <TextBlock Text="{Binding PageSubtitle}" FontSize="14" Foreground="White" TextWrapping="Wrap" Margin="0, 16"/>
+                    <StackPanel 
+                        Margin="0, 16" 
+                        Orientation="Vertical">
+                        <ProgressBar 
+                                Height="18" 
+                                Value="{Binding InstallProgress}"
+                                HorizontalAlignment="Stretch"/>
+                        <TextBlock 
+                            Text="{Binding InstallProgress, Converter={StaticResource PercentToStringConverter}}" 
+                            TextAlignment="Right"
+                            FontSize="16"
+                            Foreground="White"
+                            Margin="0, 8, 0, 0"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button
+                    Style="{StaticResource regularButton}"
+                    FontSize="14"
+                    Foreground="White"
+                    Background="{ StaticResource LdlcViolet }"
+                    Margin="16"
+                    Command="{Binding SecondaryActionCommand}"
+                    Visibility="{Binding PageSecondaryAction, Converter={StaticResource VisibilityIsSetConverter}}">
+                    <TextBlock Text="{Binding PageSecondaryAction}" Margin="16, 0"/>
+                </Button>
+                <Button
+                    Style="{StaticResource regularButton}"
+                    FontSize="14"
+                    Foreground="White"
+                    Background="{ StaticResource LdlcMustard }"
+                    Margin="16"
+                    Command="{Binding MainActionCommand}"
+                    Visibility="{Binding PageMainAction, Converter={StaticResource VisibilityIsSetConverter}}">
+                    <TextBlock Text="{Binding PageMainAction}" Margin="16, 0"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

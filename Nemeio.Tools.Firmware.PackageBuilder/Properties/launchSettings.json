@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Nemeio.Tools.Firmware.PackageBuilder": {
+      "commandName": "Project",
+      "commandLineArgs": "-manifest \"C:\\Users\\ksibue\\Desktop\\Packages\\manifest.json\" -o \"C:\\Users\\ksibue\\Desktop\\Packages\\test.bin\" -D \"C:\\Users\\ksibue\\Desktop\\Packages\""
+    }
+  }
+}

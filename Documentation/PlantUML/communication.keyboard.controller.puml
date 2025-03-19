@@ -1,0 +1,40 @@
+@startuml
+
+package "Nemeio.Core" {
+
+    interface IKeyboardController {
+        event OnKeyboardConnected;
+        event OnKeyboardDisconnected;
+    }
+
+    class KeyboardController {
+
+    }
+
+    interface IKeyboardProvider {
+
+    }
+
+    class KeyboardProvider {
+
+    }
+
+}
+
+KeyboardController --|> IKeyboardController
+KeyboardProvider --|> IKeyboardProvider
+KeyboardProvider *-- IKeyboardSelector
+
+KeyboardController *-- KeyboardProvider
+KeyboardController "0..0" -- "0..*" Nemeio
+KeyboardController *-- INemeioBuilder
+
+KeyboardProvider "0..0" -- "0..1" IKeyboardWatcher : USBWatcher
+KeyboardProvider "0..0" -- "0..1" IKeyboardWatcher : BluetoothLEWatcher
+
+note top of KeyboardController
+  Il s'agit de la seul classe capable de fournir aux autres couches
+  les claviers courant à utiliser
+end note
+
+@enduml

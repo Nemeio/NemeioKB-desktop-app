@@ -1,0 +1,4 @@
+[submodule "Nemeio.Presentation/Configurator"]
+	path = Nemeio.Presentation/Configurator
+	url = https://bitbucket.org/adeneo-embedded/b2047-ldlc-karmeliet-configurator.git
+	#url = git@bitbucket.org:adeneo-embedded/b2047-ldlc-karmeliet-configurator.git

@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Configurations>Debug;Release;CliDebug;CliRelease</Configurations>
+    <CodeAnalysisRuleSet>..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-appcsharp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\adeneo-embedded_b2047-ldlc-karmeliet-desktop-app\CSharp\SonarLint.xml" Link="SonarLint.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Crc32.NET" Version="1.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="SerialPortLib" Version="1.0.18" />
+    <PackageReference Include="SerialPortStream" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nemeio.Core\Nemeio.Core.csproj" />
+    <ProjectReference Include="..\Nemeio.Keyboard.Communication.Protocol.v1\Nemeio.Keyboard.Communication.Protocol.v1.csproj" />
+    <ProjectReference Include="..\Nemeio.Keyboard.Communication.Protocol.v2\Nemeio.Keyboard.Communication.Protocol.v2.csproj" />
+    <ProjectReference Include="..\Nemeio.Keyboard.Communication.Protocol.v3\Nemeio.Keyboard.Communication.Protocol.v3.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="ICON-Infos" transform="translate(-43 -525)">
+    <g id="Groupe_17" data-name="Groupe 17" transform="translate(43 525)">
+      <path id="Tracé_69" data-name="Tracé 69" class="cls-1" d="M15,0A15,15,0,1,0,30,15,15.029,15.029,0,0,0,15,0Zm0,28.154A13.154,13.154,0,1,1,28.154,15,13.178,13.178,0,0,1,15,28.154Z"/>
+      <circle id="Ellipse_61" data-name="Ellipse 61" class="cls-1" cx="1.523" cy="1.523" r="1.523" transform="translate(13.708 7.477)"/>
+      <path id="Tracé_70" data-name="Tracé 70" class="cls-1" d="M31.023,28.3a.926.926,0,0,0-.923.923v7.846a.923.923,0,1,0,1.846,0V29.223A.926.926,0,0,0,31.023,28.3Z" transform="translate(-16.208 -15.238)"/>
+    </g>
+  </g>
+</svg>

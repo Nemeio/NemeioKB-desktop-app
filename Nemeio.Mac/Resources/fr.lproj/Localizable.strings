@@ -1,0 +1,121 @@
+﻿/*
+ * Loco ios export: iOS Localizable.strings
+ * Project: Débarqué
+ * Release: Working copy
+ * Locale: fr-FR, French (France)
+ * Exported by: clem clement
+ * Exported at: Fri, 05 Jul 2019 09:59:30 +0200
+ */
+
+/* loco:5be93c857ec8ae59ac7e4431 */
+"battery" = "batterie";
+
+/* loco:5be93c857ec8ae59ac7e4432 */
+"battery_level" = "Niveau de batterie";
+
+/* loco:5be93c857ec8ae59ac7e4439 */
+"open_configurator" = "Ouvrir le configurateur";
+
+/* loco:5be93c857ec8ae59ac7e443a */
+"quit" = "Quitter";
+
+/* loco:5be93c857ec8ae59ac7e443b */
+"update_needed" = "Mise à jour disponible";
+
+/* loco:5be93c857ec8ae59ac7e443c */
+"no_update_available" = "Aucune mise à jour disponible";
+
+/* loco:5be93c857ec8ae59ac7e443d */
+"update_available_title" = "Mise à jour disponible";
+
+/* loco:5be93c857ec8ae59ac7e443e */
+"keyboard_update_available_message" = "Une mise à jour est disponible pour votre clavier Nemeio";
+
+/* loco:5be93c857ec8ae59ac7e443f */
+"battery_notification_title" = "Niveau de batterie faible";
+
+/* loco:5be93c857ec8ae59ac7e4440 */
+"battery_notification_message" = "Votre batterie est faible, pensez à brancher votre clavier Nemeio";
+
+/* loco:5be93c857ec8ae59ac7e4441 */
+"current_battery_level" = "Batterie :";
+
+/* loco:5be93c857ec8ae59ac7e4442 */
+"multiple_keyboard_message" = "Plusieurs clavier Nemeio sont branchés sur cet ordinateur.";
+
+/* loco:5be93c857ec8ae59ac7e4443 */
+"multiple_keyboard_title" = "Clavier Nemeio";
+
+/* loco:5c0fb3597ec8ae605d61a4c2 */
+"error_udp_setup_failed_title" = "Un problème avec votre clavier est survenu";
+
+/* loco:5c0fb3e67ec8ae60c75c96b2 */
+"error_udp_setup_failed_message" = "Impossible de communiquer avec votre clavier. Merci de débrancher votre clavier et de réessayer !";
+
+/* loco:5c62d714a08ef120de1ab362 */
+"error_configurator_unavailable" = "Le configurateur semble indisponible";
+
+/* loco:5c6a5152a08ef13e3a1f8872 */
+"title_configurator" = "Configurateur";
+
+/* loco:5d0c88c1ed0cfa3b7b14fba5 */
+"app_update_available_message" = "Une mise à jour est disponible pour l'application Nemeio";
+
+/* loco:5d0ca051ed0cfa419b0c0ea5 */
+"apply_updates" = "Installer les mises à jour";
+
+/* loco:5d0ca97ded0cfa44227100d2 */
+"applying_updates" = "Installation des mises à jour...";
+
+/* loco:5d0ca9a1ed0cfa43f03e6e9d */
+"downloading_updates" = "Téléchargement des mises à jours ...";
+
+/* loco:5d1060e9c38e0f7285579d12 */
+"updates_downloaded" = "Mise à jour téléchargée";
+
+/* loco:5d106108c38e0f72876401d2 */
+"updates_downloaded_message" = "Le téléchargement est terminé, vous pouvez installer les mises à jour";
+
+/* loco:5d10611ec38e0f72894024d2 */
+"updates_download_error_title" = "Oups !";
+
+/* loco:5d106138c38e0f728b7e48e2 */
+"updates_download_error_message" = "Une erreur est survenue lors du téléchargement des mises à jour. Merci de réessayer plus tard.";
+
+/* loco:5d10622ac38e0f7281671b63 */
+"updates_apply_question" = "Êtes-vous sûr de vouloir installer les mises à jour maintenant ? Votre clavier et l'application seront inutilisables pendant l'installation.";
+
+/* loco:5d124e89ed0cfa392a7e4f82 */
+"updates_in_progress_message" = "Une mise à jour est en cours. Merci de ne pas débrancher le clavier.";
+
+/* loco:5d130deded0cfa54ac3218d2 */
+"updates_installation_error_message" = "Un problème est survenu lors de l'installation d'une mise à jour. Merci de réessayer plus tard.";
+
+/* loco:5d131678ed0cfa55de473542 */
+"updates_finish_success_message" = "Les mises à jours sont terminé.";
+
+/* loco:5d15b290ed0cfa0e9b775a63 */
+"updates_apply_failed_message" = "Une erreur est survenue lors de l'application de la mise à jour. Merci de réessayer plus tard.";
+
+/* loco:5d1c630ced0cfa385279e334 */
+"updates_in_progress_quit_app_message" = "Une mise à jour est en cours. Êtes-vous certain de vouloir quitter l'application ?";
+
+"common_yes" = "Oui";
+
+"common_no" = "Non";
+
+"common_ok" = "Ok";
+
+"error_keychain_user_unauthorized_message" = "Pour fonctionner correctement, Nemeio nécessite l'accès au Trousseau d'accès.";
+
+"synchonization_complete_added_message" = "{0} nouvelle(s) configuration(s) ajoutée(s)";
+
+"synchonization_complete_message" = "La synchronisation du clavier est terminée";
+
+"synchonization_complete_removed_message" = "{0} configuration(s) supprimée(s)";
+
+"synchonization_complete_title" = "Synchonisation Clavier Nemeio";
+
+"synchronization_layout_message" = "Synchronisation du clavier en cours";
+
+"synchronization_layout_title" = "Synchronisation";

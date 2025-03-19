@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Nemeio.Tools.Image.ImagePackageBuilder": {
+      "commandName": "Project",
+      "commandLineArgs": "-image \"C:\\Temp\\Carrousel\\Carrousel\\OriginalBMP\\azerty-creatif-1-blanc.bmp\" -output \"C:\\Temp\\Carrousel\\Carrousel\\Out\\final.zip\" -compression \"GZip\" -json \"{\"Factory\":\"0\",\"Hid\":\"1\",\"Mac\":\"0\",\"SpecialSequences\":{\"WinSAS\":{\"Values\":[[71,74,15],[71,15,74],[74,71,15],[74,15,71],[15,71,74],[15,74,71],[71,76,15],[71,15,76],[76,71,15],[76,15,71],[15,71,76],[15,76,71],[77,74,15],[77,15,74],[74,77,15],[74,15,77],[15,77,74],[15,74,77],[77,76,15],[77,15,76],[76,77,15],[76,15,77],[15,77,76],[15,76,77]]}},\"AssociatedId\":null,\"DisableModifiers\":\"1\",\"BackgroundColor\":1}\""
+    }
+  }
+}

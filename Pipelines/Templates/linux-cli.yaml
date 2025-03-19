@@ -1,0 +1,46 @@
+### This template builds the CLI for Linux
+
+parameters:
+  - name: 'preBuild'
+    type: stepList
+    default: []
+  - name: 'postBuild'
+    type: stepList
+    default: []
+  - name: 'checkoutPath'
+    type: string
+    default: 'self'
+
+steps:
+
+- ${{ parameters.preBuild }}
+
+- task: NuGetToolInstaller@1
+  displayName: 'Use NuGet'
+
+- task: UseDotNet@2
+  displayName: 'Use DotNet'
+  inputs:
+    version: '6.0.x'
+
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    restoreSolution: '${{ parameters.checkoutPath }}/**/$(SolutionFileName)'
+  continueOnError: false
+
+- script: |
+    cd ${{ parameters.checkoutPath }}/Nemeio.Cli.Linux
+    dotnet build Nemeio.Cli.Linux.csproj
+  displayName: 'Build the CLI'
+
+- script: |
+    git clone https://github.com/jcurl/serialportstream.git
+    cd serialportstream/dll/serialunix
+    ./build.sh
+    cd bin/usr/local/lib/
+    zip $(Build.ArtifactStagingDirectory)/serialportstream.zip libnserial.so libnserial.so.1 libnserial.so.1.1
+    cp libnserial.so libnserial.so.1 libnserial.so.1.1 ${{ parameters.checkoutPath }}/Nemeio.Cli.Linux/bin/Debug/net6.0/
+  displayName: 'Build the SerialPortStream lib'
+
+- ${{ parameters.postBuild }}
